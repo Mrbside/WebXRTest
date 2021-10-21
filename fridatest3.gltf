@@ -15,7 +15,7 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "mesh",
+            "name" : "Frisa",
             "rotation" : [
                 0,
                 0,
@@ -32,7 +32,7 @@
             "children" : [
                 0
             ],
-            "name" : "Frisa"
+            "name" : "Root"
         }
     ],
     "materials" : [
