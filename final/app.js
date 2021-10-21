@@ -147,6 +147,8 @@ class App {
         // Update the reticle position
         if(placed){
           this.reticle.visible = true;
+        }else{
+          this.reticle.visible = false;
         }
         this.reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z)
         this.reticle.updateMatrixWorld(true);
