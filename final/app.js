@@ -34,7 +34,7 @@ class App {
   /**
    * Run when the Start AR button is pressed.
    */
-  var placed = new Boolean(true);
+  var placed = 1;
   activateXR = async () => {
     try {
       // Initialize a WebXR session using "immersive-ar".
@@ -146,14 +146,14 @@ class App {
         const hitPose = hitTestResults[0].getPose(this.localReferenceSpace);
 
         // Update the reticle position
-        if(placed)
+        if(placed==1)
           this.reticle.visible = true;
         else
           this.reticle.visible = false;
         
         this.reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z)
         this.reticle.updateMatrixWorld(true);
-        placed=flase;
+        placed=0;
         
         
       }
