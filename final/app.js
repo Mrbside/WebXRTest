@@ -34,7 +34,7 @@ class App {
   /**
    * Run when the Start AR button is pressed.
    */
-  window.placed=1;
+  
  
   activateXR = async () => {
     try {
@@ -46,6 +46,7 @@ class App {
 
       // Create the canvas that will contain our camera's background and our virtual scene.
       this.createXRCanvas();
+      window.placed=1;
 
       // With everything set up, start the app.
       await this.onSessionStarted();
