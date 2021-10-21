@@ -34,7 +34,7 @@ class App {
   /**
    * Run when the Start AR button is pressed.
    */
-  var placed = 1;
+  var placed;
   activateXR = async () => {
     try {
       // Initialize a WebXR session using "immersive-ar".
@@ -45,7 +45,7 @@ class App {
 
       // Create the canvas that will contain our camera's background and our virtual scene.
       this.createXRCanvas();
-      //var placed = new Boolean(true);
+      placed = 1;
 
       // With everything set up, start the app.
       await this.onSessionStarted();
