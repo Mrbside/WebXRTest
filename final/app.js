@@ -98,6 +98,7 @@ class App {
   /** Place a sunflower when the screen is tapped. */
   onSelect = () => {
     if (window.sunflower) {
+      window.placed=0;
       const clone = window.sunflower.clone();
       clone.position.copy(this.reticle.position);
       this.scene.add(clone)
@@ -156,7 +157,7 @@ class App {
         
         this.reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z)
         this.reticle.updateMatrixWorld(true);
-        window.placed=0;
+      
         
         
       }
