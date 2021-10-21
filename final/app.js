@@ -148,14 +148,14 @@ class App {
         const hitPose = hitTestResults[0].getPose(this.localReferenceSpace);
 
         // Update the reticle position
-        if(placed==1)
+        if(window.placed==1)
           this.reticle.visible = true;
         else
           this.reticle.visible = false;
         
         this.reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z)
         this.reticle.updateMatrixWorld(true);
-        placed=0;
+        window.placed=0;
         
         
       }
