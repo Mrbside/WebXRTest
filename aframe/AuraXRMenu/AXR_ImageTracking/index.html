@@ -32,9 +32,9 @@
   	</div>
 	<a-scene id="escena" 
 	vr-mode-ui="enabled: false" 
-	embedded arjs= 'trackingMethod: best;sourceType: webcam;' 
-	renderer='logarithmicDepthBuffer: true;precision: high;'>
-		<a-nft id="image" type='nft' url='metroj'
+	embedded arjs= 'trackingMethod: best;sourceType: webcam; debugUIEnabled:false;' 
+	renderer='logarithmicDepthBuffer: true;'>
+		<a-nft id="image" type="nft" url='metroj'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 			<a-entity 
 			id="plato"
