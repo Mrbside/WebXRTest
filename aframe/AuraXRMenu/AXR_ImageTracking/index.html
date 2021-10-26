@@ -1,7 +1,7 @@
 <!-- Augmented Reality on the Web in 10 lines of html! https://github.com/jeromeetienne/ar.js -->
 <html>
   <head>
-  	<title>AuraXR Copil(Image tracking)</title>
+  	<title>AuraXR Copil - Image Tracking)</title>
 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 	<!--<script src="../../build/aframe-ar.js"></script>-->
 	<script src="../../build/aframe-ar-nft.js"></script>
@@ -29,7 +29,7 @@
 </head>
 <body style="margin : 0px; overflow: hidden;">
 	<div class="arjs-loader">
-   		<div>Loading, please wait...</div>
+   		<div>Cargando, espera un momento...</div>
   	</div>
 	<a-scene id="escena" 
 	vr-mode-ui="enabled: false" 
@@ -47,12 +47,12 @@
             rotation="0 0 0"
             scale="0.4 0.4 0.4"
             gltf-model="#copilasset"
-            animation-mixer="clip:MaIN; loop:once"
+            animation-mixer="clip:MaIN;"
             shadow="receive: false">
             </a-entity>
 		</a-nft>
 		<a-entity id="camera" camera="near:0.004; fov:100.00"></a-entity>
-		<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1.5; castShadow:true" position="0 2 0"></a-entity>
+		<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 2.0; castShadow:true" position="0 2 0"></a-entity>
 	</a-scene>
 </body>
 </html>
