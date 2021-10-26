@@ -35,6 +35,9 @@
 	renderer='logarithmicDepthBuffer: true;'
 	embedded arjs= 'trackingMethod: best;sourceType: webcam; debugUIEnabled:false;' 
 	>
+	<a-assets>
+    	<a-asset-item id="copilasset" src="https://mrbside.github.io/WebXRTest/copil.gltf"></a-asset-item>
+  	</a-assets>
 		<a-nft id="image" type="nft" url="./WebXRTest/aframe/AuraXRMenu/AXR_ImageTracking/metroj"
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
 			<a-entity 
@@ -42,7 +45,7 @@
             position="0 0 0"
             rotation="0 0 0"
             scale="0.4 0.4 0.4"
-            gltf-model="https://mrbside.github.io/WebXRTest/copil.gltf"
+            gltf-model="#copilasset"
             animation-mixer="clip: MaIN"
             shadow="receive: false">
             </a-entity>
