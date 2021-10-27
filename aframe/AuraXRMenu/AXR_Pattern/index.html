@@ -1,0 +1,29 @@
+<!-- Augmented Reality on the Web in 10 lines of html! https://github.com/jeromeetienne/ar.js -->
+<html>
+  <head>
+  	<title>AuraXR Restaurant Menu (Marker)</title>
+	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+	<script src="../../build/aframe-ar.js"></script>
+	<script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer='precision: high;'>
+		<a-assets>
+    		<a-asset-item id="copilasset" src="https://mrbside.github.io/WebXRTest/copil.gltf"></a-asset-item>
+  		</a-assets>
+		<a-marker id="marcador" type='pattern' url='aurapattern.patt'>
+			<a-entity 
+			id="plato"
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="1 1 1"
+            gltf-model="#copilasset"
+            animation-mixer="clip:MaIN;"
+            shadow="receive: true">
+            </a-entity>
+		</a-marker>
+		<a-entity id="camera" camera></a-entity>
+		<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 2.1; castShadow:true" position="0 2 0"></a-entity>
+	</a-scene>
+</body>
+</html>
