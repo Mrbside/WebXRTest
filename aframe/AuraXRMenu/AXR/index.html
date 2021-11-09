@@ -5,13 +5,13 @@
 	<script src="../../build/aframe-ar.js"></script>
 	<script>
 		var plato1 = document.querySelector('#plato');
-		plato1.addEventListener("click", function() {
+		plato1.addEventListener('click', function() {
 		plato1.object3D.visible = false;})
 	</script>
 
 </head>
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer='precision: high;'>
+	<a-scene id="escena" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable" embedded arjs always-fullscreen renderer='precision: high;'>
 		<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
 			<a-entity 
 			id="plato"
