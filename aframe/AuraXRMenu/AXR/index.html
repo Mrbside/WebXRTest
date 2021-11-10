@@ -11,7 +11,7 @@
 
 </head>
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene id="escena" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable" embedded arjs always-fullscreen renderer='precision: high;'>
+	<a-scene id="escena" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable" embedded arjs always-fullscreen renderer='precision: high;'>
 	<a-assets>
 		<img id="PicEntradas" src="https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg" crossorigin="anonymous"/>
 	</a-assets>
@@ -28,7 +28,7 @@
             </a-entity>
 		</a-marker>
 		<a-entity id="camera" camera>
-			<a-entity id="UI" position="0 -0.2 -1.0">
+			<a-entity id="UI" position="0 -0.3 -1.0">
 				<a-entity id="Entradas" position="0 0 0">
             		<a-entity geometry="primitive: plane; width: 0.15; height: 0.18" material="src: #PicEntradas" 
             		class="raycastable" onclick="myFunction()" ></a-entity>
