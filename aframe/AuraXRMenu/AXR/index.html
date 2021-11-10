@@ -18,7 +18,6 @@
 		<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
 			<a-entity 
 			id="plato"
-			onclick="myFunction()"
             position="0 0 0"
             rotation="0 0 0"
             scale="0.1 0.1 0.1"
@@ -30,8 +29,9 @@
 		</a-marker>
 		<a-entity id="camera" camera>
 			<a-entity id="UI" position="0 0 -10.0">
-				<a-entity id="Entradas" position="0 0 0" class="raycastable">
-            		<a-entity geometry="primitive: plane; width: 1.5; height: 1.8" material="src: #PicEntradas"></a-entity>
+				<a-entity id="Entradas" position="0 0 0">
+            		<a-entity geometry="primitive: plane; width: 1.5; height: 1.8" material="src: #PicEntradas" 
+            		class="raycastable" onclick="myFunction()" ></a-entity>
           		</a-entity>
 			</a-entity>
 		</a-entity>
