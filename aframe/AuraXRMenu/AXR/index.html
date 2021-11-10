@@ -12,6 +12,9 @@
 </head>
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene id="escena" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable" embedded arjs always-fullscreen renderer='precision: high;'>
+	<a-assets>
+		<img id="PicEntradas" src="https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg" crossorigin="anonymous"/>
+	</a-assets>
 		<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
 			<a-entity 
 			id="plato"
@@ -22,12 +25,14 @@
             gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
             animation = "property : rotation; to: 0 360 0; loop:true; dur: 27000; easing:linear"
             shadow="receive: true"
-            class="raycastable">
+            >
             </a-entity>
 		</a-marker>
 		<a-entity id="camera" camera>
-			<a-entity id="UI" position="0 0 0"
-			>
+			<a-entity id="UI" position="0 0 0">
+				<a-entity id="Entradas" position="0 0 0" mixin="frame" class="raycastable">
+            		<a-entity material="src: #PicEntradas"></a-entity>
+          		</a-entity>
 			</a-entity>
 		</a-entity>
 		<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1.3; castShadow:true" position="0 2 0"></a-entity>
