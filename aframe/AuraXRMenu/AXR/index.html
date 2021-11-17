@@ -7,12 +7,10 @@
 	<script>
 	//https://aframe.io/releases/1.2.0/aframe.min.js
 	// Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
-	(function JitterFix(){
-	const sceneEl = document.querySelector('a-scene');
-	sceneEl.addEventListener('loaded', () => {
-    sceneEl.camera = new THREE.PerspectiveCamera();
-	});
-	})();
+	'init': function JitterFix() {
+		var canvasEl = document.getElementById(this.data.cid);
+		this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
+	}
 	</script>
 	<script>function myFunction(){
 		var plato1 = document.querySelector('#plato');
