@@ -12,6 +12,7 @@
       // Code here.
       	var canvasEl = document.getElementById(this.data.cid);
 		this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
+		this.renderer= new THREE.PerspectiveCamera();
     }
   	});
 	</script>
