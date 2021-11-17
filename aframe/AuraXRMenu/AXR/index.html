@@ -12,7 +12,7 @@
 
 </head>
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene id="escena" vr-mode-ui="enabled: false" shadow="enabled: true" cursor="rayOrigin: entity; fuse: true" raycaster="objects: .raycastable" embedded arjs always-fullscreen renderer='precision: high;'>
+	<a-scene id="escena" vr-mode-ui="enabled: false" shadow="enabled: true" embedded arjs always-fullscreen renderer='precision: high;'>
 	<a-assets>
 		<img id="PicEntradas" src="UITEST.png" crossorigin="anonymous"/>
 	</a-assets>
@@ -38,7 +38,7 @@
             >
             </a-entity>
 		</a-marker>
-		<a-entity id="camera" camera>
+		<a-entity id="camera" camera cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable">
 			<a-entity id="UI" position="0 -0.3 -1.0">
 				<a-entity id="Entradas" position="0 0 0">
             		<a-entity geometry="primitive: plane; width: 0.15; height: 0.15" material="src: #PicEntradas; transparent: true" 
