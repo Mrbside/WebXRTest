@@ -17,6 +17,16 @@
 	</a-assets>
 		<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
 			<a-entity 
+			id="chef"
+            position="-50.0 0 0"
+            rotation="0 0 0"
+            scale="0.3 0.3 0.3"
+            gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
+            animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
+            shadow="receive: false"
+            >
+            </a-entity>
+			<a-entity 
 			id="plato"
             position="0 0 0"
             rotation="0 0 0"
@@ -25,16 +35,6 @@
             animation = "property : rotation; to: 0 360 0; loop:true; dur: 27000; easing:linear"
             shadow="receive: true"
             >
-            	<a-entity 
-				id="chef"
-            	position="0 0 0"
-            	rotation="0 0 0"
-            	scale="0.1 0.1 0.1"
-            	gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
-            	animation-mixer="clip: clip"
-            	shadow="receive: false"
-            	>
-            	</a-entity>
             </a-entity>
 		</a-marker>
 		<a-entity id="camera" camera>
