@@ -30,7 +30,8 @@
 				  // changing your 3D model source, size, position and so on
 				  // or you can just open links, trigger actions...
 				  var platotest = document.querySelector('#plato');
-				  platotest.object3D.visible = false;
+				  //platotest.object3D.visible = false;
+				  platotest.setAttribute('obj-model', {obj: 'https://mrbside.github.io/WebXRTest/tofurevuelto.glb'})
 				  //alert("Hi there!");
 				});
 			};
