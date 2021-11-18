@@ -1,66 +1,97 @@
 <html>
-  <head>
-  	<title>AuraXR - Restaurant Menu (Pattern)</title>
-	<script src="https://aframe.io/aframe/dist/aframe-master.js"></script>
-	<script src="../../build/aframe-ar.js"></script>
-	<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
-	<script>
-	//https://aframe.io/releases/1.2.0/aframe.min.js
-	// Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
-	AFRAME.registerComponent('JitterFix', {
-    init: function () {
-      // Code here.
+	<head>
+  		<title>AuraXR - Restaurant Menu (Pattern)</title>
+		<script src="https://aframe.io/aframe/dist/aframe-master.js"></script>
+		<script src="../../build/aframe-ar.js"></script>
+		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+		<script>
+		//https://aframe.io/releases/1.2.0/aframe.min.js
+		// Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+		AFRAME.registerComponent('JitterFix', {
+    	init: function () {
+    	// Code here.
       	var canvasEl = document.getElementById(this.data.cid);
 		this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
 		this.renderer= new THREE.PerspectiveCamera();
-    }
-  	});
-	</script>
-	<script>function myFunction(){
+    	}
+  		});
+		</script>
+		<script>function myFunction(){
 		var plato1 = document.querySelector('#plato');
 		//plato1.addEventListener('click', myFunction() {
 		plato1.object3D.visible = false;}
-	</script>
-
-</head>
-<body style='margin : 0px; overflow: hidden;'>
-	<a-scene id="escena" vr-mode-ui="enabled: false" shadow="enabled: true" embedded arjs always-fullscreen renderer='precision: high;'>
-	<a-assets>
-		<img id="PicEntradas" src="UITEST.png" crossorigin="anonymous"/>
-	</a-assets>
-		<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
-			<a-entity 
-			id="chef"
-            position="-4.138 -1.10 -4.797"
-            rotation="0 31.0 0"
-            scale="0.02 0.02 0.02"
-            gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
-            animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
-            shadow="receive: false"
-            >
-            </a-entity>
-			<a-entity 
-			id="plato"
-            position="0 0 0"
-            rotation="0 0 0"
-            scale="0.1 0.1 0.1"
-            gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
-            animation = "property : rotation; to: 0 360 0; loop:true; dur: 27000; easing:linear"
-            shadow="receive: true"
-            >
-            </a-entity>
-		</a-marker>
-		<a-entity id="camera" camera>
-			<a-entity id="caster" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable; origin: 0 0 0; direction:0 0 -1">
+		</script>
+		<script>
+			window.onload = function () {
+			  document
+				.querySelector(".say-hi-button")
+				.addEventListener("click", function () {
+				  // here you can change also a-scene or a-entity properties, like
+				  // changing your 3D model source, size, position and so on
+				  // or you can just open links, trigger actions...
+				  alert("Hi there!");
+				});
+			};
+		  </script>
+	</head>
+	<style>
+		.buttons {
+		  position: absolute;
+		  bottom: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 5em;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  z-index: 10;
+		}
+	
+		.say-hi-button {
+		  padding: 0.25em;
+		  border-radius: 4px;
+		  border: none;
+		  background: white;
+		  color: black;
+		  width: 4em;
+		  height: 2em;
+		}
+	  </style>
+	<body style='margin : 0px; overflow: hidden;'>
+		<div class="buttons">
+			<button class="say-hi-button">TEST</button>
+		</div>
+		<a-scene id="escena" vr-mode-ui="enabled: false" shadow="enabled: true" embedded arjs always-fullscreen renderer='precision: high;'>
+			<a-assets>
+			</a-assets>
+			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
+				<a-entity 
+				id="chef"
+            	position="-4.138 -1.10 -4.797"
+    		    rotation="0 31.0 0"
+            	scale="0.02 0.02 0.02"
+            	gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
+            	animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
+            	shadow="receive: false"
+				>
+            	</a-entity>
+				<a-entity 
+				id="plato"
+            	position="0 0 0"
+            	rotation="0 0 0"
+            	scale="0.1 0.1 0.1"
+            	gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
+            	animation = "property : rotation; to: 0 360 0; loop:true; dur: 27000; easing:linear"
+            	shadow="receive: true"
+				>
+            	</a-entity>
+			</a-marker>
+			<a-entity id="camera" camera>
+				<a-entity id="caster" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable; origin: 0 0 0; direction:0 0 -1">
+				</a-entity>
 			</a-entity>
-			<a-entity id="UI" position="0 -0.3 -1.0">
-				<a-entity id="Entradas" position="0 0 0">
-            		<a-entity geometry="primitive: plane; width: 0.15; height: 0.15; segmentsHeight:4; segmentsWidth:4" material="src: #PicEntradas; transparent: true" 
-            		class="raycastable" onclick="myFunction()" ></a-entity>
-          		</a-entity>
+			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1.3; castShadow:true" position="0 2 0">	
 			</a-entity>
-		</a-entity>
-		<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1.3; castShadow:true" position="0 2 0"></a-entity>
-	</a-scene>
-</body>
+		</a-scene>
+	</body>
 </html>
