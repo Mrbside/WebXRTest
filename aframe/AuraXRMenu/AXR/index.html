@@ -5,8 +5,9 @@
 		<script src="../../build/aframe-ar.js"></script>
 		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
 		<script>
-		//https://aframe.io/releases/1.2.0/aframe.min.js
-		// Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
+		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
+		
 		AFRAME.registerComponent('JitterFix', {
     	init: function () {
     	// Code here.
@@ -26,9 +27,7 @@
 			  document
 				.querySelector(".say-hi-button")
 				.addEventListener("click", function () {
-				  // here you can change also a-scene or a-entity properties, like
-				  // changing your 3D model source, size, position and so on
-				  // or you can just open links, trigger actions...
+		
 				  var platotest = document.querySelector('#plato');
 				  //platotest.object3D.visible = false;
 				  platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
