@@ -63,7 +63,7 @@
 		<div class="buttons">
 			<button class="say-hi-button">Cambia platillo</button>
 		</div>
-		<a-scene id="escena" vr-mode-ui="enabled: false" shadow="enabled: true" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
 			<a-assets>
 			</a-assets>
 			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
@@ -74,7 +74,7 @@
             	scale="0.02 0.02 0.02"
             	gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
             	animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
-            	shadow="receive: false"
+            	shadow="receive: true; cast: true"
 				>
             	</a-entity>
 				<a-entity 
@@ -83,7 +83,7 @@
             	rotation="0 0 0"
             	scale="0.1 0.1 0.1"
             	gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
-            	shadow="receive: true"
+            	shadow="receive: true cast: true"
 				>
             	</a-entity>
 			</a-marker>
@@ -91,7 +91,7 @@
 				<a-entity id="caster" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable; origin: 0 0 0; direction:0 0 -1">
 				</a-entity>
 			</a-entity>
-			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1.3; castShadow:true" position="0 2 0">	
+			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1.3" position="0 2 0">	
 			</a-entity>
 		</a-scene>
 	</body>
