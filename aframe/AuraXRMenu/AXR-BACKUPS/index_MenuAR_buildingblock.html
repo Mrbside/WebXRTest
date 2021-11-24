@@ -24,45 +24,62 @@
 		</script>
 		<script>
 			window.onload = function () {
-			  document
-				.querySelector(".say-hi-button")
-				.addEventListener("click", function () {
-		
-				  var platotest = document.querySelector('#plato');
-				  //platotest.object3D.visible = false;
-				  platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
-				  //alert("Hi there!");
+			  	var entradasel = document.querySelector('#entradas').addEventListener("click", function () {
+				var platotest = document.querySelector('#plato');  
+					platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+					entradasel.removeClass('is-active');
+					entradasel.addClass('is-active');
+				});
+				var ensaladasel = document.querySelector('#ensaladas').addEventListener("click", function () {
+					ensaladasel.removeClass('is-active');
+					ensaladasel.addClass('is-active');
+				});
+				var guisadosel = document.querySelector('#guisados').addEventListener("click", function () {
+					
+					guisadosel.addClass('is-active');
 				});
 			};
 		  </script>
 	</head>
-	<style>
-		.buttons {
-		  position: absolute;
-		  bottom: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 5em;
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  z-index: 10;
-		}
-	
-		.say-hi-button {
-		  padding: 0.25em;
-		  border-radius: 4px;
-		  border: none;
-		  background: white;
-		  color: black;
-		  width: 4em;
-		  height: 4em;
+	<style>		
+		.mobile-app-toggle {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid #1779ba;
+		border-radius: 0.625rem;
+		overflow: visible;
+		margin-bottom: 1rem;
+		z-index: 10;
 		}
 
+		.mobile-app-toggle .button {
+		background: #fefefe;
+		color: #1779ba;
+		margin-bottom: 0;
+		-webkit-flex: 1 0 0;
+			-ms-flex: 1 0 0px;
+				flex: 1 0 0;
+		}
+
+		.mobile-app-toggle .button:nth-child(n+1) {
+		border-left: 1px solid #1779ba;
+		}
+
+		.mobile-app-toggle .button.is-active {
+		background: #1779ba;
+		color: #fefefe;
+		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
-		<div class="buttons">
-			<button class="say-hi-button">Cambia platillo</button>
+		<div class="mobile-app-toggle" data-mobile-app-toggle>
+			<button id="entradas" class="button is-active">Entradas</button>
+			<button id="ensaladas" class="button">Ensaladas</button>
+			<button id="guisados" class="button">Guisados</button>
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
 			<a-assets>
