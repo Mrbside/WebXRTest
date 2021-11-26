@@ -50,18 +50,9 @@
 				  //alert("Hi there!");
 				});
 			};
-		</script>
-		<script>
-			//script para cambio de platillo:
-			//1 funcion que recibe como parametro un codigo numerico del platillo
-			//2 case switch
-			//3 cambia atributo src del #panelinfo
-			//4 subrutina que cambia la posicion y escala del plato (animacion salida)
-			//5 regresa la posicion y escala original
-			//6 cambia atributo src de #plato 
-		</script>
-
+		  </script>
 	</head>
+	<meta charset="UTF-8">
 	<style>
 		.buttons {
 		  position: absolute;
@@ -85,6 +76,10 @@
 		  height: 4em;
 		}
 
+		.textfix {
+			z-index: 10;
+		}
+
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
@@ -92,14 +87,35 @@
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
 			<a-assets>
-				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
-				<img id="tostadaatun" src="PanelPlatillo/tostadaatun.png">
+				<img id="fondopanelimg" src="PanelPlatillo/fondoconlogo.png">
+				<img id="veganoimg" src="PanelPlatillo/vegano.png">
+				<img id="picosoimg" src="PanelPlatillo/picoso.png">
+				<img id="superimg" src="PanelPlatillo/superfood.png">
+				<img id="organicoimg" src="PanelPlatillo/organico.png">
 			</a-assets>
 			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
-				<a-image id="panelinfo" src="#tostadaatun" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
+				<a-image id="fondopanel" src="#fondopanelimg" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true">
+					<a-image id="vegano" src="#veganoimg" height="0.4" width="0.4" position="-1.0 0.794 0.040" opacity="1.0"></a-image>
+					<a-image id="picoso" src="#picosoimg" height="0.4" width="0.4" position="-0.3 0.794 0.040" opacity="1.0"></a-image>
+					<a-image id="organico" src="#organicoimg" height="0.4" width="0.4" position="0.3 0.794 0.040" opacity="1.0"></a-image>
+					<a-image id="superfood" src="#superimg" height="0.4" width="0.4" position="1.0 0.794 0.040" opacity="1.0"></a-image>
+
+					<a-entity id="tituloplatillo" geometry="primitive: plane; width: 3; height:1" material="color: white" text="value:TOSTADA DE ATUN; font:PanelPlatillo/Montserrat-Bold-msdf.json; font-image:PanelPlatillo/Montserrat-Bold.png; negate:false; color:#71878D"  position="-1.0 0.794 0.040"></a-entity>
+					<a-text id="descripcionplatillo" value="Tostada de maíz rojo. Cubos de
+						atún fresco cocidos al limón,
+						piña, pimiento morrón, cebolla
+						y especias." position="-1.0 0.794 0.040" color="#71878D"></a-text>
+					<a-text id="titulo2" class="textfix" value="Aporte Nutrimental" position="-1.0 0.794 0.040" color="#71878D"></a-text>
+					<a-text id="comentarioplatillo" value="Me encanta esta receta de tos-
+						tadas de atún, la recomiendo
+						como botana para una tarde
+						de calor, es deliciosa y llena de
+						sabor." position="-1.0 0.794 0.040" color="#71878D">
+					</a-text>
+				</a-image>
 				<a-entity 
 				id="chef"
             	position="-4.138 -1.10 -4.797"
