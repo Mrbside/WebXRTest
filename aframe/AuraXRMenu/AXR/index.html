@@ -41,15 +41,18 @@
 		<script>
 			window.onload = function () {
 			  document
-				.querySelector(".say-hi-button")
+				.querySelector(".testbutton")
 				.addEventListener("click", function () {
 		
 				  var platotest = document.querySelector('#plato');
 				  platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+				  panelinfo.setAttribute('src','#tostadaatun')
 				});
 			};
 		</script>
 		<script>
+			window.onload = function switchplatillo() {
+				
 			//script para cambio de platillo:
 			//1 funcion que recibe como parametro un codigo numerico del platillo
 			//2 case switch
@@ -57,6 +60,7 @@
 			//4 subrutina que cambia progresivamente la posicion y escala del platillo (animacion salida)
 			//5 regresa la posicion y escala original
 			//6 cambia atributo src de #plato 
+			};
 		</script>
 
 	</head>
@@ -86,18 +90,19 @@
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
-			<button class="say-hi-button">Siguiente Platillo</button>
+			<button class="testbutton">Siguiente</button>
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
 			<a-assets>
 				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
 				<img id="tostadaatun" src="PanelPlatillo/tostadaatun.png">
+				<img id="tostadaguacate" src="PanelPlatillo/tostadaaguacate.png">
 			</a-assets>
 			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
-				<a-image id="panelinfo" src="#tostadaatun" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
+				<a-image id="panelinfo" src="#tostadaguacate" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
 				<a-entity 
 				id="chef"
             	position="-4.138 -1.10 -4.797"
