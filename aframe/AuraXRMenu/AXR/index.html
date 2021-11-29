@@ -40,7 +40,7 @@
 		</script>
 		<script>
 			
-			window.onload = function cambiaplatillo (newmodel, newpanel ) {
+			window.onload = function cambiaplatillo (Newmodel, Newpanel ) {
 	
 				var platotest = document.querySelector('#plato');
 				var paneltest = document.querySelector('#panelinfo');
@@ -51,10 +51,10 @@
             		// resent values when animation is finished
 					platotest.setAttribute('position','0 0 0')
 					//cambia modelo platillo
-					platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+					platotest.setAttribute('gltf-model', Newmodel)
 					platotest.setAttribute('scale','0.1 0.1 0.1')
           		})
-				paneltest.setAttribute('src','#tostadaatun')
+				paneltest.setAttribute('src','#'+Newpanel)
 				
 			};
 		</script>
