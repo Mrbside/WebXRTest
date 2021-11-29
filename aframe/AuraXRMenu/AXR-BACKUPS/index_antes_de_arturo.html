@@ -40,22 +40,24 @@
 		</script>
 		<script>
 			
-			window.onload = function cambiaplatillo (newmodel, newpanel ) {
+			window.onload = function () {
+			  document.querySelector(".say-hi-button").addEventListener("click", function () {
 	
-				var platotest = document.querySelector('#plato');
-				var paneltest = document.querySelector('#panelinfo');
-					//start animation
-				platotest.emit('pos')
-				platotest.emit('scale')
-				platotest.addEventListener("animationcomplete__scale", e => {
-            		// resent values when animation is finished
+				  var platotest = document.querySelector('#plato');
+				  var paneltest = document.querySelector('#panelinfo');
+				  //platotest.setAttribute('animation', 'property: position; to: -6 0 0')
+				  //platotest.setAttribute('animation2', 'property:scale; to: 0.01 0.01 0.01')
+				  platotest.emit('pos')
+				  platotest.emit('scale')
+				  platotest.addEventListener("animationcomplete__scale", e => {
+            		// start the second animation
 					platotest.setAttribute('position','0 0 0')
-					//cambia modelo platillo
 					platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
 					platotest.setAttribute('scale','0.1 0.1 0.1')
-          		})
-				paneltest.setAttribute('src','#tostadaatun')
-				
+          			})
+				  //platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+				  paneltest.setAttribute('src','#tostadaatun')
+				});
 			};
 		</script>
 		<script>
