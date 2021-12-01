@@ -40,7 +40,7 @@
 		</script>
 		<script>
 			var platilloindex=1;
-			window.onload = function () {
+			window.onload = async function () {
 			
 			document.querySelector(".say-hi-button").addEventListener("click", function () {
 				
@@ -74,8 +74,9 @@
 						paneltest.setAttribute('src','#tostadaatun')
 						platilloindex=0;}
 					platotest.setAttribute('scale','0.1 0.1 0.1')
-					platilloindex=platilloindex+1;
           			})
+					await new Promise(resolve => setTimeout(resolve, 1000));
+					platilloindex=platilloindex+1;
 				  //platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
 				  	
 				});
