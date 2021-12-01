@@ -39,7 +39,7 @@
 		  });
 		</script>
 		<script>
-			var platilloindex=0;
+			var platilloindex=1;
 			window.onload = function () {
 			
 			document.querySelector(".say-hi-button").addEventListener("click", function () {
@@ -55,18 +55,21 @@
 					// toast tostada bbq revuelto tacos sand
 					platotest.setAttribute('position','0 0 0')
 					if(platilloindex==0){
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/toast.glb')
+						paneltest.setAttribute('src','#tostadaguacate')}
+					else if(platilloindex==1){
 						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
 						paneltest.setAttribute('src','#tostadaatun')}
-					else if(platilloindex==1){
+					else if(platilloindex==2){
 						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/bbq.glb')
 						paneltest.setAttribute('src','#tostadaatun')}
-					else if(platilloindex==2){
+					else if(platilloindex==3){
 						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/revuelto.glb')
 						paneltest.setAttribute('src','#tostadaatun')}
-					else if(platilloindex==3){
+					else if(platilloindex==4){
 						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/sand.glb')
 						paneltest.setAttribute('src','#tostadaatun')}
-					else if(platilloindex==4){
+					else if(platilloindex==5){
 						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tacos.glb')
 						paneltest.setAttribute('src','#tostadaatun')
 						platilloindex=0;}
