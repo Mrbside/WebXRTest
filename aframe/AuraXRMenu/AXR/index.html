@@ -40,7 +40,7 @@
 		</script>
 		<script>
 			
-			function cambiaplatillo (Newmodel, Newpanel ) {
+			function cambiaplatillo (Newmodel) {
 	
 				var platotest = document.querySelector('#plato');
 				var paneltest = document.querySelector('#panelinfo');
@@ -51,10 +51,11 @@
             		// resent values when animation is finished
 					platotest.setAttribute('position','0 0 0')
 					//cambia modelo platillo
-					platotest.setAttribute('gltf-model', Newmodel)
+					platotest.setAttribute('gltf-model','https://mrbside.github.io/WebXRTest/'+Newmodel+'.glb')
 					platotest.setAttribute('scale','0.1 0.1 0.1')
           		})
-				paneltest.setAttribute('src','#'+Newpanel)
+				//cambia panel de informacion
+				paneltest.setAttribute('src','#'+Newmodel)
 				
 			};
 		</script>
@@ -101,7 +102,7 @@
 		<div class="buttons">
 			<button class="say-hi-button">Siguiente</button>
 		</div>
-		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true">
 			<a-assets>
 				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
 				<img id="tostadaatun" src="PanelPlatillo/tostadaatun.png">
