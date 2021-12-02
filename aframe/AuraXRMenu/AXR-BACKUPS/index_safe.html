@@ -40,9 +40,7 @@
 		</script>
 		<script>
 			var platilloindex=1;
-			window.onload = function () {
-			
-			document.querySelector(".say-hi-button").addEventListener("click", function () {
+			function cambiaplatillo(){
 				
 				  var platotest = document.querySelector('#plato');
 				  var paneltest = document.querySelector('#panelinfo');
@@ -91,8 +89,8 @@
 					
 				  //platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
 				  	
-				}, {once : true});
-			};
+				
+			}
 		</script>
 		<script>
 			//recibe dos parametros ruta glb y png 
@@ -135,7 +133,7 @@
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
-			<button class="say-hi-button">Siguiente </button>
+			<button class="say-hi-button" onclick="cambiaplatillo()" >Siguiente </button>
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true" >
 			<a-assets>
