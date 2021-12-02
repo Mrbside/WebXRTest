@@ -1,6 +1,6 @@
 <html>
 	<head>
-  		<title>MenuXR</title>
+  		<title>AuraXR - Restaurant Menu (Pattern)</title>
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 		<script src="../../build/aframe-ar.js"></script>
 		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
@@ -54,32 +54,32 @@
 					platotest.setAttribute('position','0 0 0')
 					switch(platilloindex){
 					case 0:{
-						platotest.setAttribute('gltf-model', '#toastM')
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/toast.glb')
 						paneltest.setAttribute('src','#toast')
 						platilloindex=platilloindex+1;
 						break;}
 					case 1:{
-						platotest.setAttribute('gltf-model', '#tostadaM')
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
 						paneltest.setAttribute('src','#tostada')
 						platilloindex=platilloindex+1;
 						break;}
 					case 2:{
-						platotest.setAttribute('gltf-model', '#bbqM')
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/bbq.glb')
 						paneltest.setAttribute('src','#bbq')
 						platilloindex=platilloindex+1;
 						break;}
 					case 3:{
-						platotest.setAttribute('gltf-model', '#revueltoM')
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/revuelto.glb')
 						paneltest.setAttribute('src','#revuelto')
 						platilloindex=platilloindex+1;
 						break;}
 					case 4:{
-						platotest.setAttribute('gltf-model', '#sandM')
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/sand.glb')
 						paneltest.setAttribute('src','#sand')
 						platilloindex=platilloindex+1;
 						break;}
 					case 5:{
-						platotest.setAttribute('gltf-model', '#tacosM')
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tacos.glb')
 						paneltest.setAttribute('src','#tacos')
 						platilloindex=0;
 						break;}
@@ -171,7 +171,7 @@
             	position="0 0 0"
             	rotation="0 0 0"
             	scale="0.1 0.1 0.1"
-            	gltf-model="#toastM"
+            	gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
             	shadow="receive: true; cast: true"
 				animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
 				animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
