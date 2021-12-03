@@ -162,7 +162,7 @@
 				<a-asset-item id="revueltoM" src="https://mrbside.github.io/WebXRTest/revuelto.glb"></a-asset-item>
 				<a-asset-item id="sandM" src="https://mrbside.github.io/WebXRTest/sand.glb"></a-asset-item>
 			</a-assets>
-			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true'>
+			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
@@ -190,8 +190,6 @@
             	</a-entity>
 			</a-marker>
 			<a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
-				<a-entity id="caster" cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .raycastable; origin: 0 0 0; direction:0 0 -1">
-				</a-entity>
 			</a-entity>
 			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
