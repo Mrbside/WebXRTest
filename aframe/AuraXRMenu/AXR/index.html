@@ -146,7 +146,7 @@
 			<button style="width: 15%;" onclick="nextPlatillo()">Siguiente</button>
 
 		</div>
-		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
 				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
 				<img id="toast" src="PanelPlatillo/tostadaaguacate.png">
@@ -155,6 +155,12 @@
 				<img id="tacos" src="PanelPlatillo/tacostofu.png">
 				<img id="revuelto" src="PanelPlatillo/tofurevuelto.png">
 				<img id="sand" src="PanelPlatillo/sandwich.png">
+				<a-asset-item id="toastM" src="https://mrbside.github.io/WebXRTest/toast.glb"></a-asset-item>
+				<a-asset-item id="tostadaM" src="https://mrbside.github.io/WebXRTest/tostada.glb"></a-asset-item>
+				<a-asset-item id="bbqM" src="https://mrbside.github.io/WebXRTest/bbq.glb"></a-asset-item>
+				<a-asset-item id="tacosM" src="https://mrbside.github.io/WebXRTest/tacos.glb"></a-asset-item>
+				<a-asset-item id="revueltoM" src="https://mrbside.github.io/WebXRTest/revuelto.glb"></a-asset-item>
+				<a-asset-item id="sandM" src="https://mrbside.github.io/WebXRTest/sand.glb"></a-asset-item>
 			</a-assets>
 			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
