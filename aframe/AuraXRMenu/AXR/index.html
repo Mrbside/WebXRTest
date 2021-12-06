@@ -52,22 +52,26 @@
 				{
 					name : 'Toast',
 					glb : 'toast.glb',
-					price : 1.0
+					price : 1.0, 
+					panel : 'tostadaatun'
 				},
 				{
 					name : 'Tostada',
 					glb : 'tostada.glb',
-					price : 1.0
+					price : 1.0,
+					panel : 'tostadaatun'
 				},
 				{
 					name : 'BBQ',
 					glb : 'bbq.glb',
-					price : 1.0
+					price : 1.0,
+					panel : 'tostadaatun'
 				},
 				{
 					name : 'Revuelto',
 					glb : 'revuelto.glb',
-					price : 1.0
+					price : 1.0,
+					panel : 'tostadaatun'
 				}
 			]
 
@@ -79,11 +83,15 @@
 			]
 
 			function backPlatillo() {
-
+				platilloPosition = platilloPosition + -1;
+				let platillo = categories[entradaPosition].platillos[platilloPosition]
+				cambiaplatillo(platillo.glb, platillo.panel)
 			}
 
 			function nextPlatillo() {
-
+				platilloPosition = platilloPosition + 1;
+				let platillo = categories[entradaPosition].platillos[platilloPosition]
+				cambiaplatillo(platillo.glb, platillo.panel)
 			}
 			
 			function cambiaplatillo (Newmodel, Newpanel ) {
@@ -128,10 +136,28 @@
 		  height: 4em;
 		}
 
+		.buttonPlatilloBack {
+			background: black;
+			color: #000;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 30%;
+		}
+
+		.buttonPlatilloNext {
+			background: black;
+			color: #000;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 30%;
+		}
+
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
-			<button style="width: 100%;">Entradas</button>
+			<!--button style="width: 100%;">Entradas</button>
 			<button style="width: 10%;">-</button>
 			<button style="width: 30%;">1</button>
 			<button style="width: 10%;">+</button>
@@ -139,10 +165,10 @@
 			<button style="width: 10%; float: left">Menu XR</button>
 			<button style="width: 10%; float: right">Moto</button>
 			<button style="width: 50%; float: left">6</button>
-			<button style="width: 50%; float: right">Ordenar</button>
-			<button style="width: 15%;" onclick="backPlatillo()">Atras</button>
-			<button style="width: 70%;">Platillo</button>
-			<button style="width: 15%;" onclick="nextPlatillo()">Siguiente</button>
+			<button style="width: 50%; float: right">Ordenar</button-->
+			<button class="buttonPlatilloBack" onclick="backPlatillo()">Atras</button>
+			<button class="buttonPlatillo">Platillo</button>
+			<button class="buttonPlatilloNext" onclick="nextPlatillo()">Siguiente</button>
 
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true">
