@@ -51,25 +51,25 @@
 			let platillos = [
 				{
 					name : 'Toast',
-					glb : 'toast.glb',
+					glb : 'toast',
 					price : 1.0, 
 					panel : 'tostadaatun'
 				},
 				{
 					name : 'Tostada',
-					glb : 'tostada.glb',
+					glb : 'tostada',
 					price : 1.0,
 					panel : 'tostadaatun'
 				},
 				{
 					name : 'BBQ',
-					glb : 'bbq.glb',
+					glb : 'bbq',
 					price : 1.0,
 					panel : 'tostadaatun'
 				},
 				{
 					name : 'Revuelto',
-					glb : 'revuelto.glb',
+					glb : 'revuelto',
 					price : 1.0,
 					panel : 'tostadaatun'
 				}
@@ -85,13 +85,13 @@
 			function backPlatillo() {
 				platilloPosition = platilloPosition + -1;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
-				cambiaplatillo(platillo.glb, platillo.panel)
+				cambiaplatillo(platillo.glb)
 			}
 
 			function nextPlatillo() {
 				platilloPosition = platilloPosition + 1;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
-				cambiaplatillo(platillo.glb, platillo.panel)
+				cambiaplatillo(platillo.glb)
 			}
 			
 			function cambiaplatillo (Newmodel) {
@@ -139,20 +139,32 @@
 
 		.buttonPlatilloBack {
 			background: black;
-			color: #000;
+			color: #fff;
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			width: 30%;
+			height: 20%;
 		}
 
 		.buttonPlatilloNext {
 			background: black;
-			color: #000;
+			color: #fff;
 			position: absolute;
 			bottom: 0;
 			right: 0;
 			width: 30%;
+			height: 20%;
+		}
+
+		.buttonPlatillo {
+			background: black;
+			color: #fff;
+			position: absolute;
+			bottom: 0;
+			right: 30%;
+			width: 40%;
+			height: 20%;
 		}
 
 	  </style>
