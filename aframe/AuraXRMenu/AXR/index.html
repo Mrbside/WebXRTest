@@ -141,10 +141,33 @@
 			background: black;
 			color: #fff;
 			position: absolute;
+			top: 0;
+			left: 0;
+			width: 30%;
+			height: 20%;
+			border:0px;
+		}
+
+		.buttonPlatilloNext {
+			background: black;
+			color: #fff;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 30%;
+			height: 200px;
+			border:0px;
+		}
+
+		.buttonPlatilloBack {
+			background: black;
+			color: #fff;
+			position: absolute;
 			bottom: 0;
 			left: 0;
 			width: 30%;
 			height: 20%;
+			border:0px;
 		}
 
 		.buttonPlatilloNext {
@@ -154,7 +177,8 @@
 			bottom: 0;
 			right: 0;
 			width: 30%;
-			height: 20%;
+			height: 200px;
+			border:0px;
 		}
 
 		.buttonPlatillo {
@@ -164,7 +188,19 @@
 			bottom: 0;
 			right: 30%;
 			width: 40%;
-			height: 20%;
+			height: 200px;
+			border:0px;
+		}
+
+		.buttonPlatillo2 {
+			background: black;
+			color: #fff;
+			position: absolute;
+			bottom: 0;
+			right: 30%;
+			width: 40%;
+			height: 200px;
+			border:0px;
 		}
 
 	  </style>
@@ -179,6 +215,9 @@
 			<button style="width: 10%; float: right">Moto</button>
 			<button style="width: 50%; float: left">6</button>
 			<button style="width: 50%; float: right">Ordenar</button-->
+			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">Atras</button>
+			<button class="buttonPlatillo2">Platillo</button>
+			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">Siguiente</button>
 			<button class="buttonPlatilloBack" onclick="backPlatillo()">Atras</button>
 			<button class="buttonPlatillo">Platillo</button>
 			<button class="buttonPlatilloNext" onclick="nextPlatillo()">Siguiente</button>
