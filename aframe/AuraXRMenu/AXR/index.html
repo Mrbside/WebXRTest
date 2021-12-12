@@ -4,6 +4,7 @@
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 		<script src="../../build/aframe-ar.js"></script>
 		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 		<script>
 		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
 		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
@@ -120,7 +121,7 @@
 		  bottom: 0;
 		  left: 0;
 		  width: 100%;
-		  height: 5em;
+		  height: 100%;
 		  display: flex;
 		  justify-content: center;
 		  align-items: center;
@@ -137,72 +138,64 @@
 		  height: 4em;
 		}
 
-		.buttonPlatilloBack {
-			background: black;
-			color: #fff;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 30%;
-			height: 20%;
-			border:0px;
-		}
-
 		.buttonPlatilloNext {
-			background: black;
-			color: #fff;
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 30%;
-			height: 200px;
-			border:0px;
-		}
-
-		.buttonPlatilloBack {
-			background: black;
-			color: #fff;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 30%;
-			height: 20%;
-			border:0px;
-		}
-
-		.buttonPlatilloNext {
-			background: black;
+			background: #635a52;
 			color: #fff;
 			position: absolute;
 			bottom: 0;
 			right: 0;
-			width: 30%;
-			height: 200px;
+			width: 15%;
+			height: 10%;
+			border:0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+
+		.buttonPlatilloBack {
+			background: #635a52;
+			color: #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 15%;
+			height: 10%;
 			border:0px;
 		}
 
 		.buttonPlatillo {
-			background: black;
+			background: #635a52;
 			color: #fff;
 			position: absolute;
 			bottom: 0;
-			right: 30%;
-			width: 40%;
-			height: 200px;
+			right: 15%;
+			width: 70%;
+			height: 10%;
 			border:0px;
+			font-size: 2rem;
 		}
 
-		.buttonPlatillo2 {
+		.buttonReceipt {
 			background: black;
 			color: #fff;
 			position: absolute;
-			bottom: 0;
-			right: 30%;
-			width: 40%;
-			height: 200px;
+			bottom: 16%;
+			left: 0%;
+			width: 50%;
+			height: 15%;
 			border:0px;
 		}
-
+		
+		.buttonOrder {
+			background: black;
+			color: #fff;
+			position: absolute;
+			bottom: 16%;
+			right: 0%;
+			width: 50%;
+			height: 15%;
+			border:0px;
+			font-size: 3rem;
+		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
@@ -215,12 +208,25 @@
 			<button style="width: 10%; float: right">Moto</button>
 			<button style="width: 50%; float: left">6</button>
 			<button style="width: 50%; float: right">Ordenar</button-->
-			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">Atras</button>
-			<button class="buttonPlatillo2">Platillo</button>
-			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">Siguiente</button>
-			<button class="buttonPlatilloBack" onclick="backPlatillo()">Atras</button>
+			<button>
+					Aura XR
+			</button>
+			<button>
+				Moto icon
+			</button>
+			<button class="buttonReceipt">
+				<i class="fas fa-receipt fa-5x"></i> <b style="font-size: 3rem;">6</b>
+			</button>
+			<button class="buttonOrder">
+				Ordenar $854.00
+			</button>
+			<button class="buttonPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-3x"></i>
+			</button>
 			<button class="buttonPlatillo">Platillo</button>
-			<button class="buttonPlatilloNext" onclick="nextPlatillo()">Siguiente</button>
+			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-3x"></i>
+			</button>
 
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
