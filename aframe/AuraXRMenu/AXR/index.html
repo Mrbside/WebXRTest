@@ -138,6 +138,95 @@
 		  height: 4em;
 		}
 
+		.buttonTopPlatilloNext {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 15%;
+			height: 10%;
+			border:0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+
+		.buttonTopPlatilloBack {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 15%;
+			height: 10%;
+			border:0px;
+		}
+
+		.buttonTopPlatillo {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 0;
+			right: 15%;
+			width: 70%;
+			height: 10%;
+			border:0px;
+			font-size: 2rem;
+		}
+
+		.buttonPlus {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			left: 0%;
+			width: 9.25%;
+			height: 10%;
+			border:0px;
+			border-top-left-radius: 16px;
+			border-bottom-left-radius: 16px;
+		}
+
+		.buttonMinus {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			left: 39.25%;
+			width: 9.25%;
+			height: 10%;
+			border:0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+
+		.buttonQuantity {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			left: 9.25%;
+			width: 30%;
+			height: 10%;
+			border:0px;
+			font-size: 2rem;
+		}
+		
+		.buttonAdd {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			right: 0%;
+			width: 49.5%;
+			height: 10%;
+			border:0px;
+			border-radius: 16px;
+			padding-left: 10%;
+			padding-right: 10%;
+			font-size: 2rem;
+		}
+
 		.buttonPlatilloNext {
 			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
@@ -180,7 +269,7 @@
 			position: absolute;
 			bottom: 11%;
 			left: 0%;
-			width: 49%;
+			width: 49.5%;
 			height: 10%;
 			border:0px;
 			border-radius: 16px;
@@ -189,42 +278,81 @@
 		}
 		
 		.buttonOrder {
-			background: black;
+			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
 			position: absolute;
-			bottom: 16%;
+			bottom: 11%;
 			right: 0%;
-			width: 50%;
-			height: 15%;
+			width: 49.5%;
+			height: 10%;
 			border:0px;
-			font-size: 3rem;
-			padding-left: 5%;
-			padding-right: 5%;
+			border-radius: 16px;
+			padding-left: 10%;
+			padding-right: 10%;
+			font-size: 2rem;
+		}
+
+		.buttonAura {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			bottom: 22%;
+			left: 0%;
+			width: 10%;
+			height: 10%;
+			border:0px;
+			border-radius: 16px;
+
+		}
+
+		.buttonMoto{
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			bottom: 22%;
+			right: 0%;
+			width: 10%;
+			height: 10%;
+			border:0px;
+			border-radius: 16px;
+
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
-			<!--button style="width: 100%;">Entradas</button>
-			<button style="width: 10%;">-</button>
-			<button style="width: 30%;">1</button>
-			<button style="width: 10%;">+</button>
-			<button style="width: 50%;">Agregar </button>
-			<button style="width: 10%; float: left">Menu XR</button>
-			<button style="width: 10%; float: right">Moto</button>
-			<button style="width: 50%; float: left">6</button>
-			<button style="width: 50%; float: right">Ordenar</button-->
-			<button>
+			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-3x"></i>
+			</button>
+			<button class="buttonTopPlatillo">Platillo</button>
+			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-3x"></i>
+			</button>			
+			<button class="buttonPlus">
+				<i class="fas fa-plus fa-3x"></i> 
+			</button>
+			<button class="buttonQuantity">
+				1
+			</button>
+			<button class="buttonMinus">
+				<i class="fas fa-minus fa-3x"></i> 
+			</button>
+			<button class="buttonAdd">
+				<b style="float: left;">Agregar</b>
+				<b style="float: right;">$854.00</b>
+			</button>
+			<button class="buttonAura">
 					Aura XR
 			</button>
-			<button>
-				Moto icon
+			<button class="buttonMoto">
+				<i class="fas fa-motorcycle fa-2x"></i>
 			</button>
 			<button class="buttonReceipt">
 				<i class="fas fa-receipt fa-3x" style="float: left;"></i> 
 				<b style="font-size: 2rem; float: right;">6</b>
 			</button>
 			<button class="buttonOrder">
-				Ordenar $854.00
+				<b style="float: left;">Ordenar</b>
+				<b style="float: right;">$854.00</b>
 			</button>
 			<button class="buttonPlatilloBack" onclick="backPlatillo()">
 				<i class="fas fa-chevron-left fa-3x"></i>
