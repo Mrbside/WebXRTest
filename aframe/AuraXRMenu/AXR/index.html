@@ -316,15 +316,63 @@
 			border:0px;
 			border-radius: 8px;
 		}
-
+		.buttons2 {
+			display: none;
+		}
 		@media screen and (orientation:landscape)
 		{
 			.buttons {
 				display: none;
 			}
+			.buttons2 {
+				display: block;
+			}
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
+		<div class="buttons2">
+			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-3x"></i>
+			</button>
+			<button class="buttonTopPlatillo">Platillo</button>
+			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-3x"></i>
+			</button>			
+			<!--button class="buttonPlus">
+				<i class="fas fa-plus fa-2x"></i> 
+			</button>
+			<button class="buttonQuantity">
+				1
+			</button>
+			<button class="buttonMinus">
+				<i class="fas fa-minus fa-2x"></i> 
+			</button>
+			<button class="buttonAdd">
+				<b style="float: left;">Agregar</b>
+				<b style="float: right;">$854.00</b>
+			</button>
+			<button class="buttonAura">
+					Aura XR
+			</button>
+			<button class="buttonMoto">
+				<i class="fas fa-motorcycle fa-2x"></i>
+			</button>
+			<button class="buttonReceipt">
+				<i class="fas fa-receipt fa-3x" style="float: left;"></i> 
+				<b style="font-size: 1.8rem; float: right;">6</b>
+			</button>
+			<button class="buttonOrder">
+				<b style="float: left;">Ordenar</b>
+				<b style="float: right;">$854.00</b>
+			</button-->
+			<button class="buttonPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-3x"></i>
+			</button>
+			<button class="buttonPlatillo">Platillo</button>
+			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-3x"></i>
+			</button>
+		</div>
 		<div class="buttons">
 			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">
 				<i class="fas fa-chevron-left fa-3x"></i>
@@ -367,7 +415,6 @@
 			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
 				<i class="fas fa-chevron-right fa-3x"></i>
 			</button>
-
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
