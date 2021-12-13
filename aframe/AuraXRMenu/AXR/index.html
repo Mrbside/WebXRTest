@@ -108,6 +108,27 @@
 					text2.innerHTML  = categories[entradaPosition].name
 					cambiaplatillo(platillo.glb)
 				}
+
+				function nextCategory() {
+					entradaPosition = entradaPosition + 1;
+					platilloPosition = 0;
+					let platillo = categories[entradaPosition].platillos[platilloPosition]
+					let text = document.getElementById('platilloName');
+					let text2 = document.getElementById('categoryName');
+					text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+					text2.innerHTML  = categories[entradaPosition].name
+					cambiaplatillo(platillo.glb)
+				}
+				function backCategory() {
+					entradaPosition = entradaPosition + -1;
+					platilloPosition = 0;
+					let platillo = categories[entradaPosition].platillos[platilloPosition]
+					let text = document.getElementById('platilloName');
+					let text2 = document.getElementById('categoryName');
+					text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+					text2.innerHTML  = categories[entradaPosition].name
+					cambiaplatillo(platillo.glb)
+				}
 				
 				function cambiaplatillo (Newmodel) {
 		
@@ -394,11 +415,11 @@
 			</button>
 		</div>
 		<div class="buttons">
-			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">
+			<button class="buttonTopPlatilloBack" onclick="backCategory()">
 				<i class="fas fa-chevron-left fa-3x"></i>
 			</button>
 			<button class="buttonTopPlatillo" id="categoryName"></button>
-			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">
+			<button class="buttonTopPlatilloNext" onclick="nextCategory()">
 				<i class="fas fa-chevron-right fa-3x"></i>
 			</button>			
 			<button class="buttonPlus">
