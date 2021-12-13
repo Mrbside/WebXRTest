@@ -4,6 +4,7 @@
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 		<script src="../../build/aframe-ar.js"></script>
 		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 		<script>
 		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
 		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
@@ -39,79 +40,93 @@
 		  });
 		</script>
 		<script>
-			let entradaPosition = 0;
-			let platilloPosition = 0;
-
-			let path = "https://mrbside.github.io/WebXRTest/"
-			let glbs = [
-				'tacos.glb',
-				'sand.glb'
-			]
-
-			let platillos = [
-				{
-					name : 'Toast',
-					glb : 'toast',
-					price : 1.0, 
-					panel : 'tostadaatun'
-				},
-				{
-					name : 'Tostada',
-					glb : 'tostada',
-					price : 1.0,
-					panel : 'tostadaatun'
-				},
-				{
-					name : 'BBQ',
-					glb : 'bbq',
-					price : 1.0,
-					panel : 'tostadaatun'
-				},
-				{
-					name : 'Revuelto',
-					glb : 'revuelto',
-					price : 1.0,
-					panel : 'tostadaatun'
-				}
-			]
-
-			let categories = [
-				{
-					name: 'Entradas',
-					platillos : platillos
-				}
-			]
-
-			function backPlatillo() {
-				platilloPosition = platilloPosition + -1;
-				let platillo = categories[entradaPosition].platillos[platilloPosition]
-				cambiaplatillo(platillo.glb)
-			}
-
-			function nextPlatillo() {
-				platilloPosition = platilloPosition + 1;
-				let platillo = categories[entradaPosition].platillos[platilloPosition]
-				cambiaplatillo(platillo.glb)
-			}
-			
-			function cambiaplatillo (Newmodel) {
+			(function() {
+				let entradaPosition = 0;
+				let platilloPosition = -1;
 	
-				var platotest = document.querySelector('#plato');
-				var paneltest = document.querySelector('#panelinfo');
-					//start animation
-				platotest.emit('pos')
-				platotest.emit('scale')
-				platotest.addEventListener("animationcomplete__scale", e => {
-            		// resent values when animation is finished
-					platotest.setAttribute('position','0 0 0')
-					//cambia modelo platillo
-					platotest.setAttribute('gltf-model','https://mrbside.github.io/WebXRTest/'+Newmodel+'.glb')
-					platotest.setAttribute('scale','0.1 0.1 0.1')
-          		}, {once : true});
-				//cambia panel de informacion
-				paneltest.setAttribute('src','#'+Newmodel)
 				
-			};
+	
+				let path = "https://mrbside.github.io/WebXRTest/"
+				let glbs = [
+					'tacos.glb',
+					'sand.glb'
+				]
+	
+				let platillos = [
+					{
+						name : 'Toast',
+						glb : 'toast',
+						price : 1.0, 
+						panel : 'tostadaatun'
+					},
+					{
+						name : 'Tostada',
+						glb : 'tostada',
+						price : 1.0,
+						panel : 'tostadaatun'
+					},
+					{
+						name : 'BBQ',
+						glb : 'bbq',
+						price : 1.0,
+						panel : 'tostadaatun'
+					},
+					{
+						name : 'Revuelto',
+						glb : 'revuelto',
+						price : 1.0,
+						panel : 'tostadaatun'
+					}
+				]
+	
+				let categories = [
+					{
+						name: 'Entradas',
+						platillos : platillos
+					}
+				]
+	
+				function backPlatillo() {
+					platilloPosition = platilloPosition + -1;
+					let platillo = categories[entradaPosition].platillos[platilloPosition]
+					let text = document.getElementById('platilloName'),firstChild;
+					let text2 = document.getElementById('categoryName'),firstChild;
+					text.data = categories[entradaPosition].platillos[platilloPosition].name
+					text2.data = categories[entradaPosition].name
+					cambiaplatillo(platillo.glb)
+				}
+	
+				function nextPlatillo() {
+					platilloPosition = platilloPosition + 1;
+					let platillo = categories[entradaPosition].platillos[platilloPosition]
+					let text = document.getElementById('platilloName'),firstChild;
+					let text2 = document.getElementById('categoryName'),firstChild;
+					text.data = categories[entradaPosition].platillos[platilloPosition].name
+					text2.data = categories[entradaPosition].name
+					cambiaplatillo(platillo.glb)
+				}
+				
+				function cambiaplatillo (Newmodel) {
+		
+					var platotest = document.querySelector('#plato');
+					var paneltest = document.querySelector('#panelinfo');
+						//start animation
+					platotest.emit('pos')
+					platotest.emit('scale')
+					platotest.addEventListener("animationcomplete__scale", e => {
+						// resent values when animation is finished
+						platotest.setAttribute('position','0 0 0')
+						//cambia modelo platillo
+						platotest.setAttribute('gltf-model','https://mrbside.github.io/WebXRTest/'+Newmodel+'.glb')
+						platotest.setAttribute('scale','0.1 0.1 0.1')
+					  }, {once : true});
+					//cambia panel de informacion
+					paneltest.setAttribute('src','#'+Newmodel)
+					
+				};
+
+				nextPlatillo()
+			})();
 		</script>
 	</head>
 	<style>
@@ -137,91 +152,286 @@
 		  height: 4em;
 		}
 
-		.buttonPlatilloBack {
-			background: black;
-			color: #fff;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 30%;
-			height: 20%;
-			border:0px;
-		}
-
-		.buttonPlatilloNext {
-			background: black;
+		.buttonTopPlatilloNext {
+			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 30%;
-			height: 200px;
+			width: 15%;
+			height: 10%;
+			border:0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+
+		.buttonTopPlatilloBack {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 15%;
+			height: 10%;
 			border:0px;
 		}
 
-		.buttonPlatilloBack {
-			background: black;
+		.buttonTopPlatillo {
+			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
 			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 30%;
-			height: 20%;
+			top: 0;
+			right: 15%;
+			width: 70%;
+			height: 10%;
 			border:0px;
+			font-size: 2rem;
+		}
+
+		.buttonPlus {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			left: 0%;
+			width: 9.25%;
+			height: 10%;
+			border:0px;
+			border-top-left-radius: 16px;
+			border-bottom-left-radius: 16px;
+		}
+
+		.buttonMinus {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			left: 39.25%;
+			width: 9.25%;
+			height: 10%;
+			border:0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+
+		.buttonQuantity {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			left: 9.25%;
+			width: 30%;
+			height: 10%;
+			border:0px;
+			font-size: 2rem;
+		}
+		
+		.buttonAdd {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			top: 11%;
+			right: 0%;
+			width: 49.5%;
+			height: 10%;
+			border:0px;
+			border-radius: 16px;
+			padding-left: 10%;
+			padding-right: 10%;
+			font-size: 0.85rem;
 		}
 
 		.buttonPlatilloNext {
-			background: black;
+			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
 			position: absolute;
 			bottom: 0;
 			right: 0;
-			width: 30%;
-			height: 200px;
+			width: 15%;
+			height: 10%;
+			border:0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+
+		.buttonPlatilloBack {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 15%;
+			height: 10%;
 			border:0px;
 		}
 
 		.buttonPlatillo {
-			background: black;
+			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
 			position: absolute;
 			bottom: 0;
-			right: 30%;
-			width: 40%;
-			height: 200px;
+			right: 15%;
+			width: 70%;
+			height: 10%;
 			border:0px;
+			font-size: 2rem;
 		}
 
-		.buttonPlatillo2 {
-			background: black;
+		.buttonReceipt {
+			background: rgba(79, 90, 80, 0.8);
 			color: #fff;
 			position: absolute;
-			bottom: 0;
-			right: 30%;
-			width: 40%;
-			height: 200px;
+			bottom: 11%;
+			left: 0%;
+			width: 49.5%;
+			height: 10%;
 			border:0px;
+			border-radius: 16px;
+			padding-left: 15%;
+			padding-right: 15%;
+		}
+		
+		.buttonOrder {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			bottom: 11%;
+			right: 0%;
+			width: 49.5%;
+			height: 10%;
+			border:0px;
+			border-radius: 16px;
+			padding-left: 10%;
+			padding-right: 10%;
+			font-size: 0.75rem;
 		}
 
+		.buttonAura {
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			bottom: 22%;
+			left: 0%;
+			width: 20%;
+			height: 10%;
+			border:0px;
+			border-radius: 8px;
+
+		}
+
+		.buttonMoto{
+			background: rgba(79, 90, 80, 0.8);
+			color: #fff;
+			position: absolute;
+			bottom: 22%;
+			right: 0%;
+			width: 20%;
+			height: 10%;
+			border:0px;
+			border-radius: 8px;
+		}
+		.buttons2 {
+			display: none;
+		}
+		@media screen and (orientation:landscape)
+		{
+			.buttons {
+				display: none;
+			}
+			.buttons2 {
+				display: block;
+			}
+			.buttonPlatillo, .buttonTopPlatillo {
+				font-size: 0.85rem;
+			}
+		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
+		<div class="buttons2">
+			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-1x"></i>
+			</button>
+			<button class="buttonTopPlatillo">Platillo</button>
+			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-1x"></i>
+			</button>			
+			<!--button class="buttonPlus">
+				<i class="fas fa-plus fa-2x"></i> 
+			</button>
+			<button class="buttonQuantity">
+				1
+			</button>
+			<button class="buttonMinus">
+				<i class="fas fa-minus fa-2x"></i> 
+			</button>
+			<button class="buttonAdd">
+				<b style="float: left;">Agregar</b>
+				<b style="float: right;">$854.00</b>
+			</button>
+			<button class="buttonAura">
+					Aura XR
+			</button>
+			<button class="buttonMoto">
+				<i class="fas fa-motorcycle fa-2x"></i>
+			</button>
+			<button class="buttonReceipt">
+				<i class="fas fa-receipt fa-3x" style="float: left;"></i> 
+				<b style="font-size: 1.8rem; float: right;">6</b>
+			</button>
+			<button class="buttonOrder">
+				<b style="float: left;">Ordenar</b>
+				<b style="float: right;">$854.00</b>
+			</button-->
+			<button class="buttonPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-1x"></i>
+			</button>
+			<button class="buttonPlatillo">Platillo</button>
+			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-1x"></i>
+			</button>
+		</div>
 		<div class="buttons">
-			<!--button style="width: 100%;">Entradas</button>
-			<button style="width: 10%;">-</button>
-			<button style="width: 30%;">1</button>
-			<button style="width: 10%;">+</button>
-			<button style="width: 50%;">Agregar </button>
-			<button style="width: 10%; float: left">Menu XR</button>
-			<button style="width: 10%; float: right">Moto</button>
-			<button style="width: 50%; float: left">6</button>
-			<button style="width: 50%; float: right">Ordenar</button-->
-			<!--button class="buttonTopPlatilloBack" onclick="backPlatillo()">Atras</button>
-			<button class="buttonPlatillo2">Platillo</button>
-			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">Siguiente</button-->
-			<button class="buttonPlatilloBack" onclick="backPlatillo()"> </button>
-			<button class="buttonPlatillo"></button>
-			<button class="buttonPlatilloNext" onclick="nextPlatillo()">Siguiente</button>
-
+			<button class="buttonTopPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-3x"></i>
+			</button>
+			<button class="buttonTopPlatillo" id="categoryName"></button>
+			<button class="buttonTopPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-3x"></i>
+			</button>			
+			<button class="buttonPlus">
+				<i class="fas fa-plus fa-2x"></i> 
+			</button>
+			<button class="buttonQuantity">
+				1
+			</button>
+			<button class="buttonMinus">
+				<i class="fas fa-minus fa-2x"></i> 
+			</button>
+			<button class="buttonAdd">
+				<b style="float: left;">Agregar</b>
+				<b style="float: right;">$00.00</b>
+			</button>
+			<button class="buttonAura">
+					Aura XR
+			</button>
+			<button class="buttonMoto">
+				<i class="fas fa-motorcycle fa-2x"></i>
+			</button>
+			<button class="buttonReceipt">
+				<i class="fas fa-receipt fa-3x" style="float: left;"></i> 
+				<b style="font-size: 1.8rem; float: right;">6</b>
+			</button>
+			<button class="buttonOrder">
+				<b style="float: left;">Ordenar</b>
+				<b style="float: right;">$00.00</b>
+			</button>
+			<button class="buttonPlatilloBack" onclick="backPlatillo()">
+				<i class="fas fa-chevron-left fa-3x"></i>
+			</button>
+			<button class="buttonPlatillo" id="platilloName"></button>
+			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
+				<i class="fas fa-chevron-right fa-3x"></i>
+			</button>
 		</div>
 		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
