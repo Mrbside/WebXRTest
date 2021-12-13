@@ -41,6 +41,9 @@
 		</script>
 		<script>
 			(function() {
+				document.addEventListener("DOMContentLoaded", function(event) { 
+					nextPlatillo()
+				});
 				let entradaPosition = 0;
 				let platilloPosition = -1;
 	
@@ -89,20 +92,20 @@
 				function backPlatillo() {
 					platilloPosition = platilloPosition + -1;
 					let platillo = categories[entradaPosition].platillos[platilloPosition]
-					let text = document.getElementById('platilloName'),firstChild;
-					let text2 = document.getElementById('categoryName'),firstChild;
-					text.data = categories[entradaPosition].platillos[platilloPosition].name
-					text2.data = categories[entradaPosition].name
+					let text = document.getElementById('platilloName');
+					let text2 = document.getElementById('categoryName');
+					text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+					text2.innerHTML  = categories[entradaPosition].name
 					cambiaplatillo(platillo.glb)
 				}
 	
 				function nextPlatillo() {
 					platilloPosition = platilloPosition + 1;
 					let platillo = categories[entradaPosition].platillos[platilloPosition]
-					let text = document.getElementById('platilloName'),firstChild;
-					let text2 = document.getElementById('categoryName'),firstChild;
-					text.data = categories[entradaPosition].platillos[platilloPosition].name
-					text2.data = categories[entradaPosition].name
+					let text = document.getElementById('platilloName');
+					let text2 = document.getElementById('categoryName');
+					text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+					text2.innerHTML  = categories[entradaPosition].name
 					cambiaplatillo(platillo.glb)
 				}
 				
@@ -125,7 +128,7 @@
 					
 				};
 
-				nextPlatillo()
+				
 			})();
 		</script>
 	</head>
