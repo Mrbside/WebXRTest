@@ -46,15 +46,11 @@
 				});
 				let entradaPosition = 0;
 				let platilloPosition = -1;
-	
-				
-	
 				let path = "https://mrbside.github.io/WebXRTest/"
 				let glbs = [
 					'tacos.glb',
 					'sand.glb'
 				]
-	
 				let platillos = [
 					{
 						name : 'Toast',
@@ -89,6 +85,19 @@
 					}
 				]
 				let orders = []
+				let quantity = 0;
+				function plus() {
+					quantity = quantity + 1;
+					let el = document.getElementById('quantity')
+					el.innerHTML = ""+quantity
+				}
+				function minus() {
+					if(quantity > 0) {
+						quantity = quantity - 1;
+					}
+					let el = document.getElementById('quantity')
+					el.innerHTML = ""+quantity
+				}
 				function backPlatillo() {
 					platilloPosition = platilloPosition + -1;
 					let platillo = categories[entradaPosition].platillos[platilloPosition]
@@ -98,7 +107,6 @@
 					text2.innerHTML  = categories[entradaPosition].name
 					cambiaplatillo(platillo.glb)
 				}
-	
 				function nextPlatillo() {
 					platilloPosition = platilloPosition + 1;
 					let platillo = categories[entradaPosition].platillos[platilloPosition]
@@ -108,7 +116,6 @@
 					text2.innerHTML  = categories[entradaPosition].name
 					cambiaplatillo(platillo.glb)
 				}
-
 				function nextCategory() {
 					entradaPosition = entradaPosition + 1;
 					platilloPosition = 0;
@@ -129,9 +136,7 @@
 					text2.innerHTML  = categories[entradaPosition].name
 					cambiaplatillo(platillo.glb)
 				}
-				
 				function cambiaplatillo (Newmodel) {
-		
 					var platotest = document.querySelector('#plato');
 					var paneltest = document.querySelector('#panelinfo');
 						//start animation
@@ -148,8 +153,6 @@
 					paneltest.setAttribute('src','#'+Newmodel)
 					
 				};
-
-				
 			})();
 		</script>
 	</head>
