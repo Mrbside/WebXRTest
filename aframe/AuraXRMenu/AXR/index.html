@@ -86,20 +86,28 @@
 			function plus() {
 				quantity = quantity + 1;
 				let el = document.getElementById('quantity')
+				let el2 = document.getElementById('quantity2')
 				el.innerHTML = ""+quantity
+				el2.innerHTML = ""+quantity
 				let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
 				el = document.getElementById('addAmount')
+				el2 = document.getElementById('addAmount2')
 				el.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
+				el2.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
 			}
 			function minus() {
 				if(quantity > 0) {
 					quantity = quantity - 1;
 					let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
-					el = document.getElementById('addAmount')
+					let el = document.getElementById('addAmount')
+					let el2 = document.getElementById('addAmount2')
 					el.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
+					el2.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
 				}
 				let el = document.getElementById('quantity')
+				let el2 = document.getElementById('quantity')
 				el.innerHTML = ""+quantity
+				el2.innerHTML = ""+quantity
 			}
 
 			function addOrder() {
@@ -110,31 +118,44 @@
 					amount : parseFloat(amountPlatillo).toFixed(2)
 				})
 				let el = document.getElementById('receipt');
+				let el2 = document.getElementById('receipt2');
 				el.innerHTML = ""+orders.length
+				el2.innerHTML = ""+orders.length
 				el = document.getElementById('orderAmount')
+				el2 = document.getElementById('orderAmount')
 				let amount = 0;
 				orders.forEach((element) => {
 					amount = element.amount
 				} )
 				el.innerHTML = "$"+parseFloat(amount).toFixed(2)
+				el2.innerHTML = "$"+parseFloat(amount).toFixed(2)
 			}
 
 			function backPlatillo() {
 				platilloPosition = platilloPosition + -1;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
 				let text = document.getElementById('platilloName');
+				let text3 = document.getElementById('platilloName2');
 				let text2 = document.getElementById('categoryName');
+				let text4 = document.getElementById('categoryName2');
 				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
 				text2.innerHTML  = categories[entradaPosition].name
+				text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+				text4.innerHTML  = categories[entradaPosition].name
 				cambiaplatillo(platillo.glb)
 			}
 			function nextPlatillo() {
 				platilloPosition = platilloPosition + 1;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
 				let text = document.getElementById('platilloName');
+				let text3 = document.getElementById('platilloName2');
 				let text2 = document.getElementById('categoryName');
+				let text4 = document.getElementById('categoryName2');
+				
 				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
 				text2.innerHTML  = categories[entradaPosition].name
+				text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+				text4.innerHTML  = categories[entradaPosition].name
 				cambiaplatillo(platillo.glb)
 			}
 			function nextCategory() {
@@ -142,9 +163,13 @@
 				platilloPosition = 0;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
 				let text = document.getElementById('platilloName');
+				let text3 = document.getElementById('platilloName2');
 				let text2 = document.getElementById('categoryName');
+				let text4 = document.getElementById('categoryName2');
 				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
 				text2.innerHTML  = categories[entradaPosition].name
+				text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+				text4.innerHTML  = categories[entradaPosition].name
 				cambiaplatillo(platillo.glb)
 			}
 			function backCategory() {
@@ -152,9 +177,13 @@
 				platilloPosition = 0;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
 				let text = document.getElementById('platilloName');
+				let text3 = document.getElementById('platilloName2');
 				let text2 = document.getElementById('categoryName');
+				let text4 = document.getElementById('categoryName2');
 				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
 				text2.innerHTML  = categories[entradaPosition].name
+				text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+				text4.innerHTML  = categories[entradaPosition].name
 				cambiaplatillo(platillo.glb)
 			}
 			function cambiaplatillo (Newmodel) {
@@ -502,14 +531,14 @@
 			<button class="buttonTopPlatilloBack" onclick="backCategory()">
 				<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
 			</button>
-			<button class="buttonTopPlatillo" id="categoryName"></button>
+			<button class="buttonTopPlatillo" id="categoryName2"></button>
 			<button class="buttonTopPlatilloNext" onclick="nextCategory()">
 				<img src="./static/icons/Boton_sig.svg" alt=""  style="height: 50%;">
 			</button>
 			<button class="buttonPlus"  onclick="minus()">
 				<i class="fas fa-minus fa-1x"></i>
 			</button>
-			<button class="buttonQuantity" id="quantity">
+			<button class="buttonQuantity" id="quantity2">
 				0
 			</button>
 			<button class="buttonMinus" onclick="plus()">
@@ -517,7 +546,7 @@
 			</button>
 			<button class="buttonAdd" onclick="addOrder()">
 				<b style="float: left; font-family: MontserratExtraLight; font-size:0.8rem;">AGREGAR</b>
-				<b style="float: right;" id="addAmount">$00.00</b>
+				<b style="float: right;" id="addAmount2">$00.00</b>
 			</button>
 			<button class="buttonAura">
 				<img src="./static/icons/logo_rest.png" alt="" style="height: 60%;">
@@ -527,16 +556,16 @@
 			</button>
 			<button class="buttonReceipt">
 				<img src="./static/icons/logo_rest.svg" style="float: left;height: 60%;" alt="">
-				<b style="font-size: 1.8rem; float: right;" id="receipt">0</b>
+				<b style="font-size: 1.8rem; float: right;" id="receipt2">0</b>
 			</button>
 			<button class="buttonOrder">
 				<b style="float: left;font-family: MontserratExtraLight; font-size:0.8rem;">ORDENAR</b>
-				<b style="float: right;" id="orderAmount">$00.00</b>
+				<b style="float: right;" id="orderAmount2">$00.00</b>
 			</button>
 			<button class="buttonPlatilloBack" onclick="backPlatillo()">
 				<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
 			</button>
-			<button class="buttonPlatillo" id="platilloName"></button>
+			<button class="buttonPlatillo" id="platilloName2"></button>
 			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
 				<img src="./static/icons/Boton_sig.svg" alt="" style="height: 50%;">
 			</button>
