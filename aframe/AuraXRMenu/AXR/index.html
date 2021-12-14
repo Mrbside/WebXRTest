@@ -106,6 +106,17 @@
 				el.innerHTML = ""+quantity
 			}
 
+			function addOrder() {
+				let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
+				orders.push({
+					category : categories[entradaPosition],
+					platillo : platillos[platilloPosition],
+					amount : parseFloat(amountPlatillo).toFixed(2)
+				})
+				let el = document.getElementById('receipt');
+				el.innerHTML = ""+orders.length
+			}
+
 			function backPlatillo() {
 				platilloPosition = platilloPosition + -1;
 				let platillo = categories[entradaPosition].platillos[platilloPosition]
@@ -448,7 +459,7 @@
 				<img src="./static/icons/Boton_sig.svg" alt=""  style="height: 50%;">
 			</button>
 			<button class="buttonPlus" style="padding-left: 5%;" onclick="minus()">
-				<i class="fas fa-minus fa-1x"></i> 
+				<i class="fas fa-minus fa-1x"></i>
 			</button>
 			<button class="buttonQuantity" id="quantity">
 				0
@@ -456,7 +467,7 @@
 			<button class="buttonMinus" style="padding-right: 5%;" onclick="plus()">
 				<i class="fas fa-plus fa-1x"></i> 
 			</button>
-			<button class="buttonAdd">
+			<button class="buttonAdd" onclick="addOrder()">
 				<b style="float: left; font-family: MontserratExtraLight; font-size:0.8rem;">AGREGAR</b>
 				<b style="float: right;" id="addAmount">$00.00</b>
 			</button>
@@ -468,7 +479,7 @@
 			</button>
 			<button class="buttonReceipt">
 				<img src="./static/icons/logo_rest.svg" style="float: left;height: 60%;" alt="">
-				<b style="font-size: 1.8rem; float: right;">0</b>
+				<b style="font-size: 1.8rem; float: right;" id="receipt">0</b>
 			</button>
 			<button class="buttonOrder">
 				<b style="float: left;font-family: MontserratExtraLight; font-size:0.8rem;">ORDENAR</b>
