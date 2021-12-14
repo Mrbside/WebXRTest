@@ -1,0 +1,207 @@
+<html>
+	<head>
+  		<title>MenuXR</title>
+		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+		<script src="../../build/aframe-ar.js"></script>
+		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+		<script src="https://rawgit.com/protyze/aframe-always-fullscreen-component/master/dist/aframe-always-fullscreen-component.min.js"></script>
+		<script src="https://rawgit.com/bestiejs/platform.js/master/platform.js"></script>
+		<script>
+		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
+		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
+		// mejorar calidad de video al final: arjs ="sourceType: webcam; sourceWidth:1280; sourceHeight:720; displayWidth: 1280; displayHeight: 720"
+		AFRAME.registerComponent('jitterix', {
+    	init: function () {
+    	// Code here.
+      	var canvasEl = document.getElementById(this.data.cid);
+		this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
+		this.renderer= new THREE.PerspectiveCamera();
+    	}
+  		});
+		</script>
+		<script>function myFunction(){
+		var plato1 = document.querySelector('#plato');
+		//plato1.addEventListener('click', myFunction() {
+		plato1.object3D.visible = false;}
+		</script>
+		<script>
+		//componente para sombra en camera background
+		AFRAME.registerComponent("apply-shadowmaterial", {
+			init: function() {
+			  // grab the mesh
+			  let mesh = this.el.getObject3D("mesh");
+			  // keep the reference to the old material
+			  let tmp = mesh.material;
+			  // assign the new material
+			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+			  mesh.receiveShadow = true;
+			  // free memory
+			  tmp.dispose();
+			}
+		  });
+		</script>
+		<script>
+			var platilloindex=1;
+			function cambiaplatillo(){
+				
+				  var platotest = document.querySelector('#plato');
+				  var paneltest = document.querySelector('#panelinfo');
+				  //platotest.setAttribute('animation', 'property: position; to: -6 0 0')
+				  //platotest.setAttribute('animation2', 'property:scale; to: 0.01 0.01 0.01')
+				  platotest.emit('pos')
+				  platotest.emit('scale')
+				  platotest.addEventListener("animationcomplete__scale", e => {
+            		// start the second animation
+					// toast tostada bbq revuelto tacos sand
+					platotest.setAttribute('position','0 0 0')
+					switch(platilloindex){
+					case 0:{
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/toast.glb')
+						paneltest.setAttribute('src','#toast')
+						platilloindex=platilloindex+1;
+						break;}
+					case 1:{
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+						paneltest.setAttribute('src','#tostada')
+						platilloindex=platilloindex+1;
+						break;}
+					case 2:{
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/bbq.glb')
+						paneltest.setAttribute('src','#bbq')
+						platilloindex=platilloindex+1;
+						break;}
+					case 3:{
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/revuelto.glb')
+						paneltest.setAttribute('src','#revuelto')
+						platilloindex=platilloindex+1;
+						break;}
+					case 4:{
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/sand.glb')
+						paneltest.setAttribute('src','#sand')
+						platilloindex=platilloindex+1;
+						break;}
+					case 5:{
+						platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tacos.glb')
+						paneltest.setAttribute('src','#tacos')
+						platilloindex=0;
+						break;}
+					}
+					platotest.setAttribute('scale','0.1 0.1 0.1')
+          			}, {once : true});
+					
+				  //platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+				  	
+				
+			}
+		</script>
+		<script>
+			//recibe dos parametros ruta glb y png 
+			//nombrar la funcion 
+			//quitar el event listener 
+			//script para cambio de platillo:
+			//1 funcion que recibe como parametro un codigo numerico del platillo
+			//2 case switch
+			//3 cambia atributo src del #panelinfo
+			//4 subrutina que cambia progresivamente la posicion y escala del platillo (animacion salida)
+			//5 regresa la posicion y escala original
+			//6 cambia atributo src de #plato 
+			
+		</script>
+
+	</head>
+	<style>
+		#fullscreenmask, #mask {
+            color: #fff;
+            text-align: center;
+            font-size: 3vh;
+            font-family: Roboto, Arial;
+        }
+
+        #fullscreenmask:before {
+            content: 'Click/Tap for Fullscreen';
+            position: relative;
+            top: 30%;
+        }
+
+        #mask:before {
+            content: 'Scroll Down for Fullscreen';
+            position: relative;
+            top: 30%;
+        }
+		.buttons {
+		  position: absolute;
+		  bottom: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 5em;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  z-index: 10;
+		}
+	
+		.say-hi-button {
+		  padding: 0.25em;
+		  border-radius: 4px;
+		  border: none;
+		  background: white;
+		  color: black;
+		  width: 4em;
+		  height: 4em;
+		}
+
+	  </style>
+	<body style='margin : 0px; overflow: hidden;'> 
+		<div class="buttons">
+			<button class="say-hi-button" onclick="cambiaplatillo()" >Siguiente </button>
+		</div>
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; maxDetectionRate: 60; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960" always-fullscreen="platform:all; debug:false" renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+			<a-assets>
+				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
+				<img id="toast" src="PanelPlatillo/tostadaaguacate.png">
+				<img id="tostada" src="PanelPlatillo/tostadaatun.png">
+				<img id="bbq" src="PanelPlatillo/bbq.png">
+				<img id="tacos" src="PanelPlatillo/tacostofu.png">
+				<img id="revuelto" src="PanelPlatillo/tofurevuelto.png">
+				<img id="sand" src="PanelPlatillo/sandwich.png">
+				<a-asset-item id="toastM" src="https://mrbside.github.io/WebXRTest/toast.glb"></a-asset-item>
+				<a-asset-item id="tostadaM" src="https://mrbside.github.io/WebXRTest/tostada.glb"></a-asset-item>
+				<a-asset-item id="bbqM" src="https://mrbside.github.io/WebXRTest/bbq.glb"></a-asset-item>
+				<a-asset-item id="tacosM" src="https://mrbside.github.io/WebXRTest/tacos.glb"></a-asset-item>
+				<a-asset-item id="revueltoM" src="https://mrbside.github.io/WebXRTest/revuelto.glb"></a-asset-item>
+				<a-asset-item id="sandM" src="https://mrbside.github.io/WebXRTest/sand.glb"></a-asset-item>
+			</a-assets>
+			<a-marker id="marcador" type='pattern' url='menuxr.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
+				</a-entity>
+				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
+				<a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 1.800 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
+				<a-entity 
+				id="chef"
+            	position="-4.138 -1.10 -4.797"
+    		    rotation="0 31.0 0"
+            	scale="0.02 0.02 0.02"
+            	gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
+            	animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
+            	shadow="receive: true; cast: true"
+				>
+            	</a-entity>
+				<a-entity 
+				id="plato"
+            	position="0 0 0"
+            	rotation="0 0 0"
+            	scale="0.1 0.1 0.1"
+            	gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
+            	shadow="receive: true; cast: true"
+				animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
+				animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
+				>
+            	</a-entity>
+			</a-marker>
+			<a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
+			</a-entity>
+			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
+			</a-entity>
+		</a-scene>
+	</body>
+</html>

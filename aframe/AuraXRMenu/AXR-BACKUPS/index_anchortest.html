@@ -46,15 +46,19 @@
         	marker.addEventListener("markerFound", evt => {
           	// you can wait a while so the content won't appear somewhere on the border
           	setTimeout(evt => {
-				
-			
+				var pos = marker.getAttribute('position');	
+				var scal = marker.getAttribute('scale');
+				var rotat = marker.getAttribute('rotation');
 
-			let newMatrix = marker.object3D.matrixWorld
-    		models.object3D.position.setFromMatrixPosition(newMatrix)
-
-            
-          }, 500)
-        }, {once : true});
+				models.object3D.visible = true;
+				let newMatrix = marker.object3D.matrixWorld;
+    			models.object3D.position.setFromMatrixPosition(newMatrix);
+				models.setAttribute('position', pos);
+				models.setAttribute('scale',scal);
+				models.setAttribute('rotation',rotat);
+		  
+          	}, 100)
+        });
     	}
 		});
 		</script>
@@ -155,7 +159,7 @@
 		<div class="buttons">
 			<button class="say-hi-button" onclick="cambiaplatillo()" >Siguiente </button>
 		</div>
-		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; maxDetectionRate: 60" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; maxDetectionRate: 60; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
 				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
 				<img id="toast" src="PanelPlatillo/tostadaaguacate.png">
@@ -171,9 +175,9 @@
 				<a-asset-item id="revueltoM" src="https://mrbside.github.io/WebXRTest/revuelto.glb"></a-asset-item>
 				<a-asset-item id="sandM" src="https://mrbside.github.io/WebXRTest/sand.glb"></a-asset-item>
 			</a-assets>
-			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+			<a-marker id="marcador" type='pattern' url='menuxr.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
 			</a-marker>	
-			<a-entity id="models">
+			<a-entity id="models" >
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
