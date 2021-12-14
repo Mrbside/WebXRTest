@@ -90,13 +90,19 @@
 					quantity = quantity + 1;
 					let el = document.getElementById('quantity')
 					el.innerHTML = ""+quantity
+					let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
+					el = document.getElementById('addAmount')
+					el.innerHTML = "$"+amountPlatillo.fixed(2)
 				}
 				function minus() {
 					if(quantity > 0) {
 						quantity = quantity - 1;
+						let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
 					}
 					let el = document.getElementById('quantity')
 					el.innerHTML = ""+quantity
+					el = document.getElementById('addAmount')
+					el.innerHTML = "$"+amountPlatillo.fixed(2)
 				}
 				function backPlatillo() {
 					platilloPosition = platilloPosition + -1;
