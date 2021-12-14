@@ -49,13 +49,13 @@
 			]
 			let platillos = [
 				{
-					name : 'Toast',
+					name : 'TOAST',
 					glb : 'toast',
 					price : 1.0, 
 					panel : 'tostadaatun'
 				},
 				{
-					name : 'Tostada',
+					name : 'TOSTADA',
 					glb : 'tostada',
 					price : 1.0,
 					panel : 'tostadaatun'
@@ -67,7 +67,7 @@
 					panel : 'tostadaatun'
 				},
 				{
-					name : 'Revuelto',
+					name : 'REVUELTO',
 					glb : 'revuelto',
 					price : 1.0,
 					panel : 'tostadaatun'
@@ -75,7 +75,7 @@
 			]
 			let categories = [
 				{
-					name: 'Entradas',
+					name: 'ENTRADAS',
 					platillos : platillos
 				}
 			]
@@ -234,6 +234,8 @@
 			width: 15%;
 			height: 7%;
 			border:0px;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
 		}
 
 		.buttonTopPlatillo {
@@ -326,6 +328,8 @@
 			width: 15%;
 			height: 7%;
 			border:0px;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
 		}
 
 		.buttonPlatillo {
@@ -407,53 +411,127 @@
 			.buttons2 {
 				display: block;
 			}
-			.buttonPlatillo, .buttonTopPlatillo {
-				font-size: 0.85rem;
+
+			.buttonTopPlatilloNext {
+				right: 8%;
+				width: 8%;
 			}
+			.buttonMoto {
+				top: 0%;
+				width: 5%;
+				height: 7%;
+			}
+			.buttonAura {
+				top: 0px;
+				width: 5%;
+				height: 7%;
+			}
+			.buttonTopPlatillo {
+				right: 16%;
+			}
+			.buttonTopPlatillo {
+				right: 16%;
+				width: 68%;
+			}
+			.buttonTopPlatilloBack {
+				left: 8%;
+				width: 8%;
+			}
+
+			.buttonPlus {
+				top:42.5%;
+				width: 5%;
+				left:0%;
+			}
+
+			.buttonMinus {
+				top:42.5%;
+				width: 5%;
+				left: 15%;
+			}
+
+			.buttonQuantity {
+				top:42.5%;
+				width: 10%;
+				left:5%
+			}
+
+			.buttonAdd {
+				top:42.5%;
+				width: 20%;
+				padding-left: 5%;
+				padding-right: 5%;
+			}
+
+			.buttonReceipt {
+				top:51.5%;
+				width: 20%;
+				padding-left: 5%;
+				padding-right: 5%;
+			}
+
+			.buttonOrder {
+				top:51.5%;
+				width: 20%;
+			}
+			.buttonPlatillo {
+				width: 68%;
+				left:16%;
+			}
+			.buttonPlatilloBack {
+				left: 8%;
+				width: 8%;
+			}
+
+			.buttonPlatilloNext {
+				right: 8%;
+				width: 8%;
+			}
+
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons2">
 			<button class="buttonTopPlatilloBack" onclick="backCategory()">
-				<i class="fas fa-chevron-left fa-1x"></i>
+				<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
 			</button>
-			<button class="buttonTopPlatillo"></button>
+			<button class="buttonTopPlatillo" id="categoryName"></button>
 			<button class="buttonTopPlatilloNext" onclick="nextCategory()">
-				<i class="fas fa-chevron-right fa-1x"></i>
-			</button>			
-			<!--button class="buttonPlus">
-				<i class="fas fa-plus fa-2x"></i> 
+				<img src="./static/icons/Boton_sig.svg" alt=""  style="height: 50%;">
 			</button>
-			<button class="buttonQuantity">
-				1
+			<button class="buttonPlus"  onclick="minus()">
+				<i class="fas fa-minus fa-1x"></i>
 			</button>
-			<button class="buttonMinus">
-				<i class="fas fa-minus fa-2x"></i> 
+			<button class="buttonQuantity" id="quantity">
+				0
 			</button>
-			<button class="buttonAdd">
-				<b style="float: left;">Agregar</b>
-				<b style="float: right;">$854.00</b>
+			<button class="buttonMinus" onclick="plus()">
+				<i class="fas fa-plus fa-1x"></i> 
+			</button>
+			<button class="buttonAdd" onclick="addOrder()">
+				<b style="float: left; font-family: MontserratExtraLight; font-size:0.8rem;">AGREGAR</b>
+				<b style="float: right;" id="addAmount">$00.00</b>
 			</button>
 			<button class="buttonAura">
-					Aura XR
+				<img src="./static/icons/logo_rest.png" alt="" style="height: 60%;">
 			</button>
 			<button class="buttonMoto">
-				<i class="fas fa-motorcycle fa-2x"></i>
+				<img src="./static/icons/boton_envio.svg" alt="">
 			</button>
 			<button class="buttonReceipt">
-				<i class="fas fa-receipt fa-3x" style="float: left;"></i> 
-				<b style="font-size: 1.8rem; float: right;">6</b>
+				<img src="./static/icons/logo_rest.svg" style="float: left;height: 60%;" alt="">
+				<b style="font-size: 1.8rem; float: right;" id="receipt">0</b>
 			</button>
 			<button class="buttonOrder">
-				<b style="float: left;">Ordenar</b>
-				<b style="float: right;">$854.00</b>
-			</button-->
-			<button class="buttonPlatilloBack" onclick="backPlatillo()">
-				<i class="fas fa-chevron-left fa-1x"></i>
+				<b style="float: left;font-family: MontserratExtraLight; font-size:0.8rem;">ORDENAR</b>
+				<b style="float: right;" id="orderAmount">$00.00</b>
 			</button>
-			<button class="buttonPlatillo"></button>
+			<button class="buttonPlatilloBack" onclick="backPlatillo()">
+				<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
+			</button>
+			<button class="buttonPlatillo" id="platilloName"></button>
 			<button class="buttonPlatilloNext" onclick="nextPlatillo()">
-				<i class="fas fa-chevron-right fa-1x"></i>
+				<img src="./static/icons/Boton_sig.svg" alt="" style="height: 50%;">
 			</button>
 		</div>
 		<div class="buttons">
