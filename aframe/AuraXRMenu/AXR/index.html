@@ -81,11 +81,9 @@
 			]
 			let orders = []
 			let quantity = 0;
-			(function() {
-				document.addEventListener("DOMContentLoaded", function(event) { 
-					nextPlatillo()
-				});
-			})();
+			document.addEventListener("DOMContentLoaded", function(event) { 
+				nextPlatillo()
+			});
 
 			function plus() {
 				quantity = quantity + 1;
