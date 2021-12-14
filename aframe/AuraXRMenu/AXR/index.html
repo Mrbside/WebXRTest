@@ -115,6 +115,12 @@
 				})
 				let el = document.getElementById('receipt');
 				el.innerHTML = ""+orders.length
+				el = document.getElementById('orderAmount')
+				let amount = 0;
+				orders.forEach((element) => {
+					amount = element.amount
+				} )
+				el.innerHTML = "$"parseFloat(amount).toFixed(2)
 			}
 
 			function backPlatillo() {
@@ -483,7 +489,7 @@
 			</button>
 			<button class="buttonOrder">
 				<b style="float: left;font-family: MontserratExtraLight; font-size:0.8rem;">ORDENAR</b>
-				<b style="float: right;">$00.00</b>
+				<b style="float: right;" id="orderAmount">$00.00</b>
 			</button>
 			<button class="buttonPlatilloBack" onclick="backPlatillo()">
 				<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
