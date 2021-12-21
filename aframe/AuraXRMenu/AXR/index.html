@@ -529,7 +529,7 @@
 
 		}
 	  </style>
-	<body style='margin : 0px;'> 
+	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="buttons">
 			<div class="buttons2">
 				<button class="buttonTopPlatilloBack" onclick="backCategory()">
@@ -618,7 +618,7 @@
 				</button>
 			</div>
 		</div>
-		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; maxDetectionRate: 60;" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; maxDetectionRate: 60; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 				<a-assets>
 					<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
 					<img id="toast" src="PanelPlatillo/tostadaaguacate.png">
