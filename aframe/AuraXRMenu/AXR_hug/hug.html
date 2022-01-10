@@ -1,0 +1,152 @@
+<html>
+	<head>
+  		<title>HugCBD</title>
+		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+		<script src="../../build/aframe-ar.js"></script>
+		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+		<script>
+		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
+		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
+		// mejorar calidad de video al final: arjs ="sourceType: webcam; sourceWidth:1280; sourceHeight:720; displayWidth: 1280; displayHeight: 720"
+		AFRAME.registerComponent('jitterix', {
+    	init: function () {
+    	// Code here.
+      	var canvasEl = document.getElementById(this.data.cid);
+		this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
+		this.renderer= new THREE.PerspectiveCamera();
+    	}
+  		});
+		</script>
+		<script>function myFunction(){
+		var plato1 = document.querySelector('#plato');
+		//plato1.addEventListener('click', myFunction() {
+		plato1.object3D.visible = false;}
+		</script>
+		<script>
+		//componente para sombra en camera background
+		AFRAME.registerComponent("apply-shadowmaterial", {
+			init: function() {
+			  // grab the mesh
+			  let mesh = this.el.getObject3D("mesh");
+			  // keep the reference to the old material
+			  let tmp = mesh.material;
+			  // assign the new material
+			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+			  mesh.receiveShadow = true;
+			  // free memory
+			  tmp.dispose();
+			}
+		  });
+		</script>
+		<script>
+			var platilloindex=1;
+			function cambiaplatillo(){
+				
+				  var platotest = document.querySelector('#plato');
+				  //var paneltest = document.querySelector('#panelinfo');
+				  //platotest.setAttribute('animation', 'property: position; to: -6 0 0')
+				  //platotest.setAttribute('animation2', 'property:scale; to: 0.01 0.01 0.01')
+				  platotest.emit('pos')
+				  platotest.emit('scale')
+				  platotest.addEventListener("animationcomplete__scale", e => {
+            		// start the second animation
+					// toast tostada bbq revuelto tacos sand
+					platotest.setAttribute('position','0 0 0')
+					switch(platilloindex){
+					case 0:{
+						platotest.setAttribute('gltf-model', 'Blue.glb')
+						//paneltest.setAttribute('src','#toast')
+						platilloindex=platilloindex+1;
+						break;}
+					case 1:{
+						platotest.setAttribute('gltf-model', 'Black.glb')
+						//paneltest.setAttribute('src','#tostada')
+						platilloindex=platilloindex+1;
+						break;}
+					case 2:{
+						platotest.setAttribute('gltf-model', 'Orange.glb')
+						//paneltest.setAttribute('src','#bbq')
+						platilloindex=0;
+						break;}
+					}
+					platotest.setAttribute('scale','0.1 0.1 0.1')
+          			}, {once : true});
+					
+				  //platotest.setAttribute('gltf-model', 'https://mrbside.github.io/WebXRTest/tostada.glb')
+				  	
+				
+			}
+		</script>
+		<script>
+			//recibe dos parametros ruta glb y png 
+			//nombrar la funcion 
+			//quitar el event listener 
+			//script para cambio de platillo:
+			//1 funcion que recibe como parametro un codigo numerico del platillo
+			//2 case switch
+			//3 cambia atributo src del #panelinfo
+			//4 subrutina que cambia progresivamente la posicion y escala del platillo (animacion salida)
+			//5 regresa la posicion y escala original
+			//6 cambia atributo src de #plato 
+			
+		</script>
+
+	</head>
+	<style>
+		.buttons {
+		  position: absolute;
+		  bottom: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 5em;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  z-index: 10;
+		}
+	
+		.say-hi-button {
+		  padding: 0.25em;
+		  border-radius: 4px;
+		  border: none;
+		  background: white;
+		  color: black;
+		  width: 4em;
+		  height: 4em;
+		}
+
+	  </style>
+	<body style='margin : 0px; overflow: hidden;'> 
+		<div class="buttons">
+			<button class="say-hi-button" onclick="cambiaplatillo()" >Next </button>
+		</div>
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+			<a-assets>
+				<a-asset-item id="blackM" src="Black.glb"></a-asset-item>
+				<a-asset-item id="blueM" src="Blue.glb"></a-asset-item>
+				<a-asset-item id="orangeM" src="Orange.glb"></a-asset-item>
+			</a-assets>
+			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
+				</a-entity>
+				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
+            	</a-entity>
+				<a-entity 
+				id="plato"
+            	position="0 0 0"
+            	rotation="0 60 0"
+            	scale="0.1 0.1 0.1"
+            	gltf-model="Blue.glb"
+            	shadow="receive: true; cast: true"
+				animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
+				animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
+				>
+            	</a-entity>
+			</a-marker>
+			<a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
+			</a-entity>
+			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
+			</a-entity>
+		</a-scene>
+	</body>
+</html>
