@@ -5,6 +5,7 @@
 		<script src="../../build/aframe-ar.js"></script>
 		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="styles.css">
 		<script>
 		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
 		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
@@ -227,13 +228,17 @@
 			font-family: 'MontserratExtraLight';
 			src: url(./static/fonts/Montserrat-ExtraLight.otf);
 		}
+		@font-face {
+			font-family: 'MontserratMedium';
+			src: url(./static/fonts/Montserrat-Medium.otf);
+		}
 		.buttons {
 		  position: absolute;
 		  top: 0;
 		  left: 0;
 		  width: 100%;
 		  height: 100%;
-		  z-index: 9999;
+		  /* z-index: 9; */
 		}
 
 		.buttons2 {
@@ -529,50 +534,56 @@
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
+		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+			<a-assets>
+				<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
+				<img id="toast" src="PanelPlatillo/tostadaaguacate.png">
+				<img id="tostada" src="PanelPlatillo/tostadaatun.png">
+				<img id="bbq" src="PanelPlatillo/bbq.png">
+				<img id="tacos" src="PanelPlatillo/tacostofu.png">
+				<img id="revuelto" src="PanelPlatillo/tofurevuelto.png">
+				<img id="sand" src="PanelPlatillo/sandwich.png">
+				<a-asset-item id="toastM" src="https://mrbside.github.io/WebXRTest/toast.glb"></a-asset-item>
+				<a-asset-item id="tostadaM" src="https://mrbside.github.io/WebXRTest/tostada.glb"></a-asset-item>
+				<a-asset-item id="bbqM" src="https://mrbside.github.io/WebXRTest/bbq.glb"></a-asset-item>
+				<a-asset-item id="tacosM" src="https://mrbside.github.io/WebXRTest/tacos.glb"></a-asset-item>
+				<a-asset-item id="revueltoM" src="https://mrbside.github.io/WebXRTest/revuelto.glb"></a-asset-item>
+				<a-asset-item id="sandM" src="https://mrbside.github.io/WebXRTest/sand.glb"></a-asset-item>
+			</a-assets>
+			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
+				</a-entity>
+				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
+				<a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
+				<a-entity 
+				id="chef"
+				position="-4.138 -1.10 -4.797"
+				rotation="0 31.0 0"
+				scale="0.02 0.02 0.02"
+				gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
+				animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
+				shadow="receive: true; cast: true"
+				>
+				</a-entity>
+				<a-entity 
+				id="plato"
+				position="0 0 0"
+				rotation="0 0 0"
+				scale="0.1 0.1 0.1"
+				gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
+				shadow="receive: true; cast: true"
+				animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
+				animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
+				>
+				</a-entity>
+			</a-marker>
+			<a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
+			</a-entity>
+			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
+			</a-entity>
+		</a-scene>
+
 		<div class="buttons">
-			<div class="buttons2">
-				<button class="buttonTopPlatilloBack" onclick="backCategory()">
-					<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
-				</button>
-				<button class="buttonTopPlatillo" id="categoryName2"></button>
-				<button class="buttonTopPlatilloNext" onclick="nextCategory()">
-					<img src="./static/icons/Boton_sig.svg" alt=""  style="height: 50%;">
-				</button>
-				<button class="buttonPlus"  onclick="minus()">
-					<i class="fas fa-minus fa-1x"></i>
-				</button>
-				<button class="buttonQuantity" id="quantity2">
-					0
-				</button>
-				<button class="buttonMinus" onclick="plus()">
-					<i class="fas fa-plus fa-1x"></i> 
-				</button>
-				<button class="buttonAdd" onclick="addOrder()">
-					<b style="float: left; font-family: MontserratExtraLight; font-size:0.5rem;">AGREGAR</b>
-					<b style="float: right;font-size:0.5rem;" id="addAmount2">$00.00</b>
-				</button>
-				<button class="buttonAura">
-					<img src="./static/icons/logo_rest.png" alt="" style="height: 60%;">
-				</button>
-				<button class="buttonMoto">
-					<img src="./static/icons/boton_envio.svg" alt="">
-				</button>
-				<button class="buttonReceipt">
-					<img src="./static/icons/logo_rest.svg" style="float: left;height: 60%;" alt="">
-					<b style="font-size: 0.8rem; float: right;" id="receipt2">0</b>
-				</button>
-				<button class="buttonOrder">
-					<b style="float: left;font-family: MontserratExtraLight; font-size:0.5rem;">ORDENAR</b>
-					<b style="float: right;font-size:0.5rem;" id="orderAmount2">$00.00</b>
-				</button>
-				<button class="buttonPlatilloBack" onclick="backPlatillo()">
-					<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
-				</button>
-				<button class="buttonPlatillo" id="platilloName2"></button>
-				<button class="buttonPlatilloNext" onclick="nextPlatillo()">
-					<img src="./static/icons/Boton_sig.svg" alt="" style="height: 50%;">
-				</button>
-			</div>
 			<div class="buttons1">
 				<button class="buttonTopPlatilloBack" onclick="backCategory()">
 					<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
@@ -617,53 +628,121 @@
 				</button>
 			</div>
 		</div>
-		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
-				<a-assets>
-					<img id="panelvacio" src="PanelPlatillo/fondoconlogo.png">
-					<img id="toast" src="PanelPlatillo/tostadaaguacate.png">
-					<img id="tostada" src="PanelPlatillo/tostadaatun.png">
-					<img id="bbq" src="PanelPlatillo/bbq.png">
-					<img id="tacos" src="PanelPlatillo/tacostofu.png">
-					<img id="revuelto" src="PanelPlatillo/tofurevuelto.png">
-					<img id="sand" src="PanelPlatillo/sandwich.png">
-					<a-asset-item id="toastM" src="https://mrbside.github.io/WebXRTest/toast.glb"></a-asset-item>
-					<a-asset-item id="tostadaM" src="https://mrbside.github.io/WebXRTest/tostada.glb"></a-asset-item>
-					<a-asset-item id="bbqM" src="https://mrbside.github.io/WebXRTest/bbq.glb"></a-asset-item>
-					<a-asset-item id="tacosM" src="https://mrbside.github.io/WebXRTest/tacos.glb"></a-asset-item>
-					<a-asset-item id="revueltoM" src="https://mrbside.github.io/WebXRTest/revuelto.glb"></a-asset-item>
-					<a-asset-item id="sandM" src="https://mrbside.github.io/WebXRTest/sand.glb"></a-asset-item>
-				</a-assets>
-				<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
-					<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
-					</a-entity>
-					<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
-					<a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
-					<a-entity 
-					id="chef"
-					position="-4.138 -1.10 -4.797"
-					rotation="0 31.0 0"
-					scale="0.02 0.02 0.02"
-					gltf-model="https://mrbside.github.io/WebXRTest/chef.gltf"
-					animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
-					shadow="receive: true; cast: true"
-					>
-					</a-entity>
-					<a-entity 
-					id="plato"
-					position="0 0 0"
-					rotation="0 0 0"
-					scale="0.1 0.1 0.1"
-					gltf-model="https://mrbside.github.io/WebXRTest/toast.glb"
-					shadow="receive: true; cast: true"
-					animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
-					animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
-					>
-					</a-entity>
-				</a-marker>
-				<a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
-				</a-entity>
-				<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
-				</a-entity>
-		</a-scene>
+		<div id="home">
+			<div class="background-home"></div>
+			<header>
+				<img src="assets/HUG.png" alt="hug">
+				<div class="search">
+					<div class="search-container">
+						<form>
+							<input type="search" placeholder="Search...">
+							<button type="submit">Search</button>
+						  </form>
+					  </div>
+				</div>
+			</header>
+			<main>
+				
+				<ul class="category">
+					<li>
+						Todos
+					</li>
+					<li>
+						Salud
+					</li>
+					<li>
+						Medicinal
+					</li>
+					<li>
+						Hogar
+					</li>
+					<li>
+						Deporte
+					</li>
+				</ul>
+				<h3>Productos</h3>
+				<div class="products">
+					<div class="product-container">
+						<div class="image-container">
+							<div class="image">
+								<img src="assets/hugs-SPORT-1200x1815.png" alt="hug">
+							</div>
+						</div>
+						<div class="product-content">
+							<div class="description">
+								<p class="title">Deportes</p>
+								<p class="subtitle">Mentol/Lavanda</p>
+							</div>
+							<div class="price">$500.00</div>
+						</div>
+					</div>
+					<div class="product-container">
+						<div class="image-container">
+							<div class="image">
+								<img src="assets/hugs-MUJER-1200x1815.png" alt="hug">
+							</div>
+						</div>
+						<div class="product-content">
+							<div class="description">
+								<p class="title">Mujer</p>
+								<p class="subtitle">Jengibre/Vitamina E</p>
+							</div>
+							<div class="price">$500.00</div>
+						</div>
+					</div>
+					<div class="product-container">
+						<div class="image-container">
+							<div class="image">
+								<img src="assets/hugs-HOMBRE-1200x1815.png" alt="hug">
+							</div>
+						</div>
+						<div class="product-content">
+							<div class="description">
+								<p class="title">Hombre</p>
+								<p class="subtitle">Cedro/Romero</p>
+							</div>
+							<div class="price">$500.00</div>
+						</div>
+					</div>
+				</div>
+				<!-- <ul class="most-order">
+					<li></li>
+				</ul> -->
+			</main>
+			<footer>
+				<ul class="footer">
+					<li>
+						<div class="foot-item">
+							<i class="fas fa-home"></i>
+							<div>Home</div>
+						</div>
+					</li>
+					<li>
+						<div class="foot-item">
+							<i class="fas fa-bars"></i>
+							<div>Categoria</div>
+						</div>
+					</li>
+					<li>
+						<div class="foot-item">
+							<i class="fas fa-shopping-cart"></i>
+							<div>Carro</div>
+						</div>
+					</li>
+					<li>
+						<div class="foot-item">
+							<i class="fas fa-user"></i>
+							<div>Perfil</div>
+						</div>
+					</li>
+				</ul>
+			</footer>
+		</div>
+
+		<div id="splash">
+			<img src="assets/hug2.png" alt="hug">
+			<p>Everyone Needs <br>  A Hug</p>
+		</div>
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
