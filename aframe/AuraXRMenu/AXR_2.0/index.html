@@ -4,6 +4,7 @@
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 		<script src="../../build/aframe-ar.js"></script>
 		<script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+		<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 		<link rel="stylesheet" href="styles.css">
 		<script>
@@ -516,13 +517,13 @@
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
-		<a-scene id="escena" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" gesture-detector vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
 				<a-asset-item id="blackM" src="Black.glb"></a-asset-item>
 				<a-asset-item id="blueM" src="Blue.glb"></a-asset-item>
 				<a-asset-item id="orangeM" src="Orange.glb"></a-asset-item>
 			</a-assets>
-			<a-marker id="marcador" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+			<a-marker id="marcador" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
@@ -535,6 +536,8 @@
 				shadow="receive: true; cast: true"
 				animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
 				animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
+				class="clickable"
+      			gesture-handler
 				>
 				</a-entity>
 			</a-marker>
