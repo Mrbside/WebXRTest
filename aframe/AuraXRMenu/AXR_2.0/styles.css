@@ -1,5 +1,6 @@
 .buttons {
     background: black;
+    display: none;
 }
 
 #splash {
@@ -135,8 +136,16 @@
     position: relative;
     background-color: #fafafa;
     height: 100%;
-    margin-top: 6px;
+    margin-top: 36px;
+    transform: translateX(100%);
+    transition: transform 0.5s linear;
 }
+
+.swap-1 {
+    transform: translateX(0%) !important;
+}
+
+
 
 #home main#scene-1 h3{
     font-family: 'MontserratMedium';
@@ -268,6 +277,12 @@
     /* background-color: #fafafa; */
     height: 100%;
     margin-top: 6px;
+    transform: translateX(0%);
+    transition: transform 0.5s linear;
+}
+
+.swap-2 {
+    transform: translateX(-100%) !important;
 }
 
 #home main#scene-ar .description{
@@ -276,25 +291,53 @@
     right: 0px;
     display: block;
     width: 180px;
+    font-family: monospace;
 }
 
 #home main#scene-ar .description .plus{
     position: absolute;
     top: 0px;
     right: 20px;
-    font-size: 40px;
-    color: white;
+    font-size: 30px;
+    color: black;
     font-weight: bolder;
+    background-color: white;
+    width: 20px;
+    height: 35px;
+    border-radius: 50px;
+    padding: 7px 15px;
+    text-align: center;
+    transform: rotate(45deg);
+    /* box-shadow: 0px 0px 10px black; */
+    transition: background-color 0.5s, transform 0.5s;
 }
 
-#home main#scene-ar .description .content{
-    padding: 10px 20px;
+.cross {
+    /* color: black !important; */
+    background-color: lightgray !important;
+    transform: rotate(0deg) !important;
+}
+
+#home main#scene-ar .description .content-desc{
+    padding: 10px;
     position: absolute;
     top: 0px;
     background-color: lightgrey;
-    height: 250px;
-    width: 130px;
-    border-radius: 10px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+    right: 20px;
+    opacity: 0;
+    transition: padding 0.2s linear 0.3s, opacity 0.3s linear 0s, height 0.3s linear 0.3s, width 0.3s linear 0.3s, right 0.3s linear 0.3s;
+}
+
+.expand {
+    padding: 10px 20px !important;
+    height: 220px !important;
+    width: 130px !important;
+    right: 20px !important;
+    opacity: 1 !important;
+    
 }
 
 #home main#scene-ar .nav{
@@ -309,10 +352,10 @@
     font-size: 30px;
     position: relative;
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     background-color: white;
-    border: 12px solid lightgray;
+    border: 10px solid lightgray;
     border-radius: 50px;
 }
 
@@ -327,8 +370,13 @@
     right: 0px;
     width: 100px;
     height: 50px;
-    background-color: white;
-    opacity: 0.5;
     bottom: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px black;
+    width: 140px;
+    text-align: center;
+    font-family: 'MontserratMedium';
 }
 

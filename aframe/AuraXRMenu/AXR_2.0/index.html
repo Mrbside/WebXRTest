@@ -586,7 +586,7 @@
 				<button class="buttonPlatilloBack" onclick="backPlatillo()">
 					<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
 				</button>
-				<button class="buttonPlatillo" id="platilloName"></button>
+				<button class="buttonPlatillo" id="platilloName3"></button>
 				<button class="buttonPlatilloNext" onclick="nextPlatillo()">
 					<img src="./static/icons/Boton_sig.svg" alt="" style="height: 50%;">
 				</button>
@@ -595,7 +595,7 @@
 		<div id="home">
 			<!-- <div class="background-home"></div> -->
 			<header>
-				<button class="btn left">&#10094;</button>
+				<button class="btn left" onclick="swapScene()">&#10094;</button>
 				<img src="assets/HUG.png" alt="hug">
 				<!-- <div class="search">
 					<div class="search-container">
@@ -627,7 +627,7 @@
 				
 				<h3>Productos</h3>
 				<div class="products">
-					<div class="product-container">
+					<div class="product-container" onclick="deporte()">
 						<div class="image-container">
 							<div class="image">
 								<img src="assets/hugs-SPORT-1200x1815.png" alt="hug">
@@ -641,7 +641,7 @@
 							<div class="price">$500.00</div>
 						</div>
 					</div>
-					<div class="product-container">
+					<div class="product-container" onclick="mujer()">
 						<div class="image-container">
 							<div class="image">
 								<img src="assets/hugs-MUJER-1200x1815.png" alt="hug">
@@ -655,7 +655,7 @@
 							<div class="price">$500.00</div>
 						</div>
 					</div>
-					<div class="product-container">
+					<div class="product-container" onclick="hombre()">
 						<div class="image-container">
 							<div class="image">
 								<img src="assets/hugs-HOMBRE-1200x1815.png" alt="hug">
@@ -676,16 +676,16 @@
 			</main>
 			<main id="scene-ar">
 				<div class="description">
-					<div class="content">
+					<div class="content-desc">
 						<h4>Lorem Ipsum</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 					</div>
-					<div class="plus">+</div>
+					<div class="plus" onclick="swapDscr()">&#10006;</div>
 				</div>
 				<div class="nav">
-					<button class="btn left">&#10094;</button>
-					<button class="btn right">&#10095;</button>
-					<div class="prod-name"></div>
+					<button class="btn left" onclick="backPlatillo()">&#10094;</button>
+					<button class="btn right" onclick="nextPlatillo()">&#10095;</button>
+					<div class="prod-name" id="platilloName">Hombre</div>
 				</div>
 			</main>
 			<footer>
