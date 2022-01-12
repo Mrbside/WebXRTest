@@ -1,3 +1,7 @@
+.buttons {
+    background: black;
+}
+
 #splash {
     position: absolute;
     width: 100%;
@@ -40,6 +44,8 @@
     height: 100%;
     top: 0px;
     left: 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .background-home {
@@ -54,15 +60,30 @@
 #home header{
     position: relative;
     background: white;
-    height: 140px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     /* border-bottom: 1px outset #ddd; */
+}
+
+#home header .btn{
+    margin: 13px;
+    font-size: 30px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: lightgray;
+    border-radius: 50px;
+    border: lightgrey 5px solid;
+    color: black;
+    border: none;
 }
 
 #home header img{
     position: relative;
     margin: 0 auto;
     display: block;
-    width: 80px;
+    width: 60px;
     top: 20px;
 }
 
@@ -109,22 +130,28 @@
     opacity: 0.7;
   }
 
-#home main{
+#home main#scene-1{
+    display: none;
     position: relative;
+    background-color: #fafafa;
+    height: 100%;
+    margin-top: 6px;
 }
 
-#home main h3{
+#home main#scene-1 h3{
     font-family: 'MontserratMedium';
-    margin: 20px 30px;
+    margin: 30px;
 }
 #home .category {
+    top: 40px;
+    position: relative;
     white-space: nowrap;
     list-style-type: none;
     margin: 0;
     padding: 20px;
     font-family: "MontserratMedium";
     overflow: scroll;
-    height: 30px;
+    height: 20px;
     background: #eee;
     width: 100%;
 }
@@ -234,3 +261,74 @@
 #home .footer .foot-item i{
     padding: 10px;
 }
+
+#home main#scene-ar{
+    /* display: none; */
+    position: relative;
+    /* background-color: #fafafa; */
+    height: 100%;
+    margin-top: 6px;
+}
+
+#home main#scene-ar .description{
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    display: block;
+    width: 180px;
+}
+
+#home main#scene-ar .description .plus{
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 40px;
+    color: white;
+    font-weight: bolder;
+}
+
+#home main#scene-ar .description .content{
+    padding: 10px 20px;
+    position: absolute;
+    top: 0px;
+    background-color: lightgrey;
+    height: 250px;
+    width: 130px;
+    border-radius: 10px;
+}
+
+#home main#scene-ar .nav{
+    position: absolute;
+    bottom: 90px;
+    height: auto;
+    width: 100%;
+}
+
+#home main#scene-ar .nav .btn{
+    margin: 20px;
+    font-size: 30px;
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border: 12px solid lightgray;
+    border-radius: 50px;
+}
+
+#home main#scene-ar .nav .right{
+    float: right;
+}
+
+#home main#scene-ar .nav .prod-name{
+    position: absolute;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    opacity: 0.5;
+    bottom: 30px;
+}
+
