@@ -11,9 +11,17 @@ function swapDscr(params) {
     if(plus.classList.contains('cross')){
         plus.classList.remove('cross');
         content.classList.remove('expand');
+        content.querySelector('h4').style.opacity = 0;
+        content.querySelector('p').style.opacity = 0;
     }else {
         plus.classList.add('cross');
         content.classList.add('expand');
+        content.querySelector('h4').style.opacity = 0;
+        content.querySelector('p').style.opacity = 0;
+        setTimeout(() => {
+            content.querySelector('h4').style.opacity = 1;
+            content.querySelector('p').style.opacity = 1;
+        }, 600);
     }
 }
 
@@ -45,16 +53,16 @@ function swapScene(params) {
 
 function deporte(params) {
     swapScene();
-    nextPlatillo();
+    platilloDeMenu(2);
 
 }
 
 function mujer(params) {
     swapScene();
-    nextPlatillo();
+    platilloDeMenu(1);
 }
 
 function hombre(params) {
     swapScene();
-    nextPlatillo();
+    platilloDeMenu(0);
 }
