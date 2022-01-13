@@ -10,7 +10,7 @@
 		<script>
 		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
 		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
-		
+		//best arjs settings smoothCount='3' smoothTolerance='0.01' smoothThreshold='2'
 		AFRAME.registerComponent('jitterix', {
     	init: function () {
     	// Code here.
@@ -527,7 +527,7 @@
 				<a-asset-item id="blueM" src="Blue.glb"></a-asset-item>
 				<a-asset-item id="orangeM" src="Orange.glb"></a-asset-item>
 			</a-assets>
-			<a-marker id="marcador" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='pattern-AuraMarker.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+			<a-marker id="marcador" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='HUG.patt' smooth='true' smoothCount='3' smoothTolerance='0.01' smoothThreshold='2'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
