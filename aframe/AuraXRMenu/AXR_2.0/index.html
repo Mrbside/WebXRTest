@@ -34,7 +34,7 @@
 			  // keep the reference to the old material
 			  let tmp = mesh.material;
 			  // assign the new material
-			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.4 });
+			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.1 });
 			  mesh.receiveShadow = true;
 			  // free memory
 			  tmp.dispose();
@@ -527,7 +527,7 @@
 				<a-asset-item id="blueM" src="https://mrbside.github.io/WebXRTest/aframe/AuraXRMenu/AXR_2.0/Blue.glb"></a-asset-item>
 				<a-asset-item id="orangeM" src="https://mrbside.github.io/WebXRTest/aframe/AuraXRMenu/AXR_2.0/Orange.glb"></a-asset-item>
 			</a-assets>
-			<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.5; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-5.0 3.820 4.127">	
+			<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.2; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-5.0 6.520 5.127">	
 			</a-entity>
 			<a-marker id="marcador" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='HUG.patt' smooth='true' smoothCount='3' smoothTolerance='0.01' smoothThreshold='2'>
 				<a-plane id="planosombras" position="0 -0.2 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
