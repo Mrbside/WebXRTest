@@ -34,7 +34,7 @@
 			  // keep the reference to the old material
 			  let tmp = mesh.material;
 			  // assign the new material
-			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.4 });
 			  mesh.receiveShadow = true;
 			  // free memory
 			  tmp.dispose();
@@ -521,16 +521,16 @@
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
-		<a-scene id="escena" gesture-detector vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
 				<a-asset-item id="blackM" src="Black.glb"></a-asset-item>
 				<a-asset-item id="blueM" src="Blue.glb"></a-asset-item>
 				<a-asset-item id="orangeM" src="Orange.glb"></a-asset-item>
 			</a-assets>
 			<a-marker id="marcador" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='HUG.patt' smooth='true' smoothCount='3' smoothTolerance='0.01' smoothThreshold='2'>
-				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
+				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.5; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-2.0 4.520 4.127">	
 				</a-entity>
-				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
+				<a-plane id="planosombras" position="0 -0.4 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
 				<a-entity 
 				id="plato"
 				position="0 0 0"
