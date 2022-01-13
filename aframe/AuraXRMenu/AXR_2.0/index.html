@@ -219,6 +219,34 @@
 			font-family: 'MontserratMedium';
 			src: url(./static/fonts/Montserrat-Medium.otf);
 		}
+
+		
+		.AR{
+			pointer-events: auto;
+		}
+		.homeclase{
+			pointer-events: none;
+		}
+		.productosclase{
+			pointer-events: auto;
+		}
+		.nav{
+			pointer-events: auto;
+		}
+		.scene-arclass{
+			pointer-events: auto;
+		}
+		.category{
+			pointer-events: auto;
+		}
+		.btnescena{
+			pointer-events: auto;
+		}
+		.plus{
+			pointer-events: auto;
+		}
+
+		
 		.buttons {
 		  position: absolute;
 		  top: 0;
@@ -521,6 +549,7 @@
 		}
 	  </style>
 	<body style='margin : 0px; overflow: hidden;'> 
+		<div class="AR">
 		<a-scene id="escena" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>
 				<a-asset-item id="blackM" src="https://mrbside.github.io/WebXRTest/aframe/AuraXRMenu/AXR_2.0/Black.glb"></a-asset-item>
@@ -550,7 +579,7 @@
 			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
 		</a-scene>
-
+		</div>
 		<div class="buttons">
 			<div class="buttons1">
 				<button class="buttonTopPlatilloBack" onclick="backCategory()">
@@ -596,10 +625,12 @@
 				</button>
 			</div>
 		</div>
-		<div id="home">
+		<div id="home" class="homeclase">
 			<!-- <div class="background-home"></div> -->
 			<header>
+				<div class="btnescena">
 				<button class="btn left" onclick="swapScene()">&#10094;</button>
+				</div>
 				<img src="assets/HUG.png" alt="hug">
 				<!-- <div class="search">
 					<div class="search-container">
@@ -626,8 +657,9 @@
 						Deporte
 					</li>
 				</ul>
+			
 			</header>
-			<main id="scene-1">
+			<main id="scene-1" class="procutosclase">
 				
 				<h3>Productos</h3>
 				<div class="products">
@@ -678,7 +710,7 @@
 					<li></li>
 				</ul> -->
 			</main>
-			<main id="scene-ar">
+			<main id="scene-ar" class="scene_arclass">
 				<div class="description">
 					<div class="content-desc">
 						<h4>Lorem Ipsum</h4>
