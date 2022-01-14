@@ -403,4 +403,10 @@
     #home .products .product-container .product-content {
         width: 67%;
     }
+    #home .products .product-container .product-content .price{
+        font-size: 0.6em;
+    }
+    #home .products .product-container .product-content .subtitle{
+        font-size: 0.6em;
+    }
   }
