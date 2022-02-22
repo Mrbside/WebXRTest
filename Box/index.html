@@ -7,29 +7,44 @@
     <script src="../libs/mindar/mindar-image-aframe.prod.js"></script>
     <script src="../A-FrameAddons/js/aframe-extras.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+    <script>
+      //componente para sombra en camera background
+      AFRAME.registerComponent("apply-shadowmaterial", {
+        init: function() {
+          // grab the mesh
+          let mesh = this.el.getObject3D("mesh");
+          // keep the reference to the old material
+          let tmp = mesh.material;
+          // assign the new material
+          mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+          mesh.receiveShadow = true;
+          // free memory
+          tmp.dispose();
+        }
+        });
+      </script>
    <!-- <script src="./main.js" type="module"></script>-->
     <style>
       html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
     </style>
   </head>
   <body>
-    <a-scene id="escena" mindar-image="imageTargetSrc: ../../assets/targets/musicband.mind" color-space="sRGB" renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
+    <a-scene id="escena" mindar-image="imageTargetSrc: targets.mind" color-space="sRGB" renderer="antialias: false; logarithmicDepthBuffer:true; colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
       <a-assets>
         <a-asset-item id="niñabox" src="https://mrbside.github.io/WebXRTest/Box/FatimaBox.gltf"></a-asset-item>
       </a-assets>
       <a-camera position="0 0 0" camera="far:10000.00; fov:80.00; near:0.005" look-controls="enabled: false"></a-camera>
-
       <a-entity id="trackedimage" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" mindar-image-target="targetIndex: 0">
-        <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
+        <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#trackedimage; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
 				</a-entity>
-          <a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
-        </a-entity>
+        <a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
         <a-entity
         id="niña"
         position="0 0 0"
-        rotation="0 0 0 "
+        rotation="90 0 0"
         scale="0.1 0.1 0.1" 
         gltf-model="FatimaBox.gltf"
+        animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
         shadow="receive: true; cast: true"
         class="clickable"
       	gesture-handler>
