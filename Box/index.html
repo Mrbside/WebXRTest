@@ -31,7 +31,7 @@
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene id="escena" physicallyCorrectLights="true" mindar-image="imageTargetSrc: targets.mind" color-space="sRGB" always-fullscreen gesture-detector renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
       <a-assets>
-        <a-asset-item id="niñabox" src="https://mrbside.github.io/WebXRTest/Box/FatimaBox.glb"></a-asset-item>
+        <a-asset-item id="niñabox" src="https://mrbside.github.io/WebXRTest/Box/FatimaBox.gltf"></a-asset-item>
       </a-assets>
       <a-camera position="0 0 0" camera="far:10000.00; fov:80.00; near:0.005" look-controls="enabled: false"></a-camera>
       <a-entity id="trackedimage" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" mindar-image-target="targetIndex: 0">
@@ -42,7 +42,7 @@
         position="0 0 0"
         rotation="90 0 0"
         scale="0.13 0.13 0.13" 
-        gltf-model="https://mrbside.github.io/WebXRTest/Box/FatimaBox.glb"
+        gltf-model="https://mrbside.github.io/WebXRTest/Box/FatimaBox.gltf"
         animation-mixer="clip: IDLE; loop:repeat; repetitions:infinity"
         shadow="receive: true; cast: true"
         class="clickable"
