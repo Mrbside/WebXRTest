@@ -27,7 +27,7 @@
           // keep the reference to the old material
           let tmp = mesh.material;
           // assign the new material
-          mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+          mesh.material = new THREE.ShadowMaterial({ opacity: 0.1 });
           mesh.receiveShadow = true;
           // free memory
           tmp.dispose();
