@@ -31,19 +31,18 @@
   <body>
     <a-scene id="escena" mindar-image="imageTargetSrc: targets.mind" color-space="sRGB" renderer="antialias: false; logarithmicDepthBuffer:true; colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
       <a-assets>
-        <a-asset-item id="niñabox" src="https://mrbside.github.io/WebXRTest/Box/FatimaBox.glb"></a-asset-item>
+        <a-asset-item id="niñabox" src="https://mrbside.github.io/WebXRTest/Box/FatimaBox.gltf"></a-asset-item>
       </a-assets>
-      <a-camera position="0 0 0" camera="far:10000.00; fov:80.00; near:0.005" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0"  look-controls="enabled: false"></a-camera>
       <a-entity id="trackedimage" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" mindar-image-target="targetIndex: 0">
         <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#trackedimage; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
 				</a-entity>
-        <a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
         <a-entity
         id="niña"
         position="0 0 0"
         rotation="90 0 0"
-        scale="0.1 0.1 0.1" 
-        gltf-model="https://mrbside.github.io/WebXRTest/Box/FatimaBox.glb"
+        scale="0.1.3 0.1.3 0.1.3" 
+        gltf-model="https://mrbside.github.io/WebXRTest/Box/FatimaBox.gltf"
         animation-mixer="clip: IDLE; loop:repeat; repetitions:infinity"
         shadow="receive: true; cast: true"
         class="clickable"
