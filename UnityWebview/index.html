@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      canvas {
+        border: 1px solid #d3d3d3;
+        background-color: #f1f1f1;
+      }
+
+      button {
+        width: 150pt;
+        height: 40pt;
+      }
+    </style>
+  </head>
+
+  <body onload="prepareGame()" data-gr-c-s-loaded="true">
+    <canvas width="480" height="270"></canvas>
+    <script>
+      // ...
+
+      function startGame() {
+        this.interval = setInterval(updateGameArea, 20);
+      }
+
+      //...
+    </script>
+    <br />
+    <button
+      onmousedown="accelerate(-0.2)"
+      ontouchstart="accelerate(-0.2)"
+      onmouseup="accelerate(0.05)"
+      ontouchend="accelerate(0.05)"
+    >
+      ACCELERATE
+    </button>
+    <a href="uniwebview://close">
+      <button>Close Page</button>
+    </a>
+    <p>Use the ACCELERATE button to stay in the air</p>
+    <p>How long can you stay alive?</p>
+  </body>
+</html>

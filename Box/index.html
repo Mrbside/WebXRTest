@@ -8,6 +8,19 @@
     <script src="../A-FrameAddons/js/aframe-extras.min.js"></script>
     <script src="../libs/gestures.js"></script>
     <script>
+      //master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
+      //ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
+      // mejorar calidad de video al final: arjs ="sourceType: webcam; sourceWidth:1280; sourceHeight:720; displayWidth: 1280; displayHeight: 720"
+      AFRAME.registerComponent('jitterix', {
+        init: function () {
+        // Code here.
+          var canvasEl = document.getElementById(this.data.cid);
+      this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
+      this.renderer= new THREE.PerspectiveCamera();
+        }
+        });
+      </script>
+    <script>
       //componente para sombra en camera background
       AFRAME.registerComponent("apply-shadowmaterial", {
         init: function() {
@@ -16,7 +29,7 @@
           // keep the reference to the old material
           let tmp = mesh.material;
           // assign the new material
-          mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+          mesh.material = new THREE.ShadowMaterial({ opacity: 1.0 });
           mesh.receiveShadow = true;
           // free memory
           tmp.dispose();
@@ -34,9 +47,10 @@
         <a-asset-item id="niñabox" src="https://mrbside.github.io/WebXRTest/Box/FatimaBox.gltf"></a-asset-item>
       </a-assets>
       <a-camera position="0 0 0" camera="far:10000.00; fov:80.00; near:0.005" look-controls="enabled: false"></a-camera>
+      <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#trackedimage; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 0 1">	
+      </a-entity>
       <a-entity id="trackedimage" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" mindar-image-target="targetIndex: 0">
-        <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#niña; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">	
-				</a-entity>
+        <a-plane id="planosombras" position="0 -0.4 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial ></a-plane>
         <a-entity
         id="niña"
         position="0 0 0"
@@ -47,7 +61,6 @@
         shadow="receive: true; cast: true"
         class="clickable"
       	gesture-handler>
-          <a-plane id="planosombras" position="0 -0.4 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
         </a-entity>
       </a-entity>
       <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
