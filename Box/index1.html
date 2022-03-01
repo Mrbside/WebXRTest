@@ -36,7 +36,24 @@
       </script>
   </head>
   <style>
-     
+      .buttons-container {
+      bottom: 0px;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+    }
+     .btn{
+       font-family: 'Courier New', Courier, monospace;
+       color: white;
+       padding: 10px 20px;
+       font-size: 2em;
+     }
+     .donar{
+       background-color: #7dd42d;
+     }
+     .ntf {
+       background-color: #492E71;
+     }
   </style>
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
@@ -65,5 +82,9 @@
       <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
     </a-scene>
+    <div class="buttons-container">
+      <div class="btn donar">DONAR</div>
+      <div class="btn ntf">NTF</div>
+    </div>
   </body>
 </html>
