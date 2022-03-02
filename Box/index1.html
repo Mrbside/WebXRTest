@@ -42,6 +42,11 @@
       position: absolute;
       display: flex;
       justify-content: space-between;
+      animation-name: delayButton;
+      animation-duration: 0.2s;
+      animation-delay: 2s;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
      .btn{
        font-family: 'Courier New', Courier, monospace;
@@ -55,6 +60,11 @@
      .ntf {
        background-color: #492E71;
      }
+
+     @keyframes delayButton {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
   </style>
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
