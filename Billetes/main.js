@@ -18,11 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(plane);
+    var isplaying=false; 
 
+    
+
+    video.addEventListener('pause', () => {
+      if(isplaying){
+       window.location.replace("https://www.auraxr.com/");}
+    });
     anchor.onTargetFound = () => {
+      isplaying=true;
       video.play();
     }
     anchor.onTargetLost = () => {
+      isplaying=false;
       video.pause();
     }
     video.addEventListener( 'play', () => {
@@ -38,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.textContent = "Enable Augemented Reality";
   startButton.addEventListener("click", start);
   document.body.appendChild(startButton);
-  //start();
+  //start(); window.location.replace("https://www.auraxr.com/");
 });
