@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-  /*const startButton = document.createElement("button");
-  startButton.textContent = "Start";
+  const startButton = document.createElement("button");
+  startButton.textContent = "Enable Augemented Reality";
   startButton.addEventListener("click", start);
-  document.body.appendChild(startButton);*/
+  document.body.appendChild(startButton);
   start();
 });
