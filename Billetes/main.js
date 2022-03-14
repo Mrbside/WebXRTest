@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = await loadVideo("billetevideo.mp4");
     const texture = new THREE.VideoTexture(video);
 
-    const geometry = new THREE.PlaneGeometry(1, 204/480);
+    const geometry = new THREE.PlaneGeometry(1, .67);
     const material = new THREE.MeshBasicMaterial({map: texture});
     const plane = new THREE.Mesh(geometry, material);
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       video.pause();
     }
     video.addEventListener( 'play', () => {
-      video.currentTime = 6;
+      video.currentTime = 0;
     });
 
     await mindarThree.start();
@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-  const startButton = document.createElement("button");
+  /*const startButton = document.createElement("button");
   startButton.textContent = "Start";
   startButton.addEventListener("click", start);
-  document.body.appendChild(startButton);
-  //start();
+  document.body.appendChild(startButton);*/
+  start();
 });
