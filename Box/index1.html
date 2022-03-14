@@ -36,7 +36,36 @@
       </script>
   </head>
   <style>
-     
+      .buttons-container {
+      bottom: 0px;
+      left: 0px;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      animation-name: delayButton;
+      animation-duration: 0.2s;
+      animation-delay: 2s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+     .btn{
+       font-family: 'Courier New', Courier, monospace;
+       color: white;
+       padding: 10px 20px;
+       font-size: 2em;
+       text-decoration: none;
+     }
+     .donar{
+       background-color: #7dd42d;
+     }
+     .ntf {
+       background-color: #492E71;
+     }
+
+     @keyframes delayButton {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
   </style>
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
@@ -64,6 +93,11 @@
       </a-entity>
       <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
+     
     </a-scene>
+    <div class="buttons-container">
+      <a href="https://fightforlifeclub.club/#ourchampions" target="_blank" class="btn donar">DONAR</a>
+      <a href="https://opensea.io/fightforlifeclub" target="_blank" class="btn ntf">NTF</a>
+    </div>
   </body>
 </html>
