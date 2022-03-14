@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.textContent = "Enable Augemented Reality";
   startButton.addEventListener("click", start);
   document.body.appendChild(startButton);
-  start();
+  //start();
 });
