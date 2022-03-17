@@ -2,16 +2,18 @@
 
 </script>
 
-<div class="index">
-    <h1>Aura XR 3.0</h1>
-    <p>Version Template</p>
-    <a href="/home">
+<div class="product">
+    <h1>Product</h1>
+    <p>Seleccion de categorias</p>
+    <p>AR 1</p>
+    <a href="/category/arview">
         <button>Enter</button>
     </a>
+    
 </div>
 
 <style>
-    .index{
+    .product{
         text-align: center;
         display: block;
         margin: 20px auto;
