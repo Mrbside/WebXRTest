@@ -8,6 +8,7 @@
     <a href="/home">
         <button>Enter</button>
     </a>
+   
 </div>
 
 <style>

@@ -1,5 +1,5 @@
 <script>
-export let title = "Home Page"
+    export let title = "Home Page"
 </script>
 
 <div class="title">

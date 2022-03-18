@@ -13,6 +13,7 @@
     <a href="/category">
         <button>Enter</button>
     </a>
+
 </div>
 
 <style>
