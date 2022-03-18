@@ -78,53 +78,53 @@
 			let orders = []
 			let quantity = 0;
 
-			function plus() {
-				quantity = quantity + 1;
-				let el = document.getElementById('quantity')
-				let el2 = document.getElementById('quantity2')
-				el.innerHTML = ""+quantity
-				el2.innerHTML = ""+quantity
-				let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
-				el = document.getElementById('addAmount')
-				el2 = document.getElementById('addAmount2')
-				el.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
-				el2.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
-			}
-			function minus() {
-				if(quantity > 0) {
-					quantity = quantity - 1;
-					let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
-					let el = document.getElementById('addAmount')
-					let el2 = document.getElementById('addAmount2')
-					el.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
-					el2.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
-				}
-				let el = document.getElementById('quantity')
-				let el2 = document.getElementById('quantity')
-				el.innerHTML = ""+quantity
-				el2.innerHTML = ""+quantity
-			}
+			// function plus() {
+			// 	quantity = quantity + 1;
+			// 	let el = document.getElementById('quantity')
+			// 	let el2 = document.getElementById('quantity2')
+			// 	el.innerHTML = ""+quantity
+			// 	el2.innerHTML = ""+quantity
+			// 	let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
+			// 	el = document.getElementById('addAmount')
+			// 	el2 = document.getElementById('addAmount2')
+			// 	el.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
+			// 	el2.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
+			// }
+			// function minus() {
+			// 	if(quantity > 0) {
+			// 		quantity = quantity - 1;
+			// 		let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
+			// 		let el = document.getElementById('addAmount')
+			// 		let el2 = document.getElementById('addAmount2')
+			// 		el.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
+			// 		el2.innerHTML = "$"+parseFloat(amountPlatillo).toFixed(2)
+			// 	}
+			// 	let el = document.getElementById('quantity')
+			// 	let el2 = document.getElementById('quantity')
+			// 	el.innerHTML = ""+quantity
+			// 	el2.innerHTML = ""+quantity
+			// }
 
-			function addOrder() {
-				let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
-				orders.push({
-					category : categories[entradaPosition],
-					platillo : platillos[platilloPosition],
-					amount : parseFloat(amountPlatillo).toFixed(2)
-				})
-				let el = document.getElementById('receipt');
-				let el2 = document.getElementById('receipt2');
-				el.innerHTML = ""+orders.length
-				el2.innerHTML = ""+orders.length
-				el = document.getElementById('orderAmount')
-				el2 = document.getElementById('orderAmount')
-				let amount = 0;
-				orders.forEach((element) => {
-					amount = element.amount
-				} )
-				el.innerHTML = "$"+parseFloat(amount).toFixed(2)
-				el2.innerHTML = "$"+parseFloat(amount).toFixed(2)
-			}
+			// function addOrder() {
+			// 	let amountPlatillo = categories[entradaPosition].platillos[platilloPosition].price * quantity;
+			// 	orders.push({
+			// 		category : categories[entradaPosition],
+			// 		platillo : platillos[platilloPosition],
+			// 		amount : parseFloat(amountPlatillo).toFixed(2)
+			// 	})
+			// 	let el = document.getElementById('receipt');
+			// 	let el2 = document.getElementById('receipt2');
+			// 	el.innerHTML = ""+orders.length
+			// 	el2.innerHTML = ""+orders.length
+			// 	el = document.getElementById('orderAmount')
+			// 	el2 = document.getElementById('orderAmount')
+			// 	let amount = 0;
+			// 	orders.forEach((element) => {
+			// 		amount = element.amount
+			// 	} )
+			// 	el.innerHTML = "$"+parseFloat(amount).toFixed(2)
+			// 	el2.innerHTML = "$"+parseFloat(amount).toFixed(2)
+			// }
 
 			function backPlatillo() {
 				if(platilloPosition > 0)
@@ -146,46 +146,46 @@
 				cambiaplatillo(platillo.glb)
 			}
 
-			function platilloDeMenu(param) {
-				platilloPosition = param + "";
-				let platillo = categories[entradaPosition].platillos[platilloPosition];
+			// function platilloDeMenu(param) {
+			// 	platilloPosition = param + "";
+			// 	let platillo = categories[entradaPosition].platillos[platilloPosition];
 				
 				
-				let text = document.getElementById('platilloName');
-				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-				cambiaplatillo(platillo.glb)
+			// 	let text = document.getElementById('platilloName');
+			// 	text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+			// 	cambiaplatillo(platillo.glb)
 				
-			}
+			// }
 
-			function nextCategory() {
-				entradaPosition = entradaPosition + 1;
-				platilloPosition = 0;
+			// function nextCategory() {
+			// 	entradaPosition = entradaPosition + 1;
+			// 	platilloPosition = 0;
 
-				let platillo = categories[entradaPosition].platillos[platilloPosition]
-				let text = document.getElementById('platilloName');
-				// let text3 = document.getElementById('platilloName2');
-				// let text2 = document.getElementById('categoryName');
-				// let text4 = document.getElementById('categoryName2');
-				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-				// text2.innerHTML  = categories[entradaPosition].name
-				// text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-				// text4.innerHTML  = categories[entradaPosition].name
-				cambiaplatillo(platillo.glb)
-			}
-			function backCategory() {
-				entradaPosition = entradaPosition + -1;
-				platilloPosition = 0;
-				let platillo = categories[entradaPosition].platillos[platilloPosition];
-				let text = document.getElementById('platilloName');
-				let text3 = document.getElementById('platilloName2');
-				let text2 = document.getElementById('categoryName');
-				let text4 = document.getElementById('categoryName2');
-				text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-				text2.innerHTML  = categories[entradaPosition].name
-				text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-				text4.innerHTML  = categories[entradaPosition].name
-				cambiaplatillo(platillo.glb)
-			}
+			// 	let platillo = categories[entradaPosition].platillos[platilloPosition]
+			// 	let text = document.getElementById('platilloName');
+			// 	// let text3 = document.getElementById('platilloName2');
+			// 	// let text2 = document.getElementById('categoryName');
+			// 	// let text4 = document.getElementById('categoryName2');
+			// 	text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+			// 	// text2.innerHTML  = categories[entradaPosition].name
+			// 	// text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+			// 	// text4.innerHTML  = categories[entradaPosition].name
+			// 	cambiaplatillo(platillo.glb)
+			// }
+			// function backCategory() {
+			// 	entradaPosition = entradaPosition + -1;
+			// 	platilloPosition = 0;
+			// 	let platillo = categories[entradaPosition].platillos[platilloPosition];
+			// 	let text = document.getElementById('platilloName');
+			// 	let text3 = document.getElementById('platilloName2');
+			// 	let text2 = document.getElementById('categoryName');
+			// 	let text4 = document.getElementById('categoryName2');
+			// 	text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+			// 	text2.innerHTML  = categories[entradaPosition].name
+			// 	text3.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
+			// 	text4.innerHTML  = categories[entradaPosition].name
+			// 	cambiaplatillo(platillo.glb)
+			// }
 			function cambiaplatillo (Newmodel) {
 				var platotest = document.querySelector('#plato');
 				//var paneltest = document.querySelector('#panelinfo');
@@ -205,351 +205,7 @@
 			};
 		</script>
 	</head>
-	<!-- <style>
-		@font-face {
-			font-family: 'MontserratBlack';
-			src: url(./static/fonts/Montserrat-ExtraBold.otf);
-			font-weight: 800;
-		}
-		@font-face {
-			font-family: 'MontserratExtraLight';
-			src: url(./static/fonts/Montserrat-ExtraLight.otf);
-		}
-		@font-face {
-			font-family: 'MontserratMedium';
-			src: url(./static/fonts/Montserrat-Medium.otf);
-		}
-
-		
-		.AR{
-			pointer-events: auto;
-		}
-		.homeclase{
-			pointer-events: none;
-		}
-		#scene-1{
-			pointer-events: auto;
-		}
-		.product-container{
-			pointer-events: auto;
-		}
-		.nav{
-			pointer-events: auto;
-		}
-		.scene-arclass{
-			pointer-events: auto;
-		}
-		.category{
-			pointer-events: auto;
-		}
-		.btnescena{
-			pointer-events: auto;
-		}
-		.plus{
-			pointer-events: auto;
-		}
-
-		
-		.buttons {
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 100%;
-		}
-
-		.buttons2 {
-		  width: 100%;
-		  height: 100%;
-		  display: none;
-		}
-
-		.buttons1 {
-		  width: 100%;
-		  height: 100%;
-		}
-
-		.buttonTopPlatilloNext {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 15%;
-			height: 7%;
-			border:0px;
-			border-top-right-radius: 8px;
-			border-bottom-right-radius: 8px;
-		}
-
-		.buttonTopPlatilloBack {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 15%;
-			height: 7%;
-			border:0px;
-			border-top-left-radius: 8px;
-			border-bottom-left-radius: 8px;
-		}
-
-		.buttonTopPlatillo {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 0;
-			right: 15%;
-			width: 70%;
-			height: 7%;
-			border:0px;
-			font-size: 1.5rem;
-			font-weight: 800;
-			font-size: 'MontserratBlack';
-		}
-
-		.buttonPlus {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 8%;
-			left: 0%;
-			width: 9.25%;
-			height: 7%;
-			border:0px;
-			border-top-left-radius: 8px;
-			border-bottom-left-radius: 8px;
-		}
-
-		.buttonMinus {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 8%;
-			left: 39.25%;
-			width: 9.25%;
-			height: 7%;
-			border:0px;
-			border-top-right-radius: 8px;
-			border-bottom-right-radius: 8px;
-		}
-
-		.buttonQuantity {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 8%;
-			left: 9.25%;
-			width: 30%;
-			height: 7%;
-			border:0px;
-			font-size: 1rem;
-			font-size: 'MontserratBlack';
-		}
-		
-		.buttonAdd {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			top: 8%;
-			right: 0%;
-			width: 49.5%;
-			height: 7%;
-			border:0px;
-			border-radius: 8px;
-			padding-left: 10%;
-			padding-right: 10%;
-			font-size: 0.75rem;
-		}
-
-		.buttonPlatilloNext {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 15%;
-			height: 7%;
-			border:0px;
-			border-top-right-radius: 8px;
-			border-bottom-right-radius: 8px;
-		}
-
-		.buttonPlatilloBack {
-			background: rgba(79, 90, 80, 0.8);
-			color: #fff;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 15%;
-			height: 7%;
-			border:0px;
-			border-top-left-radius: 8px;
-			border-bottom-left-radius: 8px;
-		}
-
-		.buttonPlatillo {
-			background: rgba(79, 90, 80, 0.8);
-			color: #fff;
-			position: absolute;
-			bottom: 0;
-			right: 15%;
-			width: 70%;
-			height: 7%;
-			border:0px;
-			font-size: 1rem;
-			font-weight: 800;
-			font-size: 'MontserratBlack';
-		}
-
-		.buttonReceipt {
-			background: rgba(79, 90, 80, 0.8);
-			color: #fff;
-			position: absolute;
-			bottom: 8%;
-			left: 0%;
-			width: 49.5%;
-			height: 7%;
-			border:0px;
-			border-radius: 8px;
-			padding-left: 10%;
-			padding-right: 10%;
-		}
-		
-		.buttonOrder {
-			background: rgba(79, 90, 80, 0.8);
-			color: #fff;
-			position: absolute;
-			bottom: 8%;
-			right: 0%;
-			width: 49.5%;
-			height: 7%;
-			border:0px;
-			border-radius: 8px;
-			padding-left: 5%;
-			padding-right: 5%;
-			font-size: 0.75rem;
-		}
-
-		.buttonAura {
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			bottom: 32%;
-			left: 0%;
-			width: 20%;
-			height: 10%;
-			border:0px;
-			border-radius: 8px;
-
-		}
-
-		.buttonMoto{
-			background: rgba(79, 90, 80, 0.75);
-			color: #fff;
-			position: absolute;
-			bottom: 32%;
-			right: 0%;
-			width: 20%;
-			height: 10%;
-			border:0px;
-			border-radius: 8px;
-		}
-
-
-		@media screen and (orientation:landscape)
-		{
-			.buttons1 {
-				display: none;
-			}
-			.buttons2 {
-				display: block;
-			}
-
-			.buttonTopPlatilloNext {
-				right: 8%;
-				width: 8%;
-			}
-			.buttonMoto {
-				top: 0%;
-				width: 5%;
-				height: 7%;
-			}
-			.buttonAura {
-				top: 0px;
-				width: 5%;
-				height: 7%;
-			}
-			.buttonTopPlatillo {
-				right: 16%;
-				font-size: 1rem;
-			}
-			.buttonTopPlatillo {
-				right: 16%;
-				width: 68%;
-			}
-
-			.buttonTopPlatilloBack {
-				left: 8%;
-				width: 8%;
-			}
-
-			.buttonPlus {
-				top:42.5%;
-				width: 5%;
-				left:0%;
-			}
-
-			.buttonMinus {
-				top:42.5%;
-				width: 5%;
-				left: 15%;
-			}
-
-			.buttonQuantity {
-				top:42.5%;
-				width: 10%;
-				left:5%
-			}
-
-			.buttonAdd {
-				top:42.5%;
-				width: 20%;
-				padding-left: 5%;
-				padding-right: 5%;
-			}
-
-			.buttonReceipt {
-				top:51.5%;
-				width: 20%;
-				padding-left: 1%;
-				padding-right: 1%;
-			}
-
-			.buttonOrder {
-				top:51.5%;
-				width: 20%;
-				padding-left: 1%;
-				padding-right: 1%;
-			}
-			.buttonPlatillo {
-				width: 68%;
-				left:16%;
-				font-size: 0.8rem;
-			}
-			.buttonPlatilloBack {
-				left: 8%;
-				width: 8%;
-			}
-
-			.buttonPlatilloNext {
-				right: 8%;
-				width: 8%;
-			}
-
-		}
-	  </style> -->
+	
 	<body style='margin : 0px; overflow: hidden;'> 
 		<div class="AR">
 		<a-scene id="escena" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
@@ -582,66 +238,15 @@
 			</a-entity>
 		</a-scene>
 		</div>
-		<!-- <div class="buttons">
-			<div class="buttons1">
-				<button class="buttonTopPlatilloBack" onclick="backCategory()">
-					<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
-				</button>
-				<button class="buttonTopPlatillo" id="categoryName"></button>
-				<button class="buttonTopPlatilloNext" onclick="nextCategory()">
-					<img src="./static/icons/Boton_sig.svg" alt=""  style="height: 50%;">
-				</button>
-				<button class="buttonPlus" style="padding-left: 5%;" onclick="minus()">
-					<i class="fas fa-minus fa-1x"></i>
-				</button>
-				<button class="buttonQuantity" id="quantity">
-					0
-				</button>
-				<button class="buttonMinus" style="padding-right: 5%;" onclick="plus()">
-					<i class="fas fa-plus fa-1x"></i> 
-				</button>
-				<button class="buttonAdd" onclick="addOrder()">
-					<b style="float: left; font-family: MontserratExtraLight; font-size:0.8rem;">AGREGAR</b>
-					<b style="float: right;" id="addAmount">$00.00</b>
-				</button>
-				<button class="buttonAura">
-					<img src="./static/icons/logo_rest.png" alt="" style="height: 60%;">
-				</button>
-				<button class="buttonMoto">
-					<img src="./static/icons/boton_envio.svg" alt="">
-				</button>
-				<button class="buttonReceipt">
-					<img src="./static/icons/logo_rest.svg" style="float: left;height: 60%;" alt="">
-					<b style="font-size: 1.8rem; float: right;" id="receipt">0</b>
-				</button>
-				<button class="buttonOrder">
-					<b style="float: left;font-family: MontserratExtraLight; font-size:0.8rem;">ORDENAR</b>
-					<b style="float: right;" id="orderAmount">$00.00</b>
-				</button>
-				<button class="buttonPlatilloBack" onclick="backPlatillo()">
-					<img src="./static/icons/boton_reg.svg" alt=""  style="height: 50%;">
-				</button>
-				<button class="buttonPlatillo" id="platilloName3"></button>
-				<button class="buttonPlatilloNext" onclick="nextPlatillo()">
-					<img src="./static/icons/Boton_sig.svg" alt="" style="height: 50%;">
-				</button>
-			</div>
-		</div> -->
+		
 		<div id="home" class="homeclase">
 			<!-- <div class="background-home"></div> -->
-			<header>
+			<!-- <header>
 				<div class="btnescena">
 				<button class="btn left" onclick="swapScene()">&#10094;</button>
 				</div>
 				<img src="assets/HUG.png" alt="hug">
-				<!-- <div class="search">
-					<div class="search-container">
-						<form>
-							<input type="search" placeholder="Search...">
-							<button type="submit">Search</button>
-						  </form>
-					  </div>
-				</div> -->
+				
 				<ul class="category">
 					<li>
 						Todos
@@ -660,10 +265,10 @@
 					</li>
 				</ul>
 			
-			</header>
+			</header> -->
 			<main id="scene-1">
 				
-				<h3>Productos</h3>
+				<!-- <h3>Productos</h3>
 				<div class="products">
 					<div class="product-container" onclick="deporte()">
 						<div class="image-container">
@@ -707,26 +312,26 @@
 							<div class="price">$500.00</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- <ul class="most-order">
 					<li></li>
 				</ul> -->
 			</main>
 			<main id="scene-ar" class="scene_arclass">
-				<div class="description">
+				<!-- <div class="description">
 					<div class="content-desc">
 						<h4>Lorem Ipsum</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 					</div>
 					<div class="plus" onclick="swapDscr()">&#10006;</div>
-				</div>
+				</div> -->
 				<div class="nav">
 					<button class="btn left" onclick="backPlatillo()">&#10094;</button>
 					<button class="btn right" onclick="nextPlatillo()">&#10095;</button>
 					<div class="prod-name" id="platilloName">Hombre</div>
 				</div>
 			</main>
-			<footer>
+			<!-- <footer>
 				<ul class="footer">
 					<li>
 						<div class="foot-item">
@@ -753,7 +358,7 @@
 						</div>
 					</li>
 				</ul>
-			</footer>
+			</footer> -->
 		</div>
 
 		<div id="splash">
