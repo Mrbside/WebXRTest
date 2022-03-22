@@ -43,9 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-  const startButton = document.createElement("button");
+
+  var startButton=document.querySelector("button");
+  startButton = addEventListener("click",start);
+  
+  /*const startButton = document.createElement("button");
   startButton.textContent = "Enable Augemented Reality";
   startButton.addEventListener("click", start);
-  document.body.appendChild(startButton);
+  document.body.appendChild(startButton);*/
+
   //start(); window.location.replace("https://www.auraxr.com/");
 });
