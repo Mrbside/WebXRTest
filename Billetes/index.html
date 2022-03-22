@@ -3,12 +3,47 @@
     <title>AuraXR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../libs/mindar/mindar-image-three.prod.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap" rel="stylesheet">
     <!-- Dentro de este script es donde viene el metodo que se tiene que llamar, le asignara el metodo a un objeto llamado button -->
     <script src="./main.js" type="module"></script>
     <style>
       html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
+
+      .splash-bg {
+        background: rgb(7,17,69);
+        background: linear-gradient(90deg, rgba(7,17,69,1) 0%, rgba(64,10,83,1) 100%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+
+      .btn{
+        font-family: 'Ubuntu', sans-serif;
+        background: black;
+        color: lightgray;
+        border: 2px solid lightgray;
+        padding: 10px;
+        cursor: pointer;
+        /* outline: inherit;   */
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        width: 180px;
+        border-radius: 50px;
+        top: 45vh;
+        text-transform: capitalize;
+        font-size: 16px;
+      }
     </style>
   </head>
   <body>
+    <div class="splash-bg"></div>
+    <button class="btn">iniciar experiencia</button>
   </body>
 </html>

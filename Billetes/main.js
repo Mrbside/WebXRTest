@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.group.add(plane);
     var isplaying=false; 
 
-    
+    document.querySelector(".splash-bg").style.display = "none";
+   
 
     video.addEventListener('pause', () => {
       if(isplaying){
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  var startButton=document.querySelector("button");
+  var startButton = document.querySelector("button");
   startButton = addEventListener("click",start);
   
   /*const startButton = document.createElement("button");
