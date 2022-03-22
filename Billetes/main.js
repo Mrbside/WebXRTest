@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var isplaying=false; 
 
     document.querySelector(".splash-bg").style.display = "none";
+    document.querySelector(".splash-btn").style.display = "none";
    
 
     video.addEventListener('pause', () => {
