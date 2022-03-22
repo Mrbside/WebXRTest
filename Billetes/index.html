@@ -6,15 +6,22 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <!-- Dentro de este script es donde viene el metodo que se tiene que llamar, le asignara el metodo a un objeto llamado button -->
     <script src="./main.js" type="module"></script>
     <style>
       html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
 
       .splash-bg {
-        background: rgb(7,17,69);
-        background: linear-gradient(90deg, rgba(7,17,69,1) 0%, rgba(64,10,83,1) 100%);
+        /* HERITAGE */
+        background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(147,192,31,1) 100%);
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(255,255,255,1) 100%); */
+        /* BLANK END */
         width: 100%;
         height: 100%;
         position: absolute;
@@ -23,27 +30,49 @@
       }
 
       .splash-btn{
-        font-family: 'Ubuntu', sans-serif;
-        background: black;
-        color: lightgray;
-        border: 2px solid lightgray;
+        font-family: 'Montserrat', sans-serif;
+        /* HERITAGE */
+        background: #93C01F;
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: #B1B1B1; */
+        /* BLANK END */
+        color: #2d2926;
+        border: none;
         padding: 10px;
         cursor: pointer;
-        /* outline: inherit;   */
         position: absolute;
         margin: 0 auto;
         left: 0;
         right: 0;
         width: 180px;
-        border-radius: 50px;
-        top: 45vh;
+        border-radius: 5px;
+        top: 65vh;
         text-transform: capitalize;
         font-size: 16px;
       }
+
+      .logo{
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+
+      .logo img {
+        width: 600px;
+        position: relative;
+      }
+
     </style>
   </head>
   <body>
     <div class="splash-bg"></div>
+    <div class="logo">
+      <img src="./assets/logo_horiz_ley_c01_sn.png" alt="">
+    </div>
     <button class="splash-btn">iniciar experiencia</button>
   </body>
 </html>
