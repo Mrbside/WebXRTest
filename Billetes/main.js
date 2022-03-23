@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector(".splash-bg").style.display = "none";
     document.querySelector(".splash-btn").style.display = "none";
+    document.querySelector(".logo").style.display = "none";
    
 
     video.addEventListener('pause', () => {
