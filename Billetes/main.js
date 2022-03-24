@@ -2,54 +2,63 @@ import {loadGLTF, loadVideo} from "../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('11111');
   const start = async() => {
-    console.log('22222');
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: 'billete.mind',
     });
-    console.log('3333');
     const {renderer, scene, camera} = mindarThree;
-    console.log('4444');
+    console.log('11111');
     const video = await loadVideo("billetevideo.mp4");
-    console.log('44444555555');
+    console.log('22222');
     const texture = new THREE.VideoTexture(video);
-    console.log('55555');
+
     const geometry = new THREE.PlaneGeometry(1, .67);
     const material = new THREE.MeshBasicMaterial({map: texture});
     const plane = new THREE.Mesh(geometry, material);
-    console.log('66666');
+
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(plane);
     var isplaying=false; 
-    console.log('77777');
+
     document.querySelector(".splash-bg").style.display = "none";
     document.querySelector(".splash-btn").style.display = "none";
     document.querySelector(".logo").style.display = "none";
    
-    console.log('88888');
-    video.addEventListener('pause', () => { console.log('99999');
+
+    video.addEventListener('pause', () => {
       if(isplaying){
        window.location.replace("https://www.auraxr.com/");}
     });
-    anchor.onTargetFound = () => { console.log('10101010');
+    anchor.onTargetFound = () => {
       isplaying=true;
       video.play();
     }
-    anchor.onTargetLost = () => { console.log('once');
+    anchor.onTargetLost = () => {
       isplaying=false;
       video.pause();
     }
-    video.addEventListener( 'play', () => { console.log('1212121');
+    video.addEventListener( 'play', () => {
       video.currentTime = 0;
     });
 
     await mindarThree.start();
-    renderer.setAnimationLoop(() => { console.log('13131313');
+    renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
+
+    loadVideo = (path) => {
+      return new Promise((resolve, reject) => {
+        const videoElement = document.createElement("video");
+        videoElement.addEventListener('loadeddata', () => {
+          videoElement.setAttribute('playsinline', '');
+          resolve(videoElement);
+        });
+        videoElement.src = path;
+      });
+    }
   }
+
 
   var startButton = document.querySelector("button");
   startButton = addEventListener("click",start);
