@@ -2,7 +2,9 @@ import {loadGLTF, loadVideo} from "../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('11111');
   const start = async() => {
+    console.log('24234dfsd');
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: 'billete.mind',
