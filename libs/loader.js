@@ -21,14 +21,17 @@ export const loadAudio = (path) => {
   });
 }
 
-export const loadVideo = (path) => {
-  return new Promise((resolve, reject) => {
+export const loadVideo = (path) => {console.log('11111');console.log(path);
+  return new Promise((resolve, reject) => {console.log('22222');
     const video = document.createElement("video");
-    video.addEventListener('loadeddata', () => {
-      video.setAttribute('playsinline', '');
+    video.addEventListener('loadeddata', () => {console.log('33333');
+      video.setAttribute('playsinline', '');console.log(video);
       resolve(video);
     });
     video.src = path;
+    console.log('44444');
+    console.log(video.src);
+    console.log('5555');
   });
 }
 
