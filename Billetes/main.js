@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const {renderer, scene, camera} = mindarThree;
     console.log('4444');
     const video = await loadVideo("billetevideo.mp4");
+    console.log('44444555555');
     const texture = new THREE.VideoTexture(video);
     console.log('55555');
     const geometry = new THREE.PlaneGeometry(1, .67);
