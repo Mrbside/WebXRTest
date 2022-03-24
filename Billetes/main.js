@@ -1,4 +1,4 @@
-// import {loadGLTF, loadVideo} from "../libs/loader.js";
+import {loadGLTF, loadVideo} from "../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,9 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
       imageTargetSrc: 'billete.mind',
     });
     const {renderer, scene, camera} = mindarThree;
-    console.log('11111');
+
     const video = await loadVideo("billetevideo.mp4");
-    console.log('22222');
     const texture = new THREE.VideoTexture(video);
 
     const geometry = new THREE.PlaneGeometry(1, .67);
@@ -46,19 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
-
-    loadVideo = (path) => {
-      return new Promise((resolve, reject) => {
-        const videoElement = document.createElement("video");
-        videoElement.addEventListener('loadeddata', () => {
-          videoElement.setAttribute('playsinline', '');
-          resolve(videoElement);
-        });
-        videoElement.src = path;
-      });
-    }
   }
-
 
   var startButton = document.querySelector("button");
   startButton = addEventListener("click",start);
