@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
 
-    const video = await loadVideo("billetevideo.mp4");
+    // const video = await loadVideo("billetevideo.mp4");
+    const video = document.createElement("video");
+    video.src = await preloadVideo("billetevideo.mp4");
+
     const texture = new THREE.VideoTexture(video);
-    //const video = document.createElement("video");
-    //video.src = await preloadVideo("billetevideo.mp4");
 
     const geometry = new THREE.PlaneGeometry(1, .67);
     const material = new THREE.MeshBasicMaterial({map: texture});
@@ -48,6 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
+  }
+
+  async function preloadVideo(src) {
+    const res = await fetch(src);
+    const blob = await res.blob();
+    return URL.createObjectURL(blob);
   }
 
   var startButton = document.querySelector("button");

@@ -24,7 +24,7 @@ export const loadAudio = (path) => {
 export const loadVideo = (path) => {
   return new Promise((resolve, reject) => {
     const video = document.createElement("video");
-    video.addEventListener('loadeddata', () => {
+    video.addEventListener('loadedmetadata', () => {
       video.setAttribute('playsinline', '');console.log(video);
       resolve(video);
     });
