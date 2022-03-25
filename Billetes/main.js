@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(plane);
+    //var scanerOn=false;
     var isplaying=false; 
 
     document.querySelector(".splash-bg").style.display = "none";
@@ -57,7 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   var startButton = document.querySelector("button");
-  startButton = addEventListener("click",start);
+  //startButton = addEventListener("click",start);
+
+  startButton = addEventListener("click", () => {
+    console.log('I run only once!');
+    start();
+  }, { once: true });
   
   /*const startButton = document.createElement("button");
   startButton.textContent = "Enable Augemented Reality";
