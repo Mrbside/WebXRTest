@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     video.addEventListener('pause', () => {
       if(isplaying){
-       window.location.replace("https://www.auraxr.com/");}
+       window.location.replace("https://www.auraxr.com/hxr-2/");}
     });
     anchor.onTargetFound = () => {
       isplaying=true;
