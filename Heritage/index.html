@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>AuraXR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../libs/mindar/mindar-image-three.prod.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- Dentro de este script es donde viene el metodo que se tiene que llamar, le asignara el metodo a un objeto llamado button -->
+    <script src="./main.js" type="module"></script>
+    <style>
+      html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
+
+      .splash-bg {
+        /* GENERICO */
+        background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 35%, rgba(78,73,69,1) 100%);
+        /* GENERICO END */
+
+        /* HERITAGE */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(147,192,31,1) 100%); */
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(255,255,255,1) 100%); */
+        /* BLANK END */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+
+      .splash-btn{
+        font-family: 'Montserrat', sans-serif;
+        /* HERITAGE */
+        background: transparent;
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: #B1B1B1; */
+        /* BLANK END */
+        color: #B1B1B1;
+        border: 2px solid #B1B1B1;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        width: 180px;
+        border-radius: 5px;
+        top: 65vh;
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+
+      .logo{
+        position: absolute;
+        margin: 0 10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 20vh;
+      }
+
+      .logo img {
+        width: 600px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="splash-bg"></div>
+    <div class="logo">
+      <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
+    </div>
+    <button class="splash-btn">iniciar</button>
+  </body>
+</html>
