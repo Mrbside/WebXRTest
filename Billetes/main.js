@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //const video = document.createElement("video");
     //video.src = await preloadVideo("billetevideo.mp4");
 
-    const geometry = new THREE.PlaneGeometry(1, .50);
+    const geometry = new THREE.PlaneGeometry(1, .562);
     const material = new THREE.MeshBasicMaterial({map: texture});
     const plane = new THREE.Mesh(geometry, material);
 
