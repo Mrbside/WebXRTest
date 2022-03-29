@@ -2,7 +2,9 @@
   <head>
     <title>AuraXR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../libs/mindar/mindar-image-three.prod.js"></script>
+    <script src="../libs/mindar/mindar-image.prod.js"></script>
+    <script src="../libs/mindar/mindar-image-aframe.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,5 +85,23 @@
       <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
     </div>
     <button class="splash-btn">iniciar</button>
+    <div class="example-container">
+      <div id="example-scanning-overlay" class="hidden">
+      </div>
+      <a-scene mindar-image="imageTargetSrc: blanc.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+          <video id="blancvideo" autoplay="false" loop="false" src="blanc.mp4"></video>
+          <a-asset-item id="plano3D" src="plano.gltf"></a-asset-item>
+          <a-asset-item id="cube3D" src="cube.gltf"></a-asset-item>
+        </a-assets>
+        <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
+        </a-camera>
+        <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
+          <a-video id="ARvideo" src="#blancvideo" webkit-playsinline playsinline position="0 0 0" height="0.57" width="1" rotation="0 0 0"></a-video>
+          <a-gltf-model id="firstModel" visible="false" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#plano3D"animation-mixer="clip: clip_BShape; loop:once;"></a-gltf-model>
+          <a-gltf-model id="secondModel" visible="false" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#cube3D" animation-mixer="clip: clip_GeoMan; loop:once;"></a-gltf-model>
+        </a-entity>
+      </a-scene>
+    </div>
   </body>
 </html>

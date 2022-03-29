@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     video.addEventListener('pause', () => {
       if(isplaying){
-       window.location.replace("https://www.auraxr.com/hxr-2/");}
+       window.location.replace("https://www.auraxr.com/heritage-xr/");}
     });
     anchor.onTargetFound = () => {
       isplaying=true;
