@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondModel = document.querySelector("#cube3D");
 
       var isplaying=false; 
+      document.querySelector(".splash-bg").style.display = "none";
+      document.querySelector(".splash-btn").style.display = "none";
+      document.querySelector(".logo").style.display = "none";
+      
       AFRAME.registerComponent('mytarget', {
         init: function () {
           this.el.addEventListener('targetFound', event => {
