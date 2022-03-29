@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
-    const showInfo = () => {
+    
         let y = 0;
         const blancVideo = document.querySelector("#blancvideo");
         const firstModel = document.querySelector("#plano3D");
         const secondModel = document.querySelector("#cube3D");
 
 
-      }
+      
 
       const showPortfolio = (done) => {
         const portfolio = document.querySelector("#portfolio-panel");
@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if(isplaying){
              window.location.replace("https://www.auraxr.com/blancxr/");}
           });
-          
         } 
       });
 
