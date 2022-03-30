@@ -135,16 +135,20 @@
     </style>
   </head>
   <body>
-    <div class="splash-bg"></div>
+    <div class="splash-bg">
+    </div>
     <div class="logo">
       <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
     </div>
     <button class="splash-btn">iniciar</button>
+
     <div class="example-container">
       <div id="example-scanning-overlay" class="hidden">
         <div class="inner">
           <div class="scanline"></div>
+        </div>
       </div>
+
       <a-scene mindar-image="imageTargetSrc: blanc.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
           <video id="blancvideo" src="blancvideo" autoplay="false" loop="false" src="blanc.mp4"></video>
