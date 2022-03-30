@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <title>AuraXR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
+    <script src="../../../A-FrameAddons/js/aframe-extras.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- Dentro de este script es donde viene el metodo que se tiene que llamar, le asignara el metodo a un objeto llamado button -->
+    <script src="./main.js" type="module"></script>
+    <style>
+      html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
+
+      .splash-bg {
+        /* GENERICO */
+        background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 35%, rgba(78,73,69,1) 100%);
+        /* GENERICO END */
+
+        /* HERITAGE */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(147,192,31,1) 100%); */
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(255,255,255,1) 100%); */
+        /* BLANK END */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 3;
+      }
+
+      .splash-btn{
+        font-family: 'Montserrat', sans-serif;
+        /* HERITAGE */
+        background: transparent;
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: #B1B1B1; */
+        /* BLANK END */
+        color: #B1B1B1;
+        border: 2px solid #B1B1B1;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        width: 180px;
+        border-radius: 5px;
+        top: 65vh;
+        text-transform: uppercase;
+        font-size: 16px;
+        z-index: 3;
+      }
+
+      .logo{
+        position: absolute;
+        margin: 0 10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 20vh;
+        z-index: 3;
+      }
+
+      .logo img {
+        width: 600px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+        z-index: 3;
+      }
+      .example-container {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+     
+      #example-scanning-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: transparent;
+	z-index: 2;
+      }
+      @media (min-aspect-ratio: 1/1) {
+	#example-scanning-overlay .inner {
+	  width: 50vh;
+	  height: 50vh;
+	}
+      }
+      @media (max-aspect-ratio: 1/1) {
+	#example-scanning-overlay .inner {
+	  width: 80vw;
+	  height: 80vw;
+	}
+      }
+
+      #example-scanning-overlay .inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	background:
+	  linear-gradient(to right, white 10px, transparent 10px) 0 0,
+	  linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+	  linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+	  linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+	  linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+	  linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+	  linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+	  linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+	background-repeat: no-repeat;
+	background-size: 40px 40px;
+      }
+      #example-scanning-overlay.hidden {
+	display: none;
+      }
+
+      #example-scanning-overlay img {
+	opacity: 0.6;
+	width: 90%;
+	align-self: center;
+      }
+
+      #example-scanning-overlay .inner .scanline {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	background: white;
+	animation: move 2s linear infinite;
+      }
+      @keyframes move {
+	0%, 100% { top: 0% }
+	50% { top: calc(100% - 10px) }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="splash-bg">
+    </div>
+    <div class="logo">
+      <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
+    </div>
+    <button class="splash-btn">iniciar</button>
+
+    <div class="example-container">
+      <div id="example-scanning-overlay" class="hidden">
+        <div class="inner">
+          <div class="scanline"></div>
+        </div>
+      </div>
+
+      <a-scene mindar-image="imageTargetSrc: blanc.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights:true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+          <video id="blancvideo" autoplay="false" loop="false" src="blanc.mp4"></video>
+          <a-asset-item id="plano3D" src="plano.gltf"></a-asset-item>
+          <a-asset-item id="cube3D" src="cube.gltf"></a-asset-item>
+        </a-assets>
+        <a-camera far="100000.00" fov="80.00" near="0.05" position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
+        </a-camera>
+        <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
+          
+          <a-video id="ARvideo" src="#blancvideo" webkit-playsinline playsinline position="0 0 0" height="0.57" width="1" rotation="0 0 0"></a-video>
+          <a-gltf-model id="firstModel" visible="false" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#plano3D"animation-mixer="clip: clip_BShape; loop:once;"></a-gltf-model>
+          <a-gltf-model id="secondModel" visible="false" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#cube3D" animation-mixer="clip: clip_GeoMan; loop:once;"></a-gltf-model>
+        </a-entity>
+      </a-scene>
+    </div>
+  </body>
+</html>
