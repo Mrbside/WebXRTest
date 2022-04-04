@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
     
     video.addEventListener('pause', () => {
-      if(isplaying){
+      if(isplaying && focus){
        window.location.replace("https://www.auraxr.com/blancxr/");}
     });
     anchor.onTargetFound = () => {
@@ -117,19 +117,21 @@ document.addEventListener('DOMContentLoaded', () => {
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
+      renderer.outputEncoding = THREE.sRGBEncoding;
     });
 
+    var focus=true;
     
     window.addEventListener( 'blur', () => {
-      isplaying=false;
-      first3D.visible=false;
-      second3D.visible=false;
-      video.pause();
-      action.stop();
-      action2.stop();
-      video.currentTime = 0;
+      focus=false;
     });
-    
+
+    window.addEventListener( 'focus', () => {
+      focus=true;
+    });
+
+
+
     UpdateFunc();
   }
 
