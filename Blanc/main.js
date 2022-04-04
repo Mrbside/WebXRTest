@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const video = await loadVideo("blanc.mp4");
     const texture = new THREE.VideoTexture(video);
+    
+
 
     const first3D = await loadGLTF("plano.gltf");
     first3D.scene.scale.set(0.017, 0.017, 0.017);
@@ -59,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   function UpdateFunc(){
-    console.log('I run every second');
-    console.log(video.currentTime);
+    //console.log('I run every second');
+    //console.log(video.currentTime);
 
     if(video.currentTime>0 && video.currentTime<1){
       first3D.scene.visible=false;
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(UpdateFunc, 1000);
   }
-
+    
     video.addEventListener('pause', () => {
       if(isplaying){
        window.location.replace("https://www.auraxr.com/blancxr/");}
@@ -117,6 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
 
+    
+    window.addEventListener( 'blur', () => {
+      isplaying=false;
+      first3D.visible=false;
+      second3D.visible=false;
+      video.pause();
+      action.stop();
+      action2.stop();
+      video.currentTime = 0;
+    });
+    
     UpdateFunc();
   }
 

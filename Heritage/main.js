@@ -48,6 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
+
+    window.addEventListener( 'blur', () => {
+      isplaying=false;
+      first3D.visible=false;
+      second3D.visible=false;
+      video.pause();
+      action.stop();
+      action2.stop();
+      video.currentTime = 0;
+    });
   }
 
   var startButton = document.querySelector("button");
