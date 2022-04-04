@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const video = await loadVideo("blanc.mp4");
     const texture = new THREE.VideoTexture(video);
-    
+    texture.encoding = THREE.sRGBEncoding;
 
 
     const first3D = await loadGLTF("plano.gltf");
@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
-      renderer.outputEncoding = THREE.sRGBEncoding;
     });
 
     var focus=true;

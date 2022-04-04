@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const video = await loadVideo("heritage.mp4");
     const texture = new THREE.VideoTexture(video);
-    //const video = document.createElement("video");
-    //video.src = await preloadVideo("billetevideo.mp4");
+    texture.encoding = THREE.sRGBEncoding;
 
     const geometry = new THREE.PlaneGeometry(1, .57);
     const material = new THREE.MeshBasicMaterial({map: texture});
