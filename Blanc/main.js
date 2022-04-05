@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
     
+    document.querySelector(".splash-bg").style.display = "none";
+    document.querySelector(".splash-btn").style.display = "none";
+    document.querySelector(".logo").style.display = "none";
+    
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     scene.add(light);
     
@@ -37,9 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     action2.clampWhenFinished = true;
     action2.enable = true;
 
-    document.querySelector(".splash-bg").style.display = "none";
-    document.querySelector(".splash-btn").style.display = "none";
-    document.querySelector(".logo").style.display = "none";
+    
 
     const geometry = new THREE.PlaneGeometry(1, .57);
     const material = new THREE.MeshBasicMaterial({map: texture});
