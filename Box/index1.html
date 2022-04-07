@@ -1,6 +1,9 @@
 <html>
   <head>
     <title>FIGHT FOR LIFE CLUB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap" rel="stylesheet">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="../aframe/build/aframe-ar.js"></script>
     <script src="../A-FrameAddons/js/aframe-extras.min.js"></script>
@@ -35,39 +38,57 @@
         });
         //../aframe/AuraXRMenu/AXR-BACKUPS/pattern-AuraMarker.patt
       </script>
-  </head>
-  <style>
-      .buttons-container {
-      bottom: 0px;
-      left: 0px;
-      position: absolute;
-      display: flex;
-      justify-content: space-between;
-      animation-name: delayButton;
-      animation-duration: 0.2s;
-      animation-delay: 2s;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
-     .btn{
-       font-family: 'Courier New', Courier, monospace;
-       color: white;
-       padding: 10px 20px;
-       font-size: 2em;
-       text-decoration: none;
-     }
-     .donar{
-       background-color: #7dd42d;
-     }
-     .ntf {
-       background-color: #492E71;
-     }
-
-     @keyframes delayButton {
-        from {opacity: 0;}
-        to {opacity: 1;}
+      <style>
+        .buttons-container {
+          font-family: 'Jost', sans-serif;
+          bottom: 20px;
+          left: 0px;
+          right: 0px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          animation-name: delayButton;
+          animation-duration: 0.2s;
+          animation-delay: 2s;
+          opacity: 0;
+          animation-fill-mode: forwards;
+          font-size: 2em;
+          box-shadow: 0px 0px 20px 5px #aaa;
+          width: fit-content;
+          margin: 0 auto;
+          border-radius: 10px;
       }
-  </style>
+       .btn{
+         /* font-family: 'Courier New', Courier, monospace; */
+         color: white;
+         padding: 10px 20px;
+         text-decoration: none;
+       }
+       .donar{
+          background-color: #7dd42d;
+          background: linear-gradient(120deg, rgba(125,212,45,1) 0%, rgba(134,245,33,1) 100%);
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+       }
+       .ntf {
+          background-color: #492E71;
+          /* background: rgb(73,46,113); */
+          background: linear-gradient(120deg, rgba(73,46,113,1) 0%, rgba(105,61,171,1) 100%);
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+       }
+       .hash {
+         color: black;
+         pointer-events: none
+       }
+  
+       @keyframes delayButton {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+    </style>
+  </head>
+  
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
       <a-assets>
@@ -97,8 +118,9 @@
      
     </a-scene>
     <div class="buttons-container">
-      <a href="https://fightforlifeclub.club/#ourchampions" target="_blank" class="btn donar">DONAR</a>
-      <a href="https://opensea.io/fightforlifeclub" target="_blank" class="btn ntf">NFT</a>
+      <a href="https://fightforlifeclub.club/#ourchampions" target="_blank" class="btn donar">DONATE</a>
+      <a href="" class="btn hash">#SaveFatima</a>
+      <a href="https://opensea.io/fightforlifeclub" target="_blank" class="btn ntf">Buy NFT</a>
     </div>
   </body>
 </html>
