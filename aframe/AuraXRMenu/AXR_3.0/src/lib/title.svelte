@@ -1,20 +1,15 @@
 <script>
-    export let title = "Home Page"
+    import { headerTitle } from '../store'
+    // export let title = "Home Page"
 </script>
 
 <div class="title">
-    <img src="/menuxr_h.png" alt="site logo">
-    <h2>{title}</h2>
+    <h2>{$headerTitle}</h2>
 </div>
 
-<style>
+<style lang="scss">
     .title{
         display: flex;
-    }
-    .title img{
-        display: inline-block;
-        width: 200px;
-    
     }
     .title h2{
         margin-left: 10px;

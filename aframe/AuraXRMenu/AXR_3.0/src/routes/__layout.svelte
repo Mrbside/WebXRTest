@@ -1,29 +1,70 @@
+
+
 <script>
+
 import Title from '$lib/title.svelte'
-import '../styles/global.css'
+import BackButton from '$lib/BackButton.svelte'
+import '../styles/global.scss'
 </script>
 
 <header>
-    <Title title="Holaaaa"/>
+    <BackButton />
+    <Title />
 </header>
 <main>
     <slot></slot>
 </main>
-<footer>
-    <p>Copyright 2022 AuraXR</p>
+<footer class="first-color">
+    <a href="/home">
+        <button class="btn">
+            <span class="material-icons md-18">home</span>
+            <div>inicio</div>
+        </button>
+    </a>
+    <a href="/category">
+        <button class="btn">
+            <span class="material-icons md-18">list</span>
+            <div>categoria</div>
+        </button>
+    </a>
+    <a href="/features">
+        <button class="btn">
+            <span class="material-icons md-18">favorite_border</span>
+            <div>favorito</div>
+        </button>
+    </a>
+    <a href="/profile">
+        <button class="btn">
+            <span class="material-icons md-18">account_circle</span>
+            <div>perfil</div>
+        </button>
+    </a>
+  
 </footer>
-<style>
+<style lang="scss">
     header{
         display: flex;
         justify-content: center;
-        background: darkgrey;
+        background: white;
     }
     main{
         max-width: 960px;
         margin: 20px auto;
     }
     footer{
+        display: flex;
+        position: fixed;
+        justify-content: space-around;
+        bottom: 0px;
+        left: 0px;
         text-align: center;
-        background: darkgrey;
+        width: 100%;
+    }
+
+    footer .btn{
+        background-color: transparent;
+        color: white;
+        border: none;
+        margin: 10px;
     }
 </style>

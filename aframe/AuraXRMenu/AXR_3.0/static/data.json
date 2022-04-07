@@ -1,0 +1,290 @@
+{
+    "store": [
+        {
+            "category": "deportes",
+            "subcategory": "higiene",
+            "id": 1,
+            "title": "Hug Hombre",
+            "subtitle": "provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+            "assets": {
+                "imageThumbnail": "/hugs-HOMBRE-1200x1815.png",
+                "imageA": "/hugs-HOMBRE-1200x1815.png",
+                "imageB": "/hugs-HOMBRE-1200x1815.png",
+                "vectorFile": "/Black.glb"
+                },
+            "info": {
+                "price": 2.50,
+                "code": "AD433ER345245",
+                "quantity": 10,
+                "stock": true,
+                "feature": true,
+                "promotion": false,
+                "discount": 10,
+                "brand": "hug",
+                "model": "black",
+                "size": "regular",
+                "gender": "man",
+                "tags": ["hombre", "black", "regular", "feature"]
+                }
+            },
+            {
+                "category": "deportes",
+                "subcategory": "higiene",
+                "id": 2,
+                "title": "Hug Mujer",
+                "subtitle": "provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+                "assets": {
+                    "imageThumbnail": "/hugs-MUJER-1200x1815.png",
+                    "imageA": "/hugs-MUJER-1200x1815.png",
+                    "imageB": "/hugs-MUJER-1200x1815.png",
+                    "vectorFile": "/Blue.glb"
+                    },
+                "info": {
+                    "price": 2.50,
+                    "code": "AD433ER345245",
+                    "quantity": 10,
+                    "stock": true,
+                    "feature": true,
+                    "promotion": false,
+                    "discount": 10,
+                    "brand": "hug",
+                    "model": "black",
+                    "size": "regular",
+                    "gender": "mujer",
+                    "tags": ["black", "mujer", "regular", "feature"]
+                    }
+                },
+                {
+                    "category": "deportes",
+                    "subcategory": "higiene",
+                    "id": 3,
+                    "title": "Hug Sport",
+                    "subtitle": "provident occaecati excepturi optio reprehenderit",
+                    "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+                    "assets": {
+                        "imageThumbnail": "/hugs-SPORT-1200x1815.png",
+                        "imageA": "/hugs-SPORT-1200x1815.png",
+                        "imageB": "/hugs-SPORT-1200x1815.png",
+                        "vectorFile": "/Orange.glb"
+                        },
+                    "info": {
+                        "price": 2.50,
+                        "code": "AD433ER345245",
+                        "quantity": 10,
+                        "stock": true,
+                        "feature": false,
+                        "promotion": false,
+                        "discount": 10,
+                        "brand": "hug",
+                        "model": "black",
+                        "size": "regular",
+                        "gender": "neutro",
+                        "tags": ["neutro", "black", "regular"]
+                        }
+            },
+            {
+                "category": "deportes",
+                "subcategory": "ciclismo",
+                "id": 4,
+                "title": "Marco 327XL",
+                "subtitle": "provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+                "assets": {
+                    "imageThumbnail": "/marco-bici.jpg",
+                    "imageA": "/marco-bici.jpg",
+                    "imageB": "/marco-bici.jpg",
+                    "vectorFile": "/Black.glb"
+                    },
+                "info": {
+                    "price": 2.50,
+                    "code": "AD433ER345245",
+                    "quantity": 10,
+                    "stock": true,
+                    "feature": true,
+                    "promotion": false,
+                    "discount": 10,
+                    "brand": "shimano",
+                    "model": "black",
+                    "size": "xl",
+                    "gender": "man",
+                    "tags": ["hombre", "black", "xl", "feature", "shimano"]
+                    }
+        },
+        {
+            "category": "deportes",
+            "subcategory": "ciclismo",
+            "id": 5,
+            "title": "Frenos Mountain King",
+            "subtitle": "provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+            "assets": {
+                "imageThumbnail": "/juego-frenos-disco-bicicleta.jpg",
+                "imageA": "/juego-frenos-disco-bicicleta.jpg",
+                "imageB": "/juego-frenos-disco-bicicleta.jpg",
+                "vectorFile": "/Black.glb"
+                },
+            "info": {
+                "price": 2.50,
+                "code": "AD433ER345245",
+                "quantity": 10,
+                "stock": true,
+                "feature": true,
+                "promotion": false,
+                "discount": 10,
+                "brand": "mountain king",
+                "model": "DS-318",
+                "size": "regular",
+                "gender": "man",
+                "tags": ["regular", "black", "xl", "feature", "mountain king"]
+                }
+        },
+
+
+
+        {
+            "category": "jugueteria",
+            "subcategory": "rompecabezas",
+            "id": 6,
+            "title": "Rompecabezas de la Luna",
+            "subtitle": "provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+            "assets": {
+                "imageThumbnail": "/moon.jpeg",
+                "imageA": "/moon.jpeg",
+                "imageB": "/moon.jpeg",
+                "vectorFile": "/Black.glb"
+                },
+            "info": {
+                "price": 2.50,
+                "code": "AD433ER345245",
+                "quantity": 10,
+                "stock": true,
+                "feature": false,
+                "promotion": false,
+                "discount": 10,
+                "brand": "rolands",
+                "model": "luna",
+                "size": "5000",
+                "gender": "neutro",
+                "tags": ["luna", "5000pz", "rolands"]
+                }
+            },
+            {
+                "category": "jugueteria",
+                "subcategory": "rompecabezas",
+                "id": 7,
+                "title": "La Monalisa",
+                "subtitle": "provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+                "assets": {
+                    "imageThumbnail": "/monalisa.jpg",
+                    "imageA": "/monalisa.jpg",
+                    "imageB": "/monalisa.jpg",
+                    "vectorFile": "/Black.glb"
+                    },
+                "info": {
+                    "price": 2.50,
+                    "code": "AD433ER345245",
+                    "quantity": 10,
+                    "stock": true,
+                    "feature": true,
+                    "promotion": false,
+                    "discount": 10,
+                    "brand": "maco",
+                    "model": "monalisa1200",
+                    "size": "1200",
+                    "gender": "neutro",
+                    "tags": ["maco", "monalisa", "1200pz", "feature"]
+                    }
+                },
+                {
+                    "category": "jugueteria",
+                    "subcategory": "rompecabezas",
+                    "id": 8,
+                    "title": "Tunder Cats",
+                    "subtitle": "provident occaecati excepturi optio reprehenderit",
+                    "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+                    "assets": {
+                        "imageThumbnail": "/thunder3.jpeg",
+                        "imageA": "/thunder3.jpeg",
+                        "imageB": "/thunder3.jpeg",
+                        "vectorFile": "/Black.glb"
+                        },
+                    "info": {
+                        "price": 2.50,
+                        "code": "AD433ER345245",
+                        "quantity": 10,
+                        "stock": true,
+                        "feature": false,
+                        "promotion": false,
+                        "discount": 10,
+                        "brand": "lili ledy",
+                        "model": "thundercats",
+                        "size": "2000",
+                        "gender": "neutro",
+                        "tags": ["lili leddy", "2000pz", "thundercats"]
+                        }
+            },
+            {
+                "category": "jugueteria",
+                "subcategory": "lego",
+                "id": 9,
+                "title": "Simpson Set",
+                "subtitle": "provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+                "assets": {
+                    "imageThumbnail": "/simpson2.jpeg",
+                    "imageA": "/simpson2.jpeg",
+                    "imageB": "/simpson2.jpeg",
+                    "vectorFile": "/Black.glb"
+                    },
+                "info": {
+                    "price": 2.50,
+                    "code": "AD433ER345245",
+                    "quantity": 10,
+                    "stock": true,
+                    "feature": true,
+                    "promotion": false,
+                    "discount": 10,
+                    "brand": "lego",
+                    "model": "simpsons",
+                    "size": "xl",
+                    "gender": "neutro",
+                    "tags": ["simpsins", "lego", "xl", "feature"]
+                    }
+        },
+        {
+            "category": "jugueteria",
+            "subcategory": "lego",
+            "id": 10,
+            "title": "Lego Technics F1",
+            "subtitle": "provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+            "assets": {
+                "imageThumbnail": "/lego3.jpeg",
+                "imageA": "/lego3.jpeg",
+                "imageB": "/lego3.jpeg",
+                "vectorFile": "/Black.glb"
+                },
+            "info": {
+                "price": 2.50,
+                "code": "AD433ER345245",
+                "quantity": 10,
+                "stock": true,
+                "feature": true,
+                "promotion": false,
+                "discount": 10,
+                "brand": "lego",
+                "model": "technics-f1",
+                "size": "regular",
+                "gender": "neutro",
+                "tags": ["technics", "lego", "fi", "feature"]
+                }
+        }
+            
+            
+      ]
+}
+
