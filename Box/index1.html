@@ -15,6 +15,9 @@
           document.querySelector(".splash-bg").style.display = "none";
           document.querySelector(".splash-btn").style.display = "none";
           document.querySelector(".logo").style.display = "none";
+          document.querySelector(".logo-fight").style.display = "none";
+          document.querySelector(".hash-splash").style.display = "none";
+          document.querySelector(".by").style.display = "none";
         }
         var startButton = document.querySelector("button");
         startButton = addEventListener("click", () => {
@@ -70,20 +73,7 @@
       </script>
       <style>
         .splash-bg {
-          /* GENERICO */
-          background: rgb(45,41,38);
-          background: linear-gradient(120deg, rgba(45,41,38,1) 35%, rgba(78,73,69,1) 100%);
-          /* GENERICO END */
-
-          /* HERITAGE */
-          /* background: rgb(45,41,38);
-          background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(147,192,31,1) 100%); */
-          /* HERITAGE END */
-
-          /* BLANK */
-          /* background: rgb(45,41,38);
-          background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(255,255,255,1) 100%); */
-          /* BLANK END */
+          background-color: white;
           width: 100%;
           height: 100%;
           position: absolute;
@@ -94,24 +84,19 @@
 
         .splash-btn{
           font-family: 'Montserrat', sans-serif;
-          /* HERITAGE */
-          background: transparent;
-          /* HERITAGE END */
-
-          /* BLANK */
-          /* background: #B1B1B1; */
-          /* BLANK END */
-          color: #B1B1B1;
-          border: 2px solid #B1B1B1;
-          padding: 10px;
+          background: #492E71;
+        
+          color: white;
+          border: none;
+          padding: 16px;
           cursor: pointer;
           position: absolute;
           margin: 0 auto;
           left: 0;
           right: 0;
-          width: 180px;
-          border-radius: 5px;
-          top: 65vh;
+          width: 160px;
+          border-radius: 10px;
+          top: 55vh;
           text-transform: uppercase;
           font-size: 16px;
           z-index: 2;
@@ -119,21 +104,57 @@
 
         .logo{
           position: absolute;
-          margin: 0 10%;
+          margin: 0 auto;
           left: 0;
           right: 0;
           text-align: center;
-          top: 20vh;
+          bottom: 10vh;
           z-index: 2;
+          max-width: 300px;
+          padding: 0px 20px;
         }
 
-        .logo img {
-          width: 600px;
+        .logo-fight{
+          position: absolute;
+          margin: 0 auto;
+          left: 0;
+          right: 0;
+          text-align: center;
+          top: 8vh;
+          z-index: 2;
+          max-width: 400px;
+          padding: 0px 20px;
+        }
+
+        .hash-splash, .by {
+          position: absolute;
+          margin: 0 auto;
+          left: 0;
+          right: 0;
+          text-align: center;
+          top: 65vh;
+          z-index: 2;
+          max-width: 400px;
+          padding: 0px 20px;
+          font-family: 'Montserrat', sans-serif;
+          color: #838383;
+        }
+
+        .by{
+          /* top: 60vh; */
+          top: unset;
+          bottom: 22vh;
+        }
+
+        .logo img, .logo-fight img {
           position: relative;
           width: 100%;
           height: auto;
           max-width: 800px;
         }
+
+        
+
         .buttons-container {
           font-family: 'Jost', sans-serif;
           bottom: 20px;
@@ -214,10 +235,15 @@
   <body style='margin : 0px; overflow: hidden;'>
     <div class="splash-bg">
     </div>
+    <div class="logo-fight">
+      <img src="./assets/logo-ffc.png" alt="" width="600" height="400">
+    </div>
+    <button class="splash-btn">iniciar</button>
+    <p class="hash-splash">#SaveFatima</p>
+    <p class="by">by</p>
     <div class="logo">
       <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
     </div>
-    <button class="splash-btn">iniciar</button>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
       <a-assets>
         <a-asset-item id="niñabox" src="Boxer.gltf"></a-asset-item>
