@@ -46,6 +46,7 @@ import '../styles/global.scss'
         display: flex;
         justify-content: center;
         background: white;
+        border-bottom-right-radius: 20px;
     }
     main{
         max-width: 960px;

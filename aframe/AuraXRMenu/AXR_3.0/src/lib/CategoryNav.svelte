@@ -17,7 +17,9 @@
 
     export const ctgryIcons = { 
         deportes: "sports_tennis",
-        jugueteria: "toys"
+        jugueteria: "toys",
+        marte: "rocket_launch",
+        reposteria: "bakery_dining"
     }
     
 </script>
@@ -67,7 +69,7 @@
             /* text-align: center; */
             margin: 0 10px;
             height: 60px;
-            width: 160px;
+            min-width: 160px;
             box-shadow: 1px 1px 4px 1px #ddd;
             border-radius: 10px;
             background-color: white;

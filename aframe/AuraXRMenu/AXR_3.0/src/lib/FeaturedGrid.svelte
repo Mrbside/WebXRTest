@@ -22,7 +22,7 @@
                         <div class="img" style={`background-image: url('${item.assets.imageThumbnail}');`}></div>
                         <!-- <img src={`${item.assets.imageThumbnail}`} alt="site logo"> -->
                         <div class="content third-color">
-                            <div>{item.title}</div>
+                            <div class="title">{item.title}</div>
                             <div>{item.info.price}</div>
                         </div>
                      
@@ -102,6 +102,9 @@
                         border-radius: 10px;
                         padding-top: 10px;
                         margin: 0 auto;
+                        .title{
+                            font-weight: 600;
+                        }
                     }
                 }
             }

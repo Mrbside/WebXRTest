@@ -35,7 +35,7 @@
 <div class="product">
     <div class="img" style={`background-image: url('${storeData.assets.imageA}');`}></div>
        
-    <div class="container">
+    <div class="container second-color">
         <h1>{storeData.title}</h1>
         <p>{storeData.subtitle}</p>
         <p class="info">Info: {storeData.body}</p>
@@ -53,10 +53,17 @@
                 <p>Sexo: {storeData.info.gender}</p>
             </div>
         </div>
-        <p>Tags:{storeData.info.tags}</p>
+        <p class="tags first-color-l">Tags:{storeData.info.tags}</p>
+
+        <div class="btn">
+            <a 
+            sveltekit:prefetch 
+            href={`/${storeData.category}/arview/${storeData.id}`}
+            class="btn second-color-d"
+            >AR View</a>
+        </div>
     </div>
 
-    <a sveltekit:prefetch href={`/${storeData.category}/arview/${storeData.id}`}>AR View</a>
    <div class="spacer"></div>
 </div>
 
@@ -67,7 +74,9 @@
         margin: 20px auto;
 
         .container{
-            margin: 0 20px;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 20px;
             .info {
                 /* color: rgb(156, 156, 156); */
                 font-weight: 100;
@@ -78,6 +87,29 @@
                 grid-auto-flow: column;
                 font-size: 0.8em;
                 /* text-align: left; */
+            }
+            
+            .tags {
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 0.8em;
+                margin: 10px 20px;
+            }
+            .btn {
+                
+                left: 0px;
+                right: 0px;
+                width: 300px;
+                margin:  30px auto;
+                text-decoration: none;
+                color: white;
+                position: relative;
+                
+                a{
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 50px;
+                }
             }
         }
         .img{
@@ -91,5 +123,7 @@
             position: relative;
             top: 0px;
         }
+
+        
     }
 </style>
