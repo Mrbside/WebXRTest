@@ -133,8 +133,8 @@
 		</a-scene>
 		<!-- </div> -->
 		<div class="nav">
-			<button class="btn left" onclick="backPlatillo()">&#10094;</button>
-			<button class="btn right" onclick="nextPlatillo()">&#10095;</button>
+			<!-- <button class="btn left" onclick="backPlatillo()">&#10094;</button>
+			<button class="btn right" onclick="nextPlatillo()">&#10095;</button> -->
 			<div class="prod-name" id="platilloName">Hombre</div>
 		</div>
 </div>
