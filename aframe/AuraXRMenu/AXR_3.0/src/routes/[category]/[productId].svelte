@@ -21,6 +21,7 @@
 </script>
 
 <script>
+    import { breadcrumb } from "../../store.js";
     export let store
     export let productId
     export let storeData = {}
@@ -28,23 +29,35 @@
         if(productId == element.id) storeData = element
     });
 
+    $breadcrumb = "/" + storeData.category 
 </script>
 
 <div class="product">
     <div class="img" style={`background-image: url('${storeData.assets.imageA}');`}></div>
-    <h1>{storeData.title}</h1>
-    <p>{storeData.subtitle}</p>
-    <p>Info: {storeData.body}</p>
-    <p>Price: ${storeData.info.price}</p>
-    <p>Qty: {storeData.info.quantity}</p>
-    <p>Marca: {storeData.info.band}</p>
-    <p>Modelo: {storeData.info.model}</p>
-    <p>Tamaño: {storeData.info.size}</p>
-    <p>Sexo: {storeData.info.gender}</p>
-    <p>Tags:{storeData.info.tags}</p>
+       
+    <div class="container">
+        <h1>{storeData.title}</h1>
+        <p>{storeData.subtitle}</p>
+        <p class="info">Info: {storeData.body}</p>
+        <div class="segment">
+            <p>Price: ${storeData.info.price}</p>
+            <p>Qty: {storeData.info.quantity}</p>
+        </div>
+        <div class="segment">
+            <div>
+                <p>Marca: {storeData.info.band}</p>
+                <p>Modelo: {storeData.info.model}</p>
+            </div>
+            <div>
+                <p>Tamaño: {storeData.info.size}</p>
+                <p>Sexo: {storeData.info.gender}</p>
+            </div>
+        </div>
+        <p>Tags:{storeData.info.tags}</p>
+    </div>
 
     <a sveltekit:prefetch href={`/${storeData.category}/arview/${storeData.id}`}>AR View</a>
-   
+   <div class="spacer"></div>
 </div>
 
 <style lang="scss">
@@ -53,6 +66,20 @@
         display: block;
         margin: 20px auto;
 
+        .container{
+            margin: 0 20px;
+            .info {
+                /* color: rgb(156, 156, 156); */
+                font-weight: 100;
+                font-size: 0.9em;
+            }
+            .segment {
+                display: grid;
+                grid-auto-flow: column;
+                font-size: 0.8em;
+                /* text-align: left; */
+            }
+        }
         .img{
             position: relative;
             background-image: url(/hugs-HOMBRE-1200x1815.png);

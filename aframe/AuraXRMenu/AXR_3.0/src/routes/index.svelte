@@ -1,6 +1,7 @@
 <script>
-     import { headerTitle } from "../store";
+     import { headerTitle } from "../store.js";
      $headerTitle = "INDEX"
+     
 </script>
 
 <div class="index">

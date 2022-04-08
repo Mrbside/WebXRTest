@@ -49,9 +49,10 @@ import '../styles/global.scss'
     }
     main{
         max-width: 960px;
-        margin: 20px auto;
+        margin: 20px 0px;
     }
     footer{
+        border-top-left-radius: 20px;
         display: flex;
         position: fixed;
         justify-content: space-around;

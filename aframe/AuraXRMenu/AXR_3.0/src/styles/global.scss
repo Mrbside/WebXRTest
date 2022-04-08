@@ -25,7 +25,7 @@ $fifth-color-l: hsla(0, 0%, 100%, 1);
 
 
 body{
-    /* background-color: rgb(205, 210, 222); */
+    background-color: $fifth-color; 
     margin: 0px;
 }
 
@@ -42,34 +42,44 @@ h1, h2, h3, h4, p, a{
     left: 0px;
 }
 
-.first-color {
-    background-color: $first-color;
-}
-.second-color {
-    background-color: $second-color;
-}
-.third-color {
-    background-color: $third-color;
-}
-.forth-color {
-    background-color: $forth-color;
-}
-.fifth-color {
-    background-color: $fifth-color;
+.spacer {
+    height: 40px;
 }
 
-.first-color-font {
-    color: $first-color;
-}
-.second-color-font {
-    color: $second-color;
-}
-.third-color-font {
-    color: $third-color;
-}
-.forth-color-font {
-    color: $forth-color;
-}
-.fifth-color-font {
-    color: $fifth-color;
-}
+.first-color { background-color: $first-color; }
+.second-color { background-color: $second-color; }
+.third-color { background-color: $third-color; }
+.forth-color { background-color: $forth-color; }
+.fifth-color { background-color: $fifth-color; }
+
+.first-color-font { color: $first-color; }
+.second-color-font { color: $second-color; }
+.third-color-font { color: $third-color; }
+.forth-color-font { color: $forth-color; }
+.fifth-color-font { color: $fifth-color; }
+
+// Dark
+.first-color-d { background-color: $first-color-d; }
+.second-color-d { background-color: $second-color-d; }
+.third-color-d { background-color: $third-color-d; }
+.forth-color-d { background-color: $forth-color-d; }
+.fifth-color-d { background-color: $fifth-color-d; }
+
+.first-color-font-d { color: $first-color-d; }
+.second-color-font-d { color: $second-color-d; }
+.third-color-font-d { color: $third-color-d; }
+.forth-color-font-d { color: $forth-color-d; }
+.fifth-color-font-d { color: $fifth-color-d; }
+
+// Light
+.first-color-l { background-color: $first-color-l; }
+.second-color-l { background-color: $second-color-l; }
+.third-color-l { background-color: $third-color-l; }
+.forth-color-l { background-color: $forth-color-l; }
+.fifth-color-l { background-color: $fifth-color-l; }
+
+.first-color-font-l { color: $first-color-l; }
+.second-color-font-l { color: $second-color-l; }
+.third-color-font-l { color: $third-color-l; }
+.forth-color-font-l { color: $forth-color-l; }
+.fifth-color-font-l { color: $fifth-color-l; }

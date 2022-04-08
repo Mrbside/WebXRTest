@@ -23,7 +23,7 @@
 </script>
 
 <div class="category-nav">
-    <h1>Categorias</h1>
+    <h3>Categorias</h3>
     <p>Seleccion de categorias</p>
    
     <ul>
@@ -34,7 +34,7 @@
                         <span class="material-icons md-18 first-color-font">{`${ctgryIcons[item]}`}</span>
                         <div>
                             {item}
-                            <div>{categoryElements[item]}</div>
+                            <div class="stock-text">Stock: {categoryElements[item]}pz</div>
                         </div>
                     </div>
                 </a>
@@ -46,9 +46,16 @@
 
 <style lang="scss">
     .category-nav{
-        text-align: center;
+        text-align: left;
         display: block;
-        margin: 20px auto;
+        margin: 20px 20px;
+        h3 {
+            font-weight: bold;
+        }
+        p{
+            line-height: 0;
+            color: #666;
+        }
     }
     ul {
         display: flex;
@@ -57,11 +64,13 @@
         padding-top: 10px;
         height: 70px;
         li {
+            /* text-align: center; */
             margin: 0 10px;
             height: 60px;
             width: 160px;
-            box-shadow: 1px 1px 8px 1px #ddd;
+            box-shadow: 1px 1px 4px 1px #ddd;
             border-radius: 10px;
+            background-color: white;
             a {
                 text-transform: capitalize;
                 text-decoration: none;
@@ -73,6 +82,11 @@
                     justify-content: space-around;
                     span {
                         padding-top: 8px;
+                    }
+
+                    .stock-text {
+                        font-size: 0.8em;
+                        color: #666;
                     }
                 }
                 

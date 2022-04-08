@@ -18,10 +18,10 @@
 </script>
 
 <div class="product-list-subcategory">
-    <h1>{category}</h1>
+    <h3>{category}</h3>
     <ul>
         {#each subcategories as subcategory}
-        <h1>{subcategory}</h1>
+        <h3>{subcategory}</h3>
             {#each categoryElements as item}
                 {#if item.subcategory == subcategory}
                 <li>
@@ -29,8 +29,8 @@
                         <div class="container">
                             <div class="img" style={`background-image: url('${item.assets.imageThumbnail}');`}></div>
                         <div class="content third-color">
-                                <div>{item.title}</div>
-                                <div>{item.info.price}</div>
+                                <div class="title">{item.title}</div>
+                                <div>$ {item.info.price}</div>
                             </div>
                         
                         </div>
@@ -44,25 +44,32 @@
 
 <style lang="scss">
     .product-list-subcategory{
-        text-align: center;
+        text-align: left;
         display: block;
-        margin: 20px auto;
-
+        margin: 20px 20px;
+        h3 {
+            font-weight: bold;
+            line-height: 0;
+        }
         ul {
             padding: 0px;
             display: flex;
             flex-direction: column;
             list-style: none;
-            width: calc(100% - 40px);
+            width: 100%;
             position: relative;
             left: 0px;
             right: 0px;
+            h3 {
+                font-weight: 400;
+            }
             li {
-                margin: 10px 20px;
+                margin: 10px 0px;
                 height: 100px;
                 width: 100%;
                 box-shadow: 1px 1px 8px 1px #ddd;
                 border-radius: 10px;
+                background-color: white;
                 a {
                     width: inherit;
                     height: inherit;
@@ -73,7 +80,6 @@
                     .container {
                         width: inherit;
                         height: inherit;
-                        padding: 10px 10px;
                         position: relative;
                         display: flex;
                         .img{
@@ -88,12 +94,19 @@
                         }
 
                         .content {
+                            display: flex;
+                            justify-content: space-between;
+                            top: 20px;
+                            padding: 10px;
                             font-size: 12px;
                             position: relative;
                             height: 40px;
                             width: 60%;
                             border-radius: 10px;
                             padding-top: 10px;
+                            .title {
+                                font-weight: 500;
+                            }
                         }
                     }
                 }

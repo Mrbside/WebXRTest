@@ -50,18 +50,19 @@
     }
 
     ul {
-        padding-top: 10px;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         list-style: none;
-        overflow: scroll;
-        height: 200px;
+        padding: 0px;
         li {
             text-align: center;
-            margin: 0 14px;
+            /* margin: 14px 14px; */
             height: 180px;
             width: 160px;
             box-shadow: 1px 1px 8px 1px #ddd;
             border-radius: 10px;
+            margin: 5px auto;
+
             a {
                 width: inherit;
                 height: inherit;

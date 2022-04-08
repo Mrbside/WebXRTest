@@ -1,7 +1,7 @@
 <script context="module">
     export async function load({params, fetch}) {
         const category = params.category
-        const res =  await fetch('data.json')
+        const res =  await fetch('../../../static/data.json')
         const data = await res.json()
         const store = data.store
      
@@ -23,8 +23,9 @@
 <script>
     import ProductList from '$lib/ProductList.svelte'
     import ProductListSubcategory from '$lib/ProductListSubcategory.svelte'
-    import { headerTitle } from "../../store.js"
+    import { headerTitle, breadcrumb } from "./../../store.js"
     $headerTitle = "Category"
+    $breadcrumb = "/home"
     export let store
     export let category
     export const storeData = []
@@ -38,7 +39,7 @@
     <ProductListSubcategory store={store} category={category} />
     <ProductList store={store} category={category}/>
 </div>
-
+<div class="spacer"></div>
 <style lang="scss">
     .category{
         text-align: center;

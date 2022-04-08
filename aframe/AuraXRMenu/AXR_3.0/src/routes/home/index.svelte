@@ -18,10 +18,12 @@
 </script>
 
 <script>
-    import { headerTitle } from '../../store'
+    import { headerTitle, breadcrumb } from '../../store.js'
     import Featured from '$lib/Featured.svelte'
+    import FeaturedGrid from '$lib/FeaturedGrid.svelte'
     import CategoryNav from "$lib/CategoryNav.svelte";
     $headerTitle = "HOMEEE"
+    $breadcrumb = "/"
     export let store
 </script>
 
@@ -29,6 +31,8 @@
     
     <CategoryNav store={store} />
     <Featured store={store} />
+    <FeaturedGrid store={store} />
+    <div class="spacer"></div>
 </div>
 
 <style lang="scss">
