@@ -1,7 +1,7 @@
 <script context="module">
     export async function load({params, fetch}) {
         const category = params.category
-        const res =  await fetch('../../../static/data.json')
+        const res =  await fetch('data.json')
         const data = await res.json()
         const store = data.store
      
