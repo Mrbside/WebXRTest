@@ -37,7 +37,7 @@
 
 <div class="category">
     <ProductListSubcategory store={store} category={category} />
-    <ProductList store={store} category={category}/>
+    <!-- <ProductList store={store} category={category}/> -->
 </div>
 <div class="spacer"></div>
 <style lang="scss">

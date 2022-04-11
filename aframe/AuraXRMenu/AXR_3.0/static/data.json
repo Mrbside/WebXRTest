@@ -282,6 +282,35 @@
                 "gender": "neutro",
                 "tags": ["technics", "lego", "fi", "feature"]
                 }
+        },
+
+        {
+            "category": "marte",
+            "subcategory": "marciano",
+            "id": 10,
+            "title": "Lego Technics F1",
+            "subtitle": "provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+            "assets": {
+                "imageThumbnail": "/Marcianos.webp",
+                "imageA": "/Marcianos.webp",
+                "imageB": "/Marcianos.webp",
+                "vectorFile": "/Black.glb"
+                },
+            "info": {
+                "price": 2.50,
+                "code": "AD433ER345245",
+                "quantity": 10,
+                "stock": true,
+                "feature": true,
+                "promotion": false,
+                "discount": 10,
+                "brand": "lego",
+                "model": "technics-f1",
+                "size": "regular",
+                "gender": "neutro",
+                "tags": ["technics", "lego", "fi", "feature"]
+                }
         }
             
       ]
