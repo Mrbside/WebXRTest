@@ -214,7 +214,7 @@
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #b1b1b1; backgroundColor: #36312e">
       <a-assets>
         <a-asset-item id="niñabox" src="robot.gltf"></a-asset-item>
-        <audio id="audioniña" src="fatima.mp3" preload="auto"></audio>
+        <audio id="audioniña" src="robotaudio.mp3" preload="auto"></audio>
       </a-assets>
       <a-marker id="marcador" markerhandler raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='aurawebxr.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
         <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">
@@ -227,10 +227,10 @@
         rotation="-90 0 0"
         scale="0.02 0.02 0.02" 
         gltf-model="robot.gltf"
-        animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
+        animation-mixer="clip: clip; loop:once; repetitions:infinity"
         shadow="receive: true; cast: true"
         class="clickable"
-        sound="src: url(fatima.mp3); autoplay: false"
+        sound="src: url(robotaudio.mp3); autoplay: false"
         audiomanager
         >
         </a-entity>
