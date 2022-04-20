@@ -96,6 +96,7 @@
           var focus=true;
           
           entity.addEventListener("sound-ended", (e) => {
+            //aqui puedes meter la accion de sacar el boton/panel que nos lleva al formulario
             soundended=true;
           });
 
@@ -103,6 +104,7 @@
           window.addEventListener( 'blur', () => {
             focus=false;
             entity.components.sound.pauseSound();
+            entity.setAttribute('animation-mixer', {timeScale: 0.0});
           });
 
           window.addEventListener( 'focus', () => {
