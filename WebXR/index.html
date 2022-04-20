@@ -229,15 +229,15 @@
         <audio id="audioniña" src="robotaudio.mp3" preload="auto"></audio>
       </a-assets>
       <a-marker id="marcador" markerhandler raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='aurawebxr.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
-        <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">
+        <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="0 4.520 0">
         </a-entity>
-        <a-plane id="planosombras" position="0 -0.007 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial>
+        <a-plane id="planosombras" position="0 0.007 0" height="600" width="600" rotation="-90 0 0" apply-shadowmaterial>
         </a-plane>
         <a-entity
         id="niña"
-        position="1 -0.5 1"
+        position="1 0 1.6"
         rotation="-90 0 0"
-        scale="0.02 0.02 0.02" 
+        scale="0.03 0.03 0.03" 
         gltf-model="robot.gltf"
         animation-mixer="clip: clip; loop:once; repetitions:infinity; clampWhenFinished:true; "
         shadow="receive: true; cast: true"
