@@ -1,0 +1,226 @@
+<html>
+  <head>
+    <title>FIGHT FOR LIFE CLUB</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap" rel="stylesheet">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../aframe/build/aframe-ar.js"></script>
+    <script src="../A-FrameAddons/js/aframe-extras.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const start = async() => {
+          document.querySelector(".splash-bg").style.display = "none";
+          document.querySelector(".splash-btn").style.display = "none";
+          document.querySelector(".logo").style.display = "none";
+          document.querySelector(".logo-fight").style.display = "none";
+          document.querySelector(".hash-splash").style.display = "none";
+          document.querySelector(".by").style.display = "none";
+        }
+        var startButton = document.querySelector("button");
+        startButton = addEventListener("click", () => {
+        console.log('I run only once!');
+        start();
+        }, { once: true });
+      });
+      
+      AFRAME.registerComponent('markerhandler', {
+
+        init: function() {
+        const animatedMarker = document.querySelector("#marcador");
+        const aEntity = document.querySelector("#niña");
+
+        // every click, we make our model grow in size :)
+        animatedMarker.addEventListener('click', function(ev, target){
+        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntity && intersectedElement === aEntity) {
+                const scale = aEntity.getAttribute('scale');
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
+                aEntity.setAttribute('scale', scale);
+            }
+        });
+}});
+    
+      AFRAME.registerComponent('jitterix', {
+        init: function () {
+          var canvasEl = document.getElementById(this.data.cid);
+      this.renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true, canvas: canvasEl } );
+      this.renderer= new THREE.PerspectiveCamera();
+        }
+        });
+      
+    
+      AFRAME.registerComponent("apply-shadowmaterial", {
+        init: function() {
+          let mesh = this.el.getObject3D("mesh");
+          let tmp = mesh.material;
+          mesh.material = new THREE.ShadowMaterial({ opacity: 0.1 });
+          mesh.receiveShadow = true;
+          tmp.dispose();
+        }
+        });
+      AFRAME.registerComponent("audiomanager", {
+        init: function() {
+          var entity = document.querySelector('#niña');
+
+          this.el.sceneEl.addEventListener("markerFound", (e) => {
+          entity.components.sound.playSound();
+          this.isVisible = true;
+          });
+
+          this.el.sceneEl.addEventListener("markerLost", (e) => {
+          entity.components.sound.pauseSound();
+          });
+          var focus=true;
+    
+          window.addEventListener( 'blur', () => {
+            focus=false;
+            entity.components.sound.pauseSound();
+          });
+
+          window.addEventListener( 'focus', () => {
+            focus=true;
+            //entity.components.sound.playSound();
+          }); 
+        }
+        });
+      </script>
+      <style>
+        .splash-bg {
+        /* GENERICO */
+        background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 35%, rgba(78,73,69,1) 100%);
+        /* GENERICO END */
+
+        /* HERITAGE */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(147,192,31,1) 100%); */
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(255,255,255,1) 100%); */
+        /* BLANK END */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+      }
+
+      .splash-btn{
+        font-family: 'Montserrat', sans-serif;
+        /* HERITAGE */
+        background: transparent;
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: #B1B1B1; */
+        /* BLANK END */
+        color: #B1B1B1;
+        border: 2px solid #B1B1B1;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        width: 180px;
+        border-radius: 5px;
+        top: 65vh;
+        text-transform: uppercase;
+        font-size: 16px;
+        z-index: 2;
+      }
+
+      .logo{
+        position: absolute;
+        margin: 0 10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 20vh;
+        z-index: 3;
+      }
+
+      .logo img {
+        width: 600px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+        z-index: 3;
+      }
+  
+       @keyframes delayButton {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+
+        @media only screen and (min-width: 300px) {
+         
+         .buttons-container {
+           font-size: 1em;
+         }
+     }
+
+        @media only screen and (min-width: 400px) {
+         
+            .buttons-container {
+              font-size: 1.2em;
+            }
+        }
+
+        /* @media only screen and (min-width: 600px) {
+            .buttons-container {
+              font-size: 1.4em;
+            }
+        } */
+
+        @media only screen and (min-width: 800px) {
+            .buttons-container {
+              font-size: 2em;
+            }
+        }
+    </style>
+  </head>
+  <body style='margin : 0px; overflow: hidden;'>
+    <div class="splash-bg">
+    </div>
+    <div class="logo">
+      <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
+    </div>
+    <button class="splash-btn">iniciar</button>
+
+    <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #b1b1b1; backgroundColor: #36312e">
+      <a-assets>
+        <a-asset-item id="niñabox" src="Boxer.gltf"></a-asset-item>
+        <audio id="audioniña" src="fatima.mp3" preload="auto"></audio>
+      </a-assets>
+      <a-marker id="marcador" markerhandler raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='aurawebxr.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+        <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.70 4.520 5.127">
+        </a-entity>
+        <a-plane id="planosombras" position="0 -0.007 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial>
+        </a-plane>
+        <a-entity
+        id="niña"
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="0.02 0.02 0.02" 
+        gltf-model="Boxer.gltf"
+        animation-mixer="clip: idle; loop:repeat; repetitions:infinity"
+        shadow="receive: true; cast: true"
+        class="clickable"
+        sound="src: url(fatima.mp3); autoplay: false"
+        audiomanager>
+        </a-entity>
+      </a-marker>
+      <a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
+      </a-entity>
+      <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
+			</a-entity>
+    </a-scene>
+  </body>
+</html>
