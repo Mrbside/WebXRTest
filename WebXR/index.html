@@ -97,6 +97,7 @@
           
           entity.addEventListener("sound-ended", (e) => {
             //aqui puedes meter la accion de sacar el boton/panel que nos lleva al formulario
+            document.querySelector(".text-aviso").style.display = "block";
             soundended=true;
           });
 
@@ -206,6 +207,7 @@
         top: 200px;
         height: 300px;
         text-align: center;
+        display: none;
       }
 
       .texto-aviso .content{
