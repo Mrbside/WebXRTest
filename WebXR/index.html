@@ -14,10 +14,8 @@
           document.querySelector(".splash-bg").style.display = "none";
           document.querySelector(".splash-btn").style.display = "none";
           document.querySelector(".logo").style.display = "none";
-          document.querySelector(".logo-fight").style.display = "none";
-          document.querySelector(".hash-splash").style.display = "none";
-          document.querySelector(".by").style.display = "none";
         }
+        
         var startButton = document.querySelector("button");
         startButton = addEventListener("click", () => {
         console.log('I run only once!');
@@ -26,18 +24,36 @@
       });
       
       AFRAME.registerComponent('markerhandler', {
-
+        
         init: function() {
         const animatedMarker = document.querySelector("#marcador");
         const aEntity = document.querySelector("#niña");
-
+        var flag=true;
         // every click, we make our model grow in size :)
         animatedMarker.addEventListener('click', function(ev, target){
         const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             if (aEntity && intersectedElement === aEntity) {
-                const scale = aEntity.getAttribute('scale');
+                /*const scale = aEntity.getAttribute('scale');
                 Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
-                aEntity.setAttribute('scale', scale);
+                aEntity.setAttribute('scale', scale);*/
+                if(flag)
+                {
+                  
+                  aEntity.setAttribute('animation-mixer', {clip:"_"});
+                  console.log('PAUSE');
+                  flag=false;
+                  
+                }
+                else
+                {
+                  
+                  aEntity.setAttribute('animation-mixer', {clip:"idle"});
+                  console.log('PLAY');
+                  flag=true;
+                  
+                }
+                
+                
             }
         });
 }});
@@ -214,7 +230,8 @@
         shadow="receive: true; cast: true"
         class="clickable"
         sound="src: url(fatima.mp3); autoplay: false"
-        audiomanager>
+        audiomanager
+        >
         </a-entity>
       </a-marker>
       <a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
