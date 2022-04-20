@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>FIGHT FOR LIFE CLUB</title>
+    <title>Aura WebXR</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
           document.querySelector(".logo").style.display = "none";
         }
         
-        var startButton = document.querySelector("button");
+        var startButton = document.querySelector(".splash-btn");
         startButton = addEventListener("click", () => {
         console.log('I run only once!');
         start();
@@ -208,11 +208,12 @@
     <div class="logo">
       <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
     </div>
-    <button class="splash-btn">iniciar</button>
-
+    <div>
+    <button class="splash-btn" >iniciar</button>
+    </div>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #b1b1b1; backgroundColor: #36312e">
       <a-assets>
-        <a-asset-item id="niñabox" src="Boxer.gltf"></a-asset-item>
+        <a-asset-item id="niñabox" src="robot.gltf"></a-asset-item>
         <audio id="audioniña" src="fatima.mp3" preload="auto"></audio>
       </a-assets>
       <a-marker id="marcador" markerhandler raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='aurawebxr.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
@@ -223,10 +224,10 @@
         <a-entity
         id="niña"
         position="0 0 0"
-        rotation="0 0 0"
+        rotation="-90 0 0"
         scale="0.02 0.02 0.02" 
-        gltf-model="Boxer.gltf"
-        animation-mixer="clip: idle; loop:repeat; repetitions:infinity"
+        gltf-model="robot.gltf"
+        animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
         shadow="receive: true; cast: true"
         class="clickable"
         sound="src: url(fatima.mp3); autoplay: false"
