@@ -77,17 +77,29 @@
       AFRAME.registerComponent("audiomanager", {
         init: function() {
           var entity = document.querySelector('#niña');
+          var soundended=false;
 
           this.el.sceneEl.addEventListener("markerFound", (e) => {
-          entity.components.sound.playSound();
-          this.isVisible = true;
+          if(!soundended)
+          {
+            entity.components.sound.playSound();
+            entity.setAttribute('animation-mixer', {timeScale: 1.0});
+            this.isVisible = true;
+          }
           });
 
           this.el.sceneEl.addEventListener("markerLost", (e) => {
-          entity.components.sound.pauseSound();
+            entity.components.sound.pauseSound();
+            entity.setAttribute('animation-mixer', {timeScale: 0.0});
+          
           });
           var focus=true;
-    
+          
+          entity.addEventListener("sound-ended", (e) => {
+            soundended=true;
+          });
+
+
           window.addEventListener( 'blur', () => {
             focus=false;
             entity.components.sound.pauseSound();
@@ -225,7 +237,7 @@
         rotation="-90 0 0"
         scale="0.02 0.02 0.02" 
         gltf-model="robot.gltf"
-        animation-mixer="clip: clip; loop:once; repetitions:infinity"
+        animation-mixer="clip: clip; loop:once; repetitions:infinity; clampWhenFinished:true; "
         shadow="receive: true; cast: true"
         class="clickable"
         sound="src: url(robotaudio.mp3); autoplay: false"
