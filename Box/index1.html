@@ -13,11 +13,12 @@
       document.addEventListener('DOMContentLoaded', () => {
         const start = async() => {
           document.querySelector(".splash-bg").style.display = "none";
-          document.querySelector(".splash-btn").style.display = "none";
-          document.querySelector(".logo").style.display = "none";
-          document.querySelector(".logo-fight").style.display = "none";
-          document.querySelector(".hash-splash").style.display = "none";
-          document.querySelector(".by").style.display = "none";
+          document.querySelector(".splash-content").style.display = "none";
+          // document.querySelector(".splash-btn").style.display = "none";
+          // document.querySelector(".logo").style.display = "none";
+          // document.querySelector(".logo-fight").style.display = "none";
+          // document.querySelector(".hash-splash").style.display = "none";
+          // document.querySelector(".by").style.display = "none";
         }
         var startButton = document.querySelector("button");
         startButton = addEventListener("click", () => {
@@ -92,6 +93,7 @@
           height: 100%;
           text-align: center;
           position: relative;
+          z-index: 2;
         }
         .splash-btn{
           font-family: 'Montserrat', sans-serif;
