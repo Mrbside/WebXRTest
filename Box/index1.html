@@ -82,6 +82,17 @@
           z-index: 2;
         }
 
+        .splash-content{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          top: 10vh;
+          left: 0px;
+          width: 100%;
+          height: 80%;
+          text-align: center;
+          position: relative;
+        }
         .splash-btn{
           font-family: 'Montserrat', sans-serif;
           background: #492E71;
@@ -90,49 +101,50 @@
           border: none;
           padding: 16px;
           cursor: pointer;
-          position: absolute;
+          /* position: absolute; */
           margin: 0 auto;
           left: 0;
           right: 0;
           width: 160px;
           border-radius: 10px;
-          top: 55vh;
+          /* top: 55vh; */
           text-transform: uppercase;
           font-size: 16px;
           z-index: 2;
         }
 
         .logo{
-          position: absolute;
+          /* position: absolute; */
           margin: 0 auto;
           left: 0;
           right: 0;
           text-align: center;
-          bottom: 10vh;
+          /* bottom: 10vh; */
           z-index: 2;
-          max-width: 300px;
+          /* max-width: 300px; */
           padding: 0px 20px;
+          width: 160px;
         }
 
         .logo-fight{
-          position: absolute;
+          /* position: absolute; */
           margin: 0 auto;
           left: 0;
           right: 0;
           text-align: center;
-          top: 8vh;
+          /* top: 8vh; */
           z-index: 2;
           max-width: 400px;
           padding: 0px 20px;
         }
 
         .hash-splash, .by {
-          position: absolute;
+          /* position: absolute; */
           margin: 0 auto;
           left: 0;
           right: 0;
           text-align: center;
-          top: 65vh;
+          /* top: 65vh; */
           z-index: 2;
           max-width: 400px;
           padding: 0px 20px;
@@ -150,7 +162,7 @@
           position: relative;
           width: 100%;
           height: auto;
-          max-width: 800px;
+          /* max-width: 800px; */
         }
 
         
@@ -235,14 +247,16 @@
   <body style='margin : 0px; overflow: hidden;'>
     <div class="splash-bg">
     </div>
-    <div class="logo-fight">
-      <img src="./assets/logo-ffc.png" alt="" width="600" height="400">
-    </div>
-    <button class="splash-btn">Meet Fátima</button>
-    <p class="hash-splash">#SaveFatima</p>
-    <p class="by">by</p>
-    <div class="logo">
-      <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
+    <div class="splash-content">
+      <div class="logo-fight">
+        <img src="./assets/logo-ffc.png" alt="" width="600" height="400">
+      </div>
+      <button class="splash-btn">Meet Fátima</button>
+      <p class="hash-splash">#SaveFatima</p>
+      <p class="by">by</p>
+      <div class="logo">
+        <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
+      </div>
     </div>
     <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #ffffff; backgroundColor: #502a74">
       <a-assets>
