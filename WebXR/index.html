@@ -181,6 +181,23 @@
         max-width: 800px;
         z-index: 3;
       }
+
+      .bg-qr {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+      }
+
+      .bg-qr img{
+        width: 100%;
+        height: auto;
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        z-index: -1;
+      }
   
        @keyframes delayButton {
           from {opacity: 0;}
@@ -252,5 +269,8 @@
       <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
     </a-scene>
+    <div class="bg-qr">
+      <img src="./assets/PORTADA WEB XR (1).jpg" alt="">
+    </div>
   </body>
 </html>
