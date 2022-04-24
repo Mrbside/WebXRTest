@@ -6,13 +6,17 @@
 
 <div class="index">
     <div class="container">
+        <div class="spacer"></div>
         <img src="/logo-vertivcal-100-color.png" alt="site logo" class="logo">
-        <img src="/menuxr_h.png" alt="site logo" class="logo aura">
         <h4>by</h4>
+        <img src="/menuxr_h.png" alt="site logo" class="logo aura">
+        <a href="/home">
+            <button class="btn third-color">Enter</button>
+        </a>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
     </div>
-    <a href="/home">
-        <button class="btn third-color">Enter</button>
-    </a>
+    
    
 </div>
 
@@ -28,7 +32,9 @@
             margin: 0 auto;
             position: absolute;
             top: 0vh;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
             width: 100%;
             height: 100%;
 
@@ -37,7 +43,6 @@
                 left: 0px;
                 right: 0px;
                 margin: 0 auto;
-                position: absolute;
             }
             img{
                 display: block;
@@ -45,8 +50,7 @@
             }
             .logo {
                 padding: 10px 0px;
-                position: absolute;
-                top: 15vh;
+                /* top: 15vh; */
                 left: 0px;
                 right: 0px;
                 width: 200px;
@@ -58,19 +62,20 @@
                 top: unset;
             }
             
+            .btn {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 50px;
+                position: absolute;
+                /* bottom: 20vh; */
+                left: 0px;
+                right: 0px;
+                width: 180px;
+                margin:  0 auto;
+            }
         }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            position: absolute;
-            bottom: 20vh;
-            left: 0px;
-            right: 0px;
-            width: 180px;
-            margin:  0 auto;
-        }
+        
     }
 
 </style>

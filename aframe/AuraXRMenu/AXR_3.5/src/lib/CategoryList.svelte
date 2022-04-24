@@ -63,6 +63,7 @@
         display: flex;
         flex-direction: column;
         list-style: none;
+        padding: 0px;
         padding-top: 10px;
         li {
             /* text-align: center; */
