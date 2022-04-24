@@ -101,7 +101,7 @@
       animation-mixer="clip: idle; loop:repeat; repetitions:infinity"
       shadow="receive: true; cast: true"
       class="clickable"
-      sound="src: url('fatima.mp3'); autoplay: false"
+      sound="src: url(fatima.mp3); autoplay: false"
       gesture-handler
       audiomanager>
       </a-entity>
