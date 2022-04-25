@@ -14,23 +14,26 @@
     
     <a-scene
     vr-mode-ui="enabled: false"
-    renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true"
+    renderer="precision: medium; antialias: false; logarithmicDepthBuffer:true; colorManagement: true"
 	embedded
     arjs="trackingMethod: best; sourceType: webcam; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536; debugUIEnabled: false;">
     <a-assets>
         <a-asset-item id="estatua" src="estatua.glb"></a-asset-item>
     </a-assets>
     
-        <a-camera id="camera" gps-camera rotation-reader>
+        <a-camera id="camera" look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera='gpsMinDistance: 5'  rotation-reader>
         </a-camera>
         <a-entity
         id="gps_Object"
-        look-at="[gps-camera]"
-        gps-entity-place="latitude: 19.387908; longitude: -99.142234" 
-        scale="0.01 0.01 0.01"
-        gltf-model="estatua.glb"
-        shadow="receive: true; cast: true"
-        ></a-entity>
+        gps-entity-place="latitude: 19.387908; longitude: -99.142234"
+        >
+            <a-entity
+                scale="0.2 0.2 0.2"
+                position="0 -5 0"
+                gltf-model="estatua.glb"
+                shadow="receive: true; cast: true">
+            </a-entity>
+        </a-entity>
         <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 1" position="0 2 0"></a-entity>
         <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="0 4.520 0"></a-entity>
 	</a-scene>
