@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GPS Based Demo</title>
+    <script src='https://aframe.io/releases/1.0.4/aframe.min.js'></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+    
+    <a-scene
+    vr-mode-ui="enabled: false"
+	embedded
+    arjs='trackingMethod: best; sourceType: webcam; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536; debugUIEnabled: false;' 
+    renderer="logarithmicDepthBuffer: true; precision: medium; antialias: false; colorManagement: true">
+    <a-assets>
+        <a-asset-item id="estatua" src="estatua.glb"></a-asset-item>
+    </a-assets>
+    
+        <a-camera id="camera" gps-camera rotation-reader></a-camera>
+        <a-entity
+        id="gps_Object"
+        gps-entity-place="latitude: 19.387908; longitude: -99.142234" 
+        scale="1 1 1"
+        position="0 0 0"
+        gltf-model="estatua.glb"
+        shadow="receive: true; cast: true"
+        ></a-entity>
+
+	</a-scene>
+</body>
+</html>
