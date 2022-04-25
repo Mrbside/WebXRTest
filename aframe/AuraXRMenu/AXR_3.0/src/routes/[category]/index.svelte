@@ -1,7 +1,7 @@
 <script context="module">
     export async function load({params, fetch}) {
         const category = params.category
-        const res =  await fetch('../../../static/data.json')
+        const res =  await fetch('data.json')
         const data = await res.json()
         const store = data.store
      
@@ -37,7 +37,7 @@
 
 <div class="category">
     <ProductListSubcategory store={store} category={category} />
-    <ProductList store={store} category={category}/>
+    <!-- <ProductList store={store} category={category}/> -->
 </div>
 <div class="spacer"></div>
 <style lang="scss">

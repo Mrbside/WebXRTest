@@ -5,9 +5,9 @@
 $background: white;
 
 /* Color Theme Swatches in HSLA */
-$first-color: hsla(197, 36%, 47%, 1);
+$first-color: rgb(114, 163, 77);
 $second-color: hsla(174, 41%, 56%, 1);
-$third-color: hsla(33, 77%, 77%, 1);
+$third-color: rgb(185, 79, 43);
 $forth-color: hsla(33, 61%, 86%, 1);
 $fifth-color: hsla(0, 0%, 94%, 1);
 
@@ -27,6 +27,7 @@ $fifth-color-l: hsla(0, 0%, 100%, 1);
 body{
     background-color: $fifth-color; 
     margin: 0px;
+	// overflow: hidden;
 }
 
 h1, h2, h3, h4, p, a{
