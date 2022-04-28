@@ -44,9 +44,13 @@
         </div>
 
         <div class="btn">
-            <a 
+            <!-- <a 
             sveltekit:prefetch 
             href={`/${storeData.category}/arview/${storeData.id}`}
+            class="btn second-color-d"
+            >AR View</a> -->
+            <a 
+            href={`https://shopxr-test.netlify.app/?model=${storeData.assets.vectorFile}&product=${storeData.title}&url_back=${storeData.category}/`}
             class="btn second-color-d"
             >AR View</a>
         </div>

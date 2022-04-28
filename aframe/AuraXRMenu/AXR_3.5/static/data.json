@@ -11,7 +11,7 @@
              "imageThumbnail":"/molletes.jpeg",
              "imageA":"/molletes.jpeg",
              "imageB":"/molletes.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -41,14 +41,14 @@
              "imageThumbnail":"/chilaquiles.jpeg",
              "imageA":"/chilaquiles.jpeg",
              "imageB":"/chilaquiles.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Blue.glb"
           },
           "info":{
              "price":12.50,
              "code":"AD433ER345245",
              "quantity":10,
              "stock":true,
-             "feature":false,
+             "feature":true,
              "promotion":false,
              "discount":10,
              "brand":"none",
@@ -71,14 +71,14 @@
              "imageThumbnail":"/cochinita.webp",
              "imageA":"/cochinita.webp",
              "imageB":"/cochinita.webp",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Orange.glb"
           },
           "info":{
              "price":10.50,
              "code":"AD433ER345245",
              "quantity":10,
              "stock":true,
-             "feature":false,
+             "feature":true,
              "promotion":false,
              "discount":10,
              "brand":"none",
@@ -101,7 +101,7 @@
              "imageThumbnail":"/hevos-mexicana.jpeg",
              "imageA":"/hevos-mexicana.jpeg",
              "imageB":"/hevos-mexicana.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -131,7 +131,7 @@
              "imageThumbnail":"/omelette-queso.jpeg",
              "imageA":"/omelette-queso.jpeg",
              "imageB":"/omelette-queso.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -161,7 +161,7 @@
              "imageThumbnail":"/huevoestrelladoperfecto.jpeg",
              "imageA":"/huevoestrelladoperfecto.jpeg",
              "imageB":"/huevoestrelladoperfecto.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -191,7 +191,7 @@
              "imageThumbnail":"/ceviche.jpeg",
              "imageA":"/ceviche.jpeg",
              "imageB":"/ceviche.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -221,7 +221,7 @@
              "imageThumbnail":"/Carpaccio-Res.jpeg",
              "imageA":"/Carpaccio-Res.jpeg",
              "imageB":"/Carpaccio-Res.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -251,7 +251,7 @@
              "imageThumbnail":"/sopa-tomate.jpeg",
              "imageA":"/sopa-tomate.jpeg",
              "imageB":"/sopa-tomate.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -281,7 +281,7 @@
              "imageThumbnail":"/tampiquena.jpeg",
              "imageA":"/tampiquena.jpeg",
              "imageB":"/tampiquena.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -311,7 +311,7 @@
              "imageThumbnail":"/new-york-steak.jpeg",
              "imageA":"/new-york-steak.jpeg",
              "imageB":"/new-york-steak.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -341,7 +341,7 @@
              "imageThumbnail":"lomo-de-cerdo.jpeg",
              "imageA":"lomo-de-cerdo.jpeg",
              "imageB":"lomo-de-cerdo.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -371,7 +371,7 @@
              "imageThumbnail":"/filete-de-pescado.jpeg",
              "imageA":"/filete-de-pescado.jpeg",
              "imageB":"/filete-de-pescado.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -401,7 +401,7 @@
              "imageThumbnail":"/pescado_veracruzana.jpeg",
              "imageA":"/pescado_veracruzana.jpeg",
              "imageB":"/pescado_veracruzana.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -431,7 +431,7 @@
              "imageThumbnail":"/mousse-cafe.jpeg",
              "imageA":"/mousse-cafe.jpeg",
              "imageB":"/mousse-cafe.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -461,7 +461,7 @@
              "imageThumbnail":"/volcan-choco.jpeg",
              "imageA":"/volcan-choco.jpeg",
              "imageB":"/volcan-choco.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -491,7 +491,7 @@
              "imageThumbnail":"/flan-de-vainilla.jpeg",
              "imageA":"/flan-de-vainilla.jpeg",
              "imageB":"/flan-de-vainilla.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -521,7 +521,7 @@
              "imageThumbnail":"/coca-cola.jpeg",
              "imageA":"/coca-cola.jpeg",
              "imageB":"/coca-cola.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -551,7 +551,7 @@
              "imageThumbnail":"/te.jpeg",
              "imageA":"/te.jpeg",
              "imageB":"/te.jpeg",
-             "vectorFile":"/Black.glb"
+             "vectorFile":"Black.glb"
           },
           "info":{
              "price":10.50,
@@ -569,6 +569,37 @@
                 "none"
              ]
           }
-       }
+       },
+       {
+         "category":"Ensaladas",
+         "subcategory":"tes",
+         "id":19,
+         "title":"Te negro",
+         "subtitle":"Estilo Ingles",
+         "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+         "assets":{
+            "imageThumbnail":"/te.jpeg",
+            "imageA":"/te.jpeg",
+            "imageB":"/te.jpeg",
+            "vectorFile":"Black.glb"
+         },
+         "info":{
+            "price":10.50,
+            "code":"AD433ER345245",
+            "quantity":10,
+            "stock":true,
+            "feature":false,
+            "promotion":false,
+            "discount":10,
+            "brand":"none",
+            "model":"none",
+            "size":"none",
+            "gender":"none",
+            "tags":[
+               "none"
+            ]
+         }
+         
+      }
     ]
  }
