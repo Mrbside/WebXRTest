@@ -40,24 +40,23 @@
 	// }
 
 	// fn()
-	console.log('sdfdsfasdf');
-	onDestroy(() => console.log('<<<<<<<<<<<<<'));
-onDestroy(() => document.querySelector('video').style.display = 'none');	
+	
+onDestroy(() => {
+	// document.querySelector('video').style.display = 'none'
+	const video = document.querySelector('video')
+	video.remove()
+});	
+
 
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
 <div class="arview">
-    <!-- <a-scene embedded ar class="a-frame">
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-        <a-marker-camera preset='hiro'></a-marker-camera>
-      </a-scene> -->
-
-      <script>
-		
-		//componente para sombra en camera background
-		AFRAME.registerComponent("apply-shadowmaterial", {
+   
+<script>
+	//componente para sombra en camera background
+AFRAME.registerComponent("apply-shadowmaterial", {
 			init: function() {
 			  // grab the mesh
 			  let mesh = this.el.getObject3D("mesh");
@@ -70,83 +69,12 @@ onDestroy(() => document.querySelector('video').style.display = 'none');
 			  tmp.dispose();
 			}
 		  });
-	
-    
-			// let entradaPosition = 0;
-			// let platilloPosition = -1;
-			// let platillos = [
-			// 	{
-			// 		name : 'Hombre',
-			// 		glb : 'Black',
-			// 		price : 500.0, 
-					
-			// 	},
-			// 	{
-			// 		name : 'Mujer',
-			// 		glb : 'Orange',
-			// 		price : 500.0,
-					
-			// 	},
-			// 	{
-			// 		name : 'Deportes',
-			// 		glb : 'Blue',
-			// 		price : 500.0,
-					
-			// 	}
-			// ]
-			// let categories = [
-			// 	{
-			// 		name: 'ENTRADAS',
-			// 		platillos : platillos
-			// 	}
-			// ]
-
-			// function backPlatillo() {
-			// 	if(platilloPosition > 0)
-			// 	platilloPosition = platilloPosition -1;
-			// 	let platillo = categories[entradaPosition].platillos[platilloPosition];
-				
-			// 	let text = document.getElementById('platilloName');
-			// 	text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-			// 	cambiaplatillo(platillo.glb)
-			// }
-			// function nextPlatillo() {
-			// 	if(platilloPosition < 2)
-			// 	platilloPosition = platilloPosition + 1;
-			// 	console.log(platilloPosition);
-			// 	let platillo = categories[entradaPosition].platillos[platilloPosition];
-				
-			// 	let text = document.getElementById('platilloName');
-			// 	text.innerHTML  = categories[entradaPosition].platillos[platilloPosition].name
-			// 	cambiaplatillo(platillo.glb)
-			// }
-
-			
-			function cambiaplatillo (Newmodel) {
-				var platotest = document.querySelector('#plato');
-				//var paneltest = document.querySelector('#panelinfo');
-					//start animation
-				platotest.emit('pos')
-				platotest.emit('scale')
-				platotest.addEventListener("animationcomplete__scale", e => {
-					// resent values when animation is finished
-					platotest.setAttribute('position','0 0 0')
-					//cambia modelo platillo
-					platotest.setAttribute('gltf-model','/'+Newmodel+'.glb')
-					platotest.setAttribute('scale','0.1 0.1 0.1')
-				  }, {once : true});
-				//cambia panel de informacion
-				//paneltest.setAttribute('src','#'+Newmodel)
-				
-			};
-
-
-
-	</script>
+</script>
+     
 	<!-- <body style='margin : 0px; overflow: hidden;'>  -->
 	<!-- <div class="a-frame"> -->
-		<!-- <a-scene id="escena" class="a-frame" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ={`sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:${innerWidth}; sourceHeight:${innerHeight}; displayWidth: ${innerWidth}; displayHeight: ${innerHeight}`} renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828"> -->
-		<a-scene id="escena" class="a-frame" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" class="a-frame" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ={`sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:${innerWidth}; sourceHeight:${innerHeight}; displayWidth: ${innerWidth}; displayHeight: ${innerHeight}`} renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<!-- <a-scene id="escena" class="a-frame" gesture-detector physicallyCorrectLights="true" vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828"> -->
 			<a-assets>
 				<a-asset-item id="blackM" src={`${storeData.assets.vectorFile}`}></a-asset-item>
 				<!-- <a-asset-item id="blueM" src="/Blue.glb"></a-asset-item>
@@ -174,6 +102,7 @@ onDestroy(() => document.querySelector('video').style.display = 'none');
 			</a-entity>
 			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
+			<!-- <a-camera> </a-camera> -->
 		</a-scene>
 		<!-- </div> -->
 		<div class="nav">
