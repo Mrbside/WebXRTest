@@ -22,40 +22,7 @@
         start();
         }, { once: true });
       });
-      
-      /*AFRAME.registerComponent('markerhandler', {
-        
-        init: function() {
-        const animatedMarker = document.querySelector("#marcador");
-        const aEntity = document.querySelector("#niña");
-        var flag=true;
-        // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
-                const scale = aEntity.getAttribute('scale');
-                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
-                aEntity.setAttribute('scale', scale);
-                if(flag)
-                {
-                  aEntity.setAttribute('animation-mixer', {clip:"_"});
-                  console.log('PAUSE');
-                  flag=false;
-                  
-                }
-                else
-                {
-                  aEntity.setAttribute('animation-mixer', {clip:"idle"});
-                  console.log('PLAY');
-                  flag=true;
-                }
-                
-                
-            }
-            
-        });
-}});*/
-    
+  
       AFRAME.registerComponent('jitterix', {
         init: function () {
           var canvasEl = document.getElementById(this.data.cid);
