@@ -9,7 +9,6 @@
 	import { onMount, beforeUpdate } from 'svelte';
 
 	let showLoad = false;
-
 	function timedLoad(milli){
 		setTimeout(() => {
 			showLoad = false;
@@ -39,9 +38,7 @@
 	<div class="product_name">
 		{$itemStorage.title || "Visor"}
 	</div>
-	{"TIPO:"+$typeStorage}
-	{"ITEM:"+JSON.stringify($itemStorage)}
-	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={true ? '/src/routes/productos/viewer.html' : '/productos/viewer3D'}></iframe>
+	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? '/viewer.html' : '/productos/viewer3D'}></iframe>
 </body>
 <style>
 body {
