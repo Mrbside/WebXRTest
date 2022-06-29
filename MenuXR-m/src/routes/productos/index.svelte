@@ -39,8 +39,9 @@
 	<div class="product_name">
 		{$itemStorage.title || "Visor"}
 	</div>
-	
-	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage == "AR" || $typeStorage == "" ? '/productos/viewer' : '/productos/viewer3D'}></iframe>
+	{"TIPO:"+$typeStorage}
+	{"ITEM:"+JSON.stringify($itemStorage)}
+	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={true ? '/src/routes/productos/viewer.html' : '/productos/viewer3D'}></iframe>
 </body>
 <style>
 body {
