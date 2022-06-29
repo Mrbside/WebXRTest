@@ -1,5 +1,5 @@
 	<head>
-  		<title>MenuXR TESTING</title>
+  		<title>MenuXR</title>
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 		<script src="Scripts/aframe-ar.js"></script>
 		<script src="Scripts/aframe-extras.min.js"></script>
