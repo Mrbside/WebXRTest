@@ -8,9 +8,9 @@
 	import {itemStorage, typeStorage} from '$lib/Store.js';
 	import fetchProducts from '$lib/FetchProducts.js';
 	import Loader from '$lib/Loader.svelte';
-	import { onMount, beforeUpdate, afterUpdate } from 'svelte';
+	import { afterUpdate } from 'svelte';
     
-	const [items, categories, loading, error, get] = fetchProducts();
+	const [items, categories, loading, error, getter] = fetchProducts();
 	let searchFirst = true;
 	let searchQuery = [];
 	let categorySelected="";
@@ -62,12 +62,9 @@
 	}
 
 	function sendToViewer(type:any,item:any){
-		// typeStorage.update(a => a=type);
-		// itemStorage.update(a => a=item);
 		$typeStorage = type;
 		$itemStorage = item;
-		debugger;
-		setTimeout(()=>{window.location="/productos";},500);
+		setTimeout(()=>{window.location="/productos";},200);
 	}
 
 	afterUpdate(() => {
@@ -80,7 +77,7 @@
 		}
 	});
 	
-	
+	$: console.log($typeStorage);
 	
 </script>
 

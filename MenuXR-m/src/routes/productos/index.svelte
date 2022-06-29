@@ -4,17 +4,10 @@
 </svelte:head>
 <script>
 	import Loader from "$lib/Loader.svelte";
-	import {typeStorage, itemStorage} from "$lib/Store.js";
+	// import { get } from 'svelte/store';
+	import {typeStorage, itemStorage, getStoreVariable} from "$lib/Store.js";
+	import { onMount, beforeUpdate } from 'svelte';
 
-	let producto = {}, tipo = "3D";
-	// typeStorage.subscribe((value) => {
-	// 	debugger;
-	// 	 tipo = value;
-	// });
-	// itemStorage.subscribe((value) => {
-	// 	debugger;
-	// 	 producto = value;
-	// });
 	let showLoad = false;
 
 	function timedLoad(milli){
@@ -22,20 +15,32 @@
 			showLoad = false;
 		}, milli);
 	}
+	beforeUpdate(()=>{
+		$typeStorage = getStoreVariable("typeStorage");
+		$itemStorage = typeof JSON.parse(getStoreVariable("itemStorage")) == "object" ? JSON.parse(getStoreVariable("itemStorage")) : {title:"Visor"};
+		
+		// debugger;
+	})
+	onMount(()=>{
+		timedLoad(1000);
+	})
 	// timedLoad(2000);
-
+	
 
 </script>
 <body class="products-body" style="">
+	<select class="searchSelect visorSelect" value={$typeStorage} on:change="{(e) => {$typeStorage=e.target.value}}">
+		<option value="AR">Realidad Aumentada</option>
+		<option value="3D" >Visor 3D</option>
+	</select>
 	{#if showLoad}
 		<Loader/>
 	{/if}
 	<div class="product_name">
-		Pizza de pimientos
+		{$itemStorage.title || "Visor"}
 	</div>
-	{"TIPO:"+$typeStorage}
-	{"ITEM:"+JSON.stringify($itemStorage)}
-	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={true ? '/productos/viewer' : '/productos/viewer3D'}></iframe>
+	
+	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage == "AR" || $typeStorage == "" ? '/productos/viewer' : '/productos/viewer3D'}></iframe>
 </body>
 <style>
 body {
@@ -61,5 +66,20 @@ iframe {
     color: white;
     padding-top: 10px;
     border-radius: 30px 30px 0 0;
+}
+select.searchSelect.visorSelect {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 210px;
+    height: 40px;
+    padding: 0px 20px;
+    background: #ffffff;
+    border: 2px solid #f6ad33;
+    font-size:15px;
+    font-weight:500;
+    color: #f6ad33;
+    border-radius: 10px;
+	outline:
 }
 </style>
