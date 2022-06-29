@@ -81,6 +81,6 @@ select.searchSelect.visorSelect {
     font-weight:500;
     color: #f6ad33;
     border-radius: 10px;
-	outline:
+	outline: none;
 }
 </style>
