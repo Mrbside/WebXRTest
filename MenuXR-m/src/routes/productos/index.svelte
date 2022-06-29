@@ -35,7 +35,7 @@
 	</div>
 	{"TIPO:"+$typeStorage}
 	{"ITEM:"+JSON.stringify($itemStorage)}
-	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={true ? '/productos/viewer' : '/productos/viewer3D'}></iframe>
+	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={true ? '/src/routes/productos/viewer.html' : '/productos/viewer3D'}></iframe>
 </body>
 <style>
 body {
