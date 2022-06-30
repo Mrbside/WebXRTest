@@ -22,7 +22,7 @@
 		var plato1 = document.querySelector('#plato');
 		//plato1.addEventListener('click', myFunction() {
 		plato1.object3D.visible = false;}
-		alert(JSON.parse(localStorage.itemStorage).title);
+		// alert(JSON.parse(localStorage.itemStorage).title);
 		</script>
 		<script>
 		//componente para sombra en camera background
@@ -53,12 +53,12 @@
 			function SetDishAndInfo()
             {	
 				var platotest = document.querySelector('#plato');
-				var paneltest = document.querySelector('#panelinfo');
+				// var paneltest = document.querySelector('#panelinfo');
                 var currentDish = JSON.parse(localStorage.itemStorage).title;
-                var currentInfo = JSON.parse(localStorage.itemStorage).description;
-				  
+                // var currentInfo = JSON.parse(localStorage.itemStorage).description;
+				console.log("PLATILLO:",currentDish);
 				platotest.setAttribute('gltf-model', '/3DModels/'+ currentDish +'.glb')
-				paneltest.setAttribute('src','/Panels/'+ currentInfo +'.png')
+				// paneltest.setAttribute('src','/Panels/'+ currentInfo +'.png')
 						
 			}
 		</script>
@@ -78,7 +78,7 @@
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
-				<a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
+				<!-- <a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image> -->
 				<a-entity 
 				id="chef"
             	position="-4.138 -1.10 -4.797"
@@ -106,12 +106,6 @@
 			<a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
 			</a-entity>
 		</a-scene>
-		<div class="info-platillo">
-			<div >
-				<button id="infoBtn">^</button>
-				<h1 id="title"></h1>
-				<p id="description"></p>
-			</div>
-		</div>
+		
 	</body>
 </html>
