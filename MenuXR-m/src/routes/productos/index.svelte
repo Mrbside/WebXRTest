@@ -7,8 +7,14 @@
 	// import { get } from 'svelte/store';
 	import {typeStorage, itemStorage, getStoreVariable} from "$lib/Store.js";
 	import { onMount, beforeUpdate } from 'svelte';
+	import organicoImg from '../../img/organico.png';
+	import veganoImg from '../../img/vegano.png';
+	import picosoImg from '../../img/picoso.png';
+	import superfoodImg from '../../img/superfood.png';
 
 	let showLoad = false;
+	let showMenu= true;
+	let firstShow = true;
 	function timedLoad(milli){
 		setTimeout(() => {
 			showLoad = false;
@@ -22,8 +28,15 @@
 	})
 	onMount(()=>{
 		timedLoad(1000);
+		menuChange(false,20000);
 	})
-	// timedLoad(2000);
+	
+	function menuChange(active, milli){
+		setTimeout(() => {
+			showMenu=active;
+			firstShow=false;
+		}, milli);
+	}
 	
 
 </script>
@@ -39,8 +52,31 @@
 		{$itemStorage.title || "Visor"}
 	</div>
 	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? '/viewer.html' : '/productos/viewer3D'}></iframe>
+	{#if $itemStorage != undefined && $itemStorage != null && $itemStorage != {}}
+	<div class="info-platillo" class:active={showMenu} class:first={firstShow}>
+		<div class="infocard">
+			<button id="infoBtn" class:active={showMenu} on:click={()=>{menuChange(!showMenu,100)}}></button>
+			{#if $itemStorage.info != undefined && $itemStorage.info.price != undefined}
+			<h2 id="infocard-title">{"$"+$itemStorage.info.price}</h2>
+			{/if}
+			<h1 id="infocard-title">{$itemStorage.title}</h1>
+			<h3 id="infocard-subtitle">{$itemStorage.subtitle}</h3>
+			{#if $itemStorage.info != undefined && $itemStorage.info.isOrganic != undefined
+			&& $itemStorage.info.isVegan != undefined && $itemStorage.info.isSuperFood != undefined && $itemStorage.info.isSpicy != undefined}
+			<div class="types-platillo row flexinline">
+				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isVegan} width="50" alt="tipo de platillo" src={veganoImg}/></div>
+				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isSuperFood} width="55" alt="tipo de platillo" src={superfoodImg}/></div>
+				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isSpicy} width="50" alt="tipo de platillo" src={picosoImg}/></div>
+				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isOrganic} width="53" alt="tipo de platillo" src={organicoImg}/></div>
+			</div>
+			{/if}
+			<p id="infocard-description">{$itemStorage.body}</p>
+		</div>
+	</div>
+	{/if}
 </body>
 <style>
+	
 body {
     margin: 0;
     padding: 0;
@@ -79,5 +115,107 @@ select.searchSelect.visorSelect {
     color: #f6ad33;
     border-radius: 10px;
 	outline: none;
+}
+.info-platillo {
+    background: white;
+    position: fixed;
+    bottom: 0px;
+    height: 70%;
+    width: 96%;
+    left: 2%;
+    margin: 0 auto;
+    display: block;
+    transform: translate(0, 100%);
+    transition: 1s;
+    border-radius: 25px 25px 0 0;
+    border: 5px solid #e6e6e6;
+}
+.info-platillo.active {
+    transform: translate(0px, 0%);
+}
+button#infoBtn {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    top: -45px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-bottom: -20px;
+    font-size: 30px;
+    font-family: none;
+    background: #f6ad33;
+    font-weight: 800;
+    color: white;
+    border: 3px solid #cb9130;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button#infoBtn:hover {
+    top: -48px;
+}
+
+h1#infocard-title {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: left;
+}
+
+.infocard {
+    padding: 0px 12px;
+}
+
+h2#infocard-title {
+    position: absolute;
+    TOP: 10px;
+    left: 30px;
+    font-size: 18px;
+}
+
+h3#infocard-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+p#infocard-description {
+    font-size: 14px;
+    text-align: justify;
+}
+.types-platillo.row.flexinline {
+    width:90%;
+    margin:0 auto;
+}
+
+img.typeimg {
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+img.typeimg {
+    opacity: 0.3;
+    filter: grayscale(1);
+}
+
+img.typeimg.active {
+    opacity: 1;
+    filter: sepia(1);
+}
+.types-platillo{
+	margin:0 15px;
+}
+.info-platillo.first {
+    transform: translate(0px, 62%) !important;
+}
+button#infoBtn:after {
+  content: 'v';
+  font-family: monospace;
+  font-weight: 100;
+}
+button#infoBtn {
+    transform: rotate(180deg);
+}
+button#infoBtn.active {
+    transform: rotate(0deg);
 }
 </style>
