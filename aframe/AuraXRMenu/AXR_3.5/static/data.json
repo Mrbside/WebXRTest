@@ -25,6 +25,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":true,
+             "isSuperFood":false,
+             "isVegan":true,
+             "isSpicy":true,
              "tags":[
                 "none"
              ]
@@ -55,6 +59,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -85,6 +93,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -115,6 +127,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -145,6 +161,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -175,6 +195,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -205,6 +229,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -235,6 +263,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -265,6 +297,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -295,6 +331,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -325,6 +365,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -355,6 +399,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -385,6 +433,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -415,6 +467,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -445,6 +501,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -475,6 +535,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -505,6 +569,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -535,6 +603,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -565,6 +637,10 @@
              "model":"none",
              "size":"none",
              "gender":"none",
+             "isOrganic":false,
+             "isSuperFood":false,
+             "isVegan":false,
+             "isSpicy":false,
              "tags":[
                 "none"
              ]
@@ -595,6 +671,10 @@
             "model":"none",
             "size":"none",
             "gender":"none",
+            "isOrganic":false,
+            "isSuperFood":false,
+            "isVegan":false,
+            "isSpicy":false,
             "tags":[
                "none"
             ]
