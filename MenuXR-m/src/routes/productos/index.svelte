@@ -5,17 +5,20 @@
 <script>
 	import Loader from "$lib/Loader.svelte";
 	// import { get } from 'svelte/store';
-	import {typeStorage, itemStorage, getStoreVariable} from "$lib/Store.js";
+	import {typeStorage, itemStorage, getStoreVariable, homePath} from "$lib/Store.js";
 	import { onMount, beforeUpdate } from 'svelte';
-	import organicoImg from '../../img/organico.png';
-	import veganoImg from '../../img/vegano.png';
-	import picosoImg from '../../img/picoso.png';
-	import superfoodImg from '../../img/superfood.png';
+	import organicoImg from '$lib/img/organico.png';
+	import veganoImg from '$lib/img/vegano.png';
+	import picosoImg from '$lib/img/picoso.png';
+	import superfoodImg from '$lib/img/superfood.png';
 
 	let showLoad = true;
 	let showScreen = false;
 	let showMenu= true;
 	let firstShow = true;
+
+    const viewerPath = $homePath;
+
 	function timedLoad(milli){
 		setTimeout(() => {
 			showLoad = false;
@@ -54,7 +57,7 @@
 		<div class="product_name">
 			{$itemStorage.title || "Visor"}
 		</div>
-		<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? '/viewerAR.html' : '/viewer3D.html'}></iframe>
+		<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? viewerPath+'/viewerAR.html' : viewerPath+'/viewer3D.html'}></iframe>
 		{#if $itemStorage != undefined && $itemStorage != null && $itemStorage != {}}
 		<div class="info-platillo" class:active={showMenu} class:first={firstShow}>
 			<div class="infocard">
