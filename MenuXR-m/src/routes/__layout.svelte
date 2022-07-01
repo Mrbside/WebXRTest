@@ -1,9 +1,12 @@
+<head>
+	<!-- <link rel="shortcut icon" href="/restaurant-logo.ico" /> -->
+</head>
 <script lang="ts">
-	import Header from '$lib/header/Header.svelte';
+	import Header from '../lib/header/Header.svelte';
 	import { beforeUpdate } from 'svelte';
 	import '../app.css';
 
-	let path:any = "/";
+	let path:any;
 	let showPage = false;
     beforeUpdate(() => {
 		path = window.location.pathname;

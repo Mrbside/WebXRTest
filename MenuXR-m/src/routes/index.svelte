@@ -1,9 +1,9 @@
 <script lang="ts">
-	import info from '../img/info.png';
-    import arbtn from '../img/ar-btn.png';
-	import closePop from '../img/close-pop.png';
-	import visor3D from '../img/visor3d.png';
-	import visorAR from '../img/visorAr.png';
+	import info from '$lib/img/info.png';
+    import arbtn from '$lib/img/ar-btn.png';
+	import closePop from '$lib/img/close-pop.png';
+	import visor3D from '$lib/img/visor3d.png';
+	import visorAR from '$lib/img/visorAr.png';
 
 	import {itemStorage, typeStorage} from '$lib/Store.js';
 	import fetchProducts from '$lib/FetchProducts.js';
@@ -61,40 +61,10 @@
 
 	}
 
-	function fireSliderFeature(){
-		const slider:any = document.querySelector('.items');
-		let isDown = false;
-		let startX:any;
-		let scrollLeft:any;
-
-		slider.addEventListener('mousedown', (e) => {
-		isDown = true;
-		slider.classList.add('active');
-		startX = e.pageX - slider.offsetLeft;
-		scrollLeft = slider.scrollLeft;
-		});
-		slider.addEventListener('mouseleave', () => {
-		isDown = false;
-		slider.classList.remove('active');
-		});
-		slider.addEventListener('mouseup', () => {
-		isDown = false;
-		slider.classList.remove('active');
-		});
-		slider.addEventListener('mousemove', (e) => {
-		if(!isDown) return;
-		e.preventDefault();
-		const x = e.pageX - slider.offsetLeft;
-		const walk = (x - startX) * 3; //scroll-fast
-		slider.scrollLeft = scrollLeft - walk;
-		console.log("Slider!");
-		});
-	}
-
 	function sendToViewer(type:any,item:any){
 		$typeStorage = type;
 		$itemStorage = item;
-		setTimeout(()=>{window.location="/productos";},200);
+		setTimeout(()=>{window.location=window.location.pathname+"productos";},200);
 	}
 
 	afterUpdate(() => {
@@ -225,7 +195,7 @@
 	{#if searchQuery && searchQuery.length > 0}
 		<h2 class="txt-left sz-16" >Nuestros platillos</h2>
 		<p class="txt-center">¡Haz clic en el ícono de <b>[AR]</b> para ver el platillo en realidad aumentada!</p>
-	
+		<div class="blocks-listado">
 		{#each searchQuery as item}
 			<div class="list-block row">
 				<div class="col-reg col-3"> <img alt={item.title} src={image_url_completer+item.assets.imageA} class="list-block-img"/> </div>
@@ -240,6 +210,7 @@
 				</div>
 			</div>
 		{/each}
+		</div>
 		<!-- <pre>{JSON.stringify($items, null, 2)}</pre> -->
 	{/if}
 	
@@ -587,5 +558,14 @@ button.btn-cat-carousel.active {
     box-shadow: 0 0 5px 2px #00000038;
     margin: 20px 0;
 }
-
+img.list-block-AR, img.list-block-INFO {
+    cursor: pointer;
+}
+.blocks-listado {
+    display: flex;
+    flex-wrap: wrap;
+}
+select.searchSelect, button.btn-cat-carousel {
+    text-transform: capitalize;
+}
 </style>

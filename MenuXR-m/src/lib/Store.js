@@ -1,6 +1,9 @@
 import { writable, get } from 'svelte/store';
 import { browser } from '$app/env';
 
+export const IS_DEV = writable(process.env.NODE_ENV === 'development');
+export const pathRoute = writable("menuxr");
+export const homePath = writable (IS_DEV ? "/" : "/"+pathRoute);
 export const typeStorage = writable("");
 export const itemStorage = writable({});
 

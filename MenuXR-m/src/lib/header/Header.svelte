@@ -1,16 +1,19 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import open from '../../img/menu-icon.png';
-    import close from '../../img/close.png';
-    import homeIcon from '../../img/home-nav.png';
-	import restaurantLogo from '../../img/restaurant-logo.png';
-    import returnArrow from '../../img/return-arrow.png';
+	import open from '$lib/img/menu-icon.png';
+    import close from '$lib/img/close.png';
+    import homeIcon from '$lib/img/home-nav.png';
+	import restaurantLogo from '$lib/img/restaurant-logo.png';
+    import returnArrow from '$lib/img/return-arrow.png';
 	import jquery from 'jquery';
-    import { onMount, beforeUpdate, afterUpdate } from 'svelte';
+    import { beforeUpdate } from 'svelte';
+    import { homePath, pathRoute, IS_DEV } from '$lib/Store';
 
-    let path:any = "/";
+    let path:any = $homePath;
+    let pathProductos:any = IS_DEV ? "/productos" : "/"+$pathRoute+"/productos";
     beforeUpdate(() => {
 		path = window.location.pathname;
+        debugger;
 	});
 
 	function menuToggle(){
@@ -21,8 +24,14 @@
 </script>
 
 <header id="header">
-    {#if path == "/"}
-	<div class="corner menu-icon-corner">
+    {#if path === pathProductos}
+    <div class="corner">
+		<a id="return-arrow" href={$homePath} on:click={()=>{}}>
+			<img class="return-arrow-img" src={returnArrow} alt="Volver" />
+		</a>
+	</div>
+    {:else }
+    <div class="corner menu-icon-corner">
 		<button id="menuBtn" on:click={menuToggle}>
 			<img src={open} class="menu-btn-img" alt="Menú" />
             <img src={close} class="menu-btn-img hidden" alt="Menú" />
@@ -47,27 +56,16 @@
                 </div>
             </div>
             <ul>
-                <li class="page-li" class:active={$page.url.pathname === '/'}>
+                <li class="page-li" class:active={IS_DEV ? $page.url.pathname === '/' : $page.url.pathname === "/"+pathRoute}>
                     <img width="40" class="nav-icon" alt="Ir a Inicio" src={homeIcon}/>
-                    <a sveltekit:prefetch href="/" on:click="{()=>{menuToggle()}}">Inicio</a>
+                    <a sveltekit:prefetch href={$homePath} on:click="{()=>{menuToggle()}}">Inicio</a>
                 </li>
             </ul>
         </nav>
     </div>
-
-	<div class="corner logo-corner">
-		<a id="company-logo" href="/">
+    <div class="corner logo-corner">
+		<a id="company-logo" href={$homePath}>
 			<img src={restaurantLogo} alt="Ir a Inicio" />
-		</a>
-	</div>
-    {:else if path == null }
-    <div class="corner">
-		
-	</div>
-    {:else }
-    <div class="corner">
-		<a id="return-arrow" href="/" on:click={()=>{}}>
-			<img class="return-arrow-img" src={returnArrow} alt="Volver" />
 		</a>
 	</div>
     {/if}
