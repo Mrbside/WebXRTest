@@ -1,30 +1,28 @@
 <script lang="ts">
 	import Header from '$lib/header/Header.svelte';
+	import { beforeUpdate } from 'svelte';
 	import '../app.css';
+
+	let path:any = "/";
+	let showPage = false;
+    beforeUpdate(() => {
+		path = window.location.pathname;
+		showPage=true;
+	});
 </script>
+{#if showPage}
+	<Header />
 
-<Header />
+	<main>
+		<slot />
+	</main>
 
-<main>
-	<slot />
-</main>
-
-<footer>
-	<p>Restaurante - 2022</p>
-</footer>
+	<footer>
+		<p>Restaurante - 2022</p>
+	</footer>
+{/if}
 
 <style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
 	footer {
 		display: flex;
 		flex-direction: column;

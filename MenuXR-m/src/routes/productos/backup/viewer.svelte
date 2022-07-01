@@ -1,8 +1,8 @@
 	<head>
   		<title>MenuXR</title>
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-		<script src="Scripts/aframe-ar.js"></script>
-		<script src="Scripts/aframe-extras.min.js"></script>
+		<script src="/src/routes/productos/Scripts/aframe-ar.js"></script>
+		<script src="/src/routes/productos/Scripts/aframe-extras.min.js"></script>
 		<script>
 		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
 		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
@@ -37,7 +37,7 @@
 			}
 		  });
 		</script>
-		<script>/*
+		<script>/* 
 			document.addEventListener('DOMContentLoaded', () => {
             const start = async() => 
             {
@@ -53,8 +53,8 @@
                 var currentDish
                 var currentInfo
 				  
-				platotest.setAttribute('gltf-model', '3DModels/'+ currentDish +'.glb')
-				paneltest.setAttribute('src','PanelPlatillo/'+ currentInfo +'.png')
+				platotest.setAttribute('gltf-model', '/Productos/3DModels/'+ currentDish +'.glb')
+				paneltest.setAttribute('src','/Productos/PanelPlatillo/'+ currentInfo +'.png')
 						
 			}*/
 		</script>
@@ -71,17 +71,17 @@
 			<a-assets>
 			
 			</a-assets>
-			<a-marker id="marcador" type='pattern' url='markers/aurawebxr.patt' smooth='true' smoothCount='3' smoothTolerance='0.01' smoothThreshold='2'>
+			<a-marker id="marcador" type='pattern' url='/src/routes/productos/markers/aurawebxr.patt' smooth='true' smoothCount='3' smoothTolerance='0.01' smoothThreshold='2'>
 				<a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#marcador; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="-0.24 4.520 5.127">	
 				</a-entity>
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
-				<a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
+				<a-image id="panelinfo" src="/src/routes/productos/PanelPlatillo/bbq.png" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image>
 				<a-entity 
 				id="chef"
             	position="-4.138 -1.10 -4.797"
     		    rotation="0 31.0 0"
             	scale="0.02 0.02 0.02"
-            	gltf-model="3DModels/chef.gltf"
+            	gltf-model="/src/routes/productos/3DModels/chef.gltf"
             	animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
             	shadow="receive: true; cast: true"
 				>
@@ -91,7 +91,7 @@
             	position="0 0 0"
             	rotation="0 0 0"
             	scale="0.1 0.1 0.1"
-            	gltf-model="3DModels/toast.glb"
+            	gltf-model="/src/routes/productos/3DModels/toast.glb"
             	shadow="receive: true; cast: true"
 				animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
 				animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"

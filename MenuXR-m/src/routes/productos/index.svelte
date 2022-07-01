@@ -12,7 +12,8 @@
 	import picosoImg from '../../img/picoso.png';
 	import superfoodImg from '../../img/superfood.png';
 
-	let showLoad = false;
+	let showLoad = true;
+	let showScreen = false;
 	let showMenu= true;
 	let firstShow = true;
 	function timedLoad(milli){
@@ -23,12 +24,13 @@
 	beforeUpdate(()=>{
 		$typeStorage = getStoreVariable("typeStorage");
 		$itemStorage = typeof JSON.parse(getStoreVariable("itemStorage")) == "object" ? JSON.parse(getStoreVariable("itemStorage")) : {title:"Visor"};
-		
+		showScreen=true;
+		showLoad=false;
 		// debugger;
 	})
 	onMount(()=>{
 		timedLoad(1000);
-		menuChange(false,20000);
+		menuChange(false,2500);
 	})
 	
 	function menuChange(active, milli){
@@ -48,31 +50,33 @@
 	{#if showLoad}
 		<Loader/>
 	{/if}
-	<div class="product_name">
-		{$itemStorage.title || "Visor"}
-	</div>
-	<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? '/viewer.html' : '/productos/viewer3D'}></iframe>
-	{#if $itemStorage != undefined && $itemStorage != null && $itemStorage != {}}
-	<div class="info-platillo" class:active={showMenu} class:first={firstShow}>
-		<div class="infocard">
-			<button id="infoBtn" class:active={showMenu} on:click={()=>{menuChange(!showMenu,100)}}></button>
-			{#if $itemStorage.info != undefined && $itemStorage.info.price != undefined}
-			<h2 id="infocard-title">{"$"+$itemStorage.info.price}</h2>
-			{/if}
-			<h1 id="infocard-title">{$itemStorage.title}</h1>
-			<h3 id="infocard-subtitle">{$itemStorage.subtitle}</h3>
-			{#if $itemStorage.info != undefined && $itemStorage.info.isOrganic != undefined
-			&& $itemStorage.info.isVegan != undefined && $itemStorage.info.isSuperFood != undefined && $itemStorage.info.isSpicy != undefined}
-			<div class="types-platillo row flexinline">
-				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isVegan} width="50" alt="tipo de platillo" src={veganoImg}/></div>
-				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isSuperFood} width="55" alt="tipo de platillo" src={superfoodImg}/></div>
-				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isSpicy} width="50" alt="tipo de platillo" src={picosoImg}/></div>
-				<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isOrganic} width="53" alt="tipo de platillo" src={organicoImg}/></div>
-			</div>
-			{/if}
-			<p id="infocard-description">{$itemStorage.body}</p>
+	{#if showScreen}
+		<div class="product_name">
+			{$itemStorage.title || "Visor"}
 		</div>
-	</div>
+		<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? '/viewerAR.html' : '/viewer3D.html'}></iframe>
+		{#if $itemStorage != undefined && $itemStorage != null && $itemStorage != {}}
+		<div class="info-platillo" class:active={showMenu} class:first={firstShow}>
+			<div class="infocard">
+				<button id="infoBtn" class:active={showMenu} on:click={()=>{menuChange(!showMenu,100)}}></button>
+				{#if $itemStorage.info != undefined && $itemStorage.info.price != undefined}
+				<h2 id="infocard-title">{"$"+$itemStorage.info.price}</h2>
+				{/if}
+				<h1 id="infocard-title">{$itemStorage.title}</h1>
+				<h3 id="infocard-subtitle">{$itemStorage.subtitle}</h3>
+				{#if $itemStorage.info != undefined && $itemStorage.info.isOrganic != undefined
+				&& $itemStorage.info.isVegan != undefined && $itemStorage.info.isSuperFood != undefined && $itemStorage.info.isSpicy != undefined}
+				<div class="types-platillo row flexinline">
+					<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isVegan} width="50" alt="tipo de platillo" src={veganoImg}/></div>
+					<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isSuperFood} width="55" alt="tipo de platillo" src={superfoodImg}/></div>
+					<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isSpicy} width="50" alt="tipo de platillo" src={picosoImg}/></div>
+					<div class="col-3 typediv"><img class="typeimg" class:active={$itemStorage.info.isOrganic} width="53" alt="tipo de platillo" src={organicoImg}/></div>
+				</div>
+				{/if}
+				<p id="infocard-description">{$itemStorage.body}</p>
+			</div>
+		</div>
+		{/if}
 	{/if}
 </body>
 <style>

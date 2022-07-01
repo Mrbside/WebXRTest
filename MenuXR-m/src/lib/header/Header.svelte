@@ -8,9 +8,9 @@
 	import jquery from 'jquery';
     import { onMount, beforeUpdate, afterUpdate } from 'svelte';
 
-    let path = "/";
-    afterUpdate(() => {
-		path = window.location.pathname
+    let path:any = "/";
+    beforeUpdate(() => {
+		path = window.location.pathname;
 	});
 
 	function menuToggle(){
@@ -60,9 +60,13 @@
 			<img src={restaurantLogo} alt="Ir a Inicio" />
 		</a>
 	</div>
+    {:else if path == null }
+    <div class="corner">
+		
+	</div>
     {:else }
     <div class="corner">
-		<a id="return-arrow" on:click={()=>{window.history.back()}}>
+		<a id="return-arrow" href="/" on:click={()=>{}}>
 			<img class="return-arrow-img" src={returnArrow} alt="Volver" />
 		</a>
 	</div>

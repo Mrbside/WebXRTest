@@ -8,7 +8,7 @@
 	import {itemStorage, typeStorage} from '$lib/Store.js';
 	import fetchProducts from '$lib/FetchProducts.js';
 	import Loader from '$lib/Loader.svelte';
-	import { afterUpdate } from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
     
 	const [items, categories, loading, error, getter] = fetchProducts();
 	let searchFirst = true;
@@ -61,6 +61,36 @@
 
 	}
 
+	function fireSliderFeature(){
+		const slider:any = document.querySelector('.items');
+		let isDown = false;
+		let startX:any;
+		let scrollLeft:any;
+
+		slider.addEventListener('mousedown', (e) => {
+		isDown = true;
+		slider.classList.add('active');
+		startX = e.pageX - slider.offsetLeft;
+		scrollLeft = slider.scrollLeft;
+		});
+		slider.addEventListener('mouseleave', () => {
+		isDown = false;
+		slider.classList.remove('active');
+		});
+		slider.addEventListener('mouseup', () => {
+		isDown = false;
+		slider.classList.remove('active');
+		});
+		slider.addEventListener('mousemove', (e) => {
+		if(!isDown) return;
+		e.preventDefault();
+		const x = e.pageX - slider.offsetLeft;
+		const walk = (x - startX) * 3; //scroll-fast
+		slider.scrollLeft = scrollLeft - walk;
+		console.log("Slider!");
+		});
+	}
+
 	function sendToViewer(type:any,item:any){
 		$typeStorage = type;
 		$itemStorage = item;
@@ -86,7 +116,7 @@
 	<meta name="description" content="Menú Restaurante AR" />
 </svelte:head>
 
-<section>
+<section id="main-page">
 	{#if $loading}
 		<Loader/>
 	{/if}
@@ -116,12 +146,12 @@
 			</div>
 		</div>
 	{/if}
-	<h3 class="txt-center sz-25" style=" margin-top: 0px; ">
+	<h3 class="txt-center sz-25" style=" margin-top: 0px; margin-bottom:20px; ">
 		¡Disfruta de nuestros
 		<br/>
 		<b>mejores platillos!</b>
 	</h3>
-	{#if $categories.length > 0}
+	{#if $categories.length > 0 }
 	<div class="select-combo">
 		<select class="searchSelect" value={categorySelected} on:change="{(e) => {search(e.target.value)}}">
 			<option value="" disabled>¿Qué desea buscar?</option>
@@ -132,9 +162,55 @@
 		</select>
 	</div>
 	{/if}
-
 	{#if $categories.length > 0}
 	<h2 class="txt-left sz-16" style="margin-top:20px;">Nuestras categorías</h2>
+	<div class="grid-item main">
+		<div class="items">
+			<div class={"item item1"} class:active={categorySelected == ""}>
+				<button class="btn-cat-carousel" class:active={categorySelected == ""} on:click={()=>{search("")}}>Todos</button>
+			</div>
+			{#each $categories as category, i}
+			{#if $categories.length == i+1}
+				<script lang="ts">
+					console.log("COMPLETO!");
+					const slider:any = document.querySelector('.items');
+					let isDown = false;
+					let startX:any;
+					let scrollLeft:any;
+
+					slider.addEventListener('mousedown', (e) => {
+					isDown = true;
+					slider.classList.add('active');
+					startX = e.pageX - slider.offsetLeft;
+					scrollLeft = slider.scrollLeft;
+					});
+					slider.addEventListener('mouseleave', () => {
+					isDown = false;
+					slider.classList.remove('active');
+					});
+					slider.addEventListener('mouseup', () => {
+					isDown = false;
+					slider.classList.remove('active');
+					});
+					slider.addEventListener('mousemove', (e) => {
+					if(!isDown) return;
+					e.preventDefault();
+					const x = e.pageX - slider.offsetLeft;
+					const walk = (x - startX) * 3; //scroll-fast
+					slider.scrollLeft = scrollLeft - walk;
+					console.log("Slider!");
+					});
+				</script>
+			{/if}
+			<div class={"item item"+(i+1)} class:active={categorySelected == ""}>
+				<button class="btn-cat-carousel" class:active={categorySelected == category} on:click={()=>{search(category)}}>{category}</button>
+			</div>
+			{/each}
+		</div>
+	</div>
+	{/if}
+	{#if false}
+	<!-- <h2 class="txt-left sz-16" style="margin-top:20px;">Nuestras categorías</h2>
 		<div class="carousel row">
 			<div class="carousel-block col-4" on:click="{()=>search("")}" class:active={categorySelected == ""}>Todos</div>
 			{#each $categories as category} 
@@ -142,7 +218,7 @@
 					{category}
 				</div>
 			{/each}
-		</div>
+		</div> -->
 		<!-- <pre>{JSON.stringify($items, null, 2)}</pre> -->
 	{/if}
 
@@ -169,7 +245,11 @@
 	
 </section>
 
-<style>
+<style lang="scss">
+	section#main-page {
+    padding: 0 20px;
+}
+
 select.searchSelect {
     width: 92%;
     margin: 0px auto;
@@ -293,6 +373,7 @@ img.list-block-img {
 }
 
 .carousel-block {
+	transition:0.3s;
     font-weight: 500;
     height: 45px !important;
     line-height: 45px !important;
@@ -372,7 +453,15 @@ img.list-block-INFO {
     width: 30px !important;
     height: 30px !important;
 }
+img.list-block-img {
+    object-fit: cover !important;
+    height: 70px !important;
+    padding-left: 5px;
+}
 
+p.list-block-title {
+    line-height: 16px;
+}
 @media(min-width:600px){
 	img.list-block-AR {
 		width: 70px !important;
@@ -389,4 +478,114 @@ img.list-block-INFO {
     margin: 2% !important;
 }
 }
+
+//VARIABLES BECAUSE CSS PREPROCESSORS ARE COOL
+$gray: #555;
+$yellow: #f2e968;
+$white: #efefef;
+
+//ENABLE CSS GRID FOR LIFT OFF  🚀
+@supports(display: grid) {
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    
+    //Let the craziness begin!!!
+    grid-template-areas:
+      "header header header"
+      "title title footer"
+      "main main main";
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.3fr 1fr auto 1fr;
+      grid-template-areas: 
+        "header"
+        "title"
+        "main"
+        "footer";
+    }
+  }
+
+  .main {
+    color: lighten($gray, 25%);
+    background-color: lighten(skyblue, 60%);
+    grid-area: main;
+    padding: 0;
+    /*overflow-x: scroll;*/
+    overflow-y: hidden;
+	
+  }
+
+  .items {
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .items.active {
+    background: rgba(255,255,255,0.3);
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+  }
+
+  .item {
+    display: inline-block;
+    background: skyblue;
+    min-height: 250px;
+    min-width: 400px;
+    margin: 2em 1em;
+    @media screen and (max-width: 500px) {
+      min-height: 200px;
+      min-width: 200px;
+    }
+  }
+}
+.items::-webkit-scrollbar-thumb {
+    background-color: #ffbd4e !important;
+}
+button.btn-cat-carousel {
+    position: relative;
+    display: block;
+    margin: 20px auto;
+    background: white;
+    border-radius: 15px;
+    width: 100%;
+    padding: 10px 15px;
+	border: none;
+	transition:0.3s;
+	cursor:pointer;
+}
+button.btn-cat-carousel.active {
+    background: #ffbd4e;
+    color: white;
+}
+
+.item {
+    min-width: 30% !important;
+    min-height: 90px !important;
+    max-width: 30%;
+    background: none !important;
+    margin: 0px 10px !important;
+}
+
+.grid-item.main {
+    background: #f2ecd2 !important;
+    height: 105px;
+    padding-bottom: 0 !important;
+    margin-bottom: -5px;
+	border-radius: 15px;
+    box-shadow: 0 0 5px 2px #00000038;
+    margin: 20px 0;
+}
+
 </style>
