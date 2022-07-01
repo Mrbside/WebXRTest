@@ -6,7 +6,7 @@ export default function () {
 	const error = writable(false);
 	const data = writable({});
 	const categories = writable([]);
-    const url = 'https://raw.githubusercontent.com/Mrbside/WebXRTest/main/aframe/AuraXRMenu/AXR_3.5/static/data.json';
+    const url = '/data.json';
 	
 	async function get() {
 		loading.set(true)
