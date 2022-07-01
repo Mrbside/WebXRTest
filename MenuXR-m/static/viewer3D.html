@@ -1,71 +1,39 @@
 <html>
 	<head>
   		<title>MenuXR</title>
-		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> 
-		<script src="Scripts/aframe-ar.js"></script>
-		<script src="Scripts/aframe-extras.min.js"></script>
-		<script>
-		AFRAME.registerComponent("apply-shadowmaterial", {
-      init: function() {
-        // grab the mesh
-        let mesh = this.el.getObject3D("mesh");
-        // keep the reference to the old material
-        let tmp = mesh.material;
-        // assign the new material
-        mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
-        mesh.receiveShadow = true;
-        // free memory
-        tmp.dispose();
-      }
-    });
-  </script>
+		  	<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+			<script src="Scripts/aframe-master.min.js"></script>
+			<script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+			<script src="Scripts/model-viewer.js"></script>
+			<script src="Scripts/background-gradient.js"></script>
+			<script>
+				
+				document.addEventListener('DOMContentLoaded', () => {
+				const start = async() => 
+				{
+					SetDishAndInfo();
+				}
+				});
+	
+				function SetDishAndInfo()
+				{	
+					var platotest = document.querySelector('#escena');
+					// var paneltest = document.querySelector('#panelinfo');
+					var currentDish = JSON.parse(localStorage.itemStorage).title;
+					// var currentInfo = JSON.parse(localStorage.itemStorage).description;
+					console.log("PLATILLO:",currentDish);
+					platotest.setAttribute('model-viewer', 'gltfModel: /3DModels/'+ currentDish +'.glb;')
+					// paneltest.setAttribute('src','/Panels/'+ currentInfo +'.png')
+					
+				}
+			</script>
 	</head>
 	<body class="viewer-body">
-		<script>
-		// AFRAME.registerComponent('modify-materials', {
-		// 	init: function () {
-			
-		// 	}
-		// });
-		</script>
-		<a-scene vr-mode-ui="enabled: false" loading-screen="dotsColor: orange; backgroundColor: black" renderer="logarithmicDepthBuffer: true;" arjs='sourceType: none;'>
-			<!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9">
-			</a-box>
-			<a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E">
-			</a-sphere>
-			<a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D">
-			</a-cylinder> -->
-			<!-- <a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane> -->
-			<!-- <a-image id="panelinfo" src="#toast" height="7" width="3" scale="1 1 1" position="2.907 2.076 -6.101" rotation="-30.0 -11.302 0" transparent="false" shadow="cast: true"></a-image> -->
-			<a-entity 
-			id="chef"
-			position="0 0.6 -9"
-			rotation="0 31.0 0"
-			scale="0.02 0.02 0.02"
-			gltf-model="/3DModels/chef.gltf"
-			animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
-			shadow="receive: true; cast: true"
-			>
-			</a-entity>
-			<a-entity 
-			id="plato"
-			position="0 0.6 -5"
-			rotation="30 0 0"
-			scale="0.05 0.05 0.05"
-			gltf-model="/3DModels/toast.glb"
-			shadow="receive: true; cast: true"
-			animation__pos="property:position; from:0 0 0; to:-6 0 0; dur: 1000; startEvents:pos" 
-			animation__scale="property:scale; from:0.1 0.1 0.1; to:0 0 0; dur: 1000; startEvents:scale"
-			>
-			</a-entity>
-			<a-sky color="#ECECEC"></a-sky>
-			<a-entity camera look-controls >
-				<a-entity cursor="fuse: true; fuseTimeout: 500"
-					position="0 0 -0.6"
-					geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
-					material="color: #f6ad33; shader: flat">
-				</a-entity>
-			</a-entity>
+		<a-scene id="escena" renderer="colorManagement: true;" model-viewer="gltfModel: /3DModels/bbq.glb; title: Plato" vr-mode-ui="enabled: false" loading-screen="dotsColor: orange; backgroundColor: black">
+			<a-assets>	
+				<img id="shadow" src="shadow.png"></img>	
+			</a-assets>
 		</a-scene>
 	</body>
 
