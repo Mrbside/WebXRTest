@@ -13,7 +13,6 @@
     let pathProductos:any = IS_DEV ? "/productos" : "/"+$pathRoute+"/productos";
     beforeUpdate(() => {
 		path = window.location.pathname;
-        debugger;
 	});
 
 	function menuToggle(){
@@ -24,7 +23,7 @@
 </script>
 
 <header id="header">
-    {#if path === pathProductos}
+    {#if path.includes(pathProductos)}
     <div class="corner">
 		<a id="return-arrow" href={$homePath} on:click={()=>{}}>
 			<img class="return-arrow-img" src={returnArrow} alt="Volver" />

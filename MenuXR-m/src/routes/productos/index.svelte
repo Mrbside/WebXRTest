@@ -17,8 +17,6 @@
 	let showMenu= true;
 	let firstShow = true;
 
-    const viewerPath = $homePath;
-
 	function timedLoad(milli){
 		setTimeout(() => {
 			showLoad = false;
@@ -57,7 +55,7 @@
 		<div class="product_name">
 			{$itemStorage.title || "Visor"}
 		</div>
-		<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? viewerPath+'/viewerAR.html' : viewerPath+'/viewer3D.html'}></iframe>
+		<iframe title="viewer" allowvr="yes" height="100%" width="100%" allowfullscreen={true} src={$typeStorage=="" || $typeStorage=="AR" ? $homePath+'viewerAR.html' : $homePath+'viewer3D.html'}></iframe>
 		{#if $itemStorage != undefined && $itemStorage != null && $itemStorage != {}}
 		<div class="info-platillo" class:active={showMenu} class:first={firstShow}>
 			<div class="infocard">

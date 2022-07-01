@@ -5,14 +5,14 @@
 	import visor3D from '$lib/img/visor3d.png';
 	import visorAR from '$lib/img/visorAr.png';
 
-	import {itemStorage, typeStorage} from '$lib/Store.js';
+	import {homePath, itemStorage, typeStorage} from '$lib/Store.js';
 	import fetchProducts from '$lib/FetchProducts.js';
 	import Loader from '$lib/Loader.svelte';
 	import { afterUpdate, onMount } from 'svelte';
     
 	const [items, categories, loading, error, getter] = fetchProducts();
 	let searchFirst = true;
-	let searchQuery = [];
+	let searchQuery:any = [];
 	let categorySelected="";
 	let popup = false;
 	let popupData = 
@@ -64,7 +64,7 @@
 	function sendToViewer(type:any,item:any){
 		$typeStorage = type;
 		$itemStorage = item;
-		setTimeout(()=>{window.location=window.location.pathname+"productos";},200);
+		setTimeout(()=>{window.location=$homePath+"productos";},200);
 	}
 
 	afterUpdate(() => {
