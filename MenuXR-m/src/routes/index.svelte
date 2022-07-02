@@ -104,11 +104,11 @@
 					</div>
 					<div class="btns-pop row">
 						<div class="btn-pop col-6 row">
-							<a sveltekit:prefetch href="/" on:click={()=>{sendToViewer("AR",producto)}} class="btn-a-pop col-6"> <img alt="Ver en RA" src={visorAR} class="visorimg visorAr-icon"/></a>
+							<a sveltekit:prefetch  on:click={()=>{sendToViewer("AR",producto)}} class="btn-a-pop col-6"> <img alt="Ver en RA" src={visorAR} class="visorimg visorAr-icon"/></a>
 							<span class="btn-span-pop col-6">Ver en Realidad Aumentada </span>
 						</div>
 						<div class="btn-pop col-6 row">
-							<a sveltekit:prefetch href="/" on:click={()=>{sendToViewer("3D",producto)}} class="btn-a-pop col-6"> <img alt="Ver en 3D" src={visor3D} class="visorimg visor3d-icon"/></a>
+							<a sveltekit:prefetch  on:click={()=>{sendToViewer("3D",producto)}} class="btn-a-pop col-6"> <img alt="Ver en 3D" src={visor3D} class="visorimg visor3d-icon"/></a>
 							<span class="btn-span-pop col-6">Ver en el visor 3D </span>
 						</div>
 					</div>

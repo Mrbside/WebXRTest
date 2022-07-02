@@ -1,4 +1,5 @@
 import { writable, derived } from 'svelte/store';
+import { homePath } from './Store';
 
 
 export default function () {
@@ -6,7 +7,8 @@ export default function () {
 	const error = writable(false);
 	const data = writable({});
 	const categories = writable([]);
-    const url = '/data.json';
+	const ligaHome = window.location.href.toUpperCase().includes("AURAXR") ? "/menuxr/" : "/";
+    const url = ligaHome+'data.json';
 	
 	async function get() {
 		loading.set(true)

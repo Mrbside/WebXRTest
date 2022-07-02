@@ -8,9 +8,13 @@
 			<script src="Scripts/model-viewer.js"></script>
 			<script src="Scripts/background-gradient.js"></script>
 			<script>
+
+				const ligaHome = window.location.href.toUpperCase().includes("AURAXR") ? "/menuxr/" : "/";
 				
 				document.addEventListener('DOMContentLoaded', () => {
-					SetDishAndInfo();
+					setTimeout(() => {
+						SetDishAndInfo();
+					}, 1000);
 				});
 	
 				function SetDishAndInfo()
@@ -20,7 +24,7 @@
 					var currentDish = JSON.parse(localStorage.itemStorage).title;
 					// var currentInfo = JSON.parse(localStorage.itemStorage).description;
 					console.log("PLATILLO:",currentDish);
-					platotest.setAttribute('model-viewer', 'gltfModel: /3DModels/'+ currentDish +'.glb;')
+					platotest.setAttribute('model-viewer', 'gltfModel: '+ligaHome+'3DModels/'+ currentDish +'.glb;')
 					// paneltest.setAttribute('src','/Panels/'+ currentInfo +'.png')
 					
 				}

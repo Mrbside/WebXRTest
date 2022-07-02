@@ -25,7 +25,7 @@
 <header id="header">
     {#if path.includes(pathProductos)}
     <div class="corner">
-		<a id="return-arrow" href={$homePath} on:click={()=>{}}>
+		<a id="return-arrow" on:click={()=>{window.location = $homePath}}>
 			<img class="return-arrow-img" src={returnArrow} alt="Volver" />
 		</a>
 	</div>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <ul>
-                <li class="page-li" class:active={IS_DEV ? $page.url.pathname === '/' : $page.url.pathname === "/"+pathRoute}>
+                <li class="page-li" class:active={$homePath}>
                     <img width="40" class="nav-icon" alt="Ir a Inicio" src={homeIcon}/>
                     <a sveltekit:prefetch href={$homePath} on:click="{()=>{menuToggle()}}">Inicio</a>
                 </li>
