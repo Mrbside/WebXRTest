@@ -390,7 +390,6 @@ button.close-pop-btn {
 }
 
 img.img-close-pop {
-    right: 2px;
     display: block;
     position: relative;
 }
@@ -567,5 +566,26 @@ img.list-block-AR, img.list-block-INFO {
 }
 select.searchSelect, button.btn-cat-carousel {
     text-transform: capitalize;
+}
+img.visorimg {
+	max-width: 80px;
+}
+.pop-img-block img {
+    object-fit: cover;
+}
+img.img-close-pop {
+    width: 100% !important;
+}
+
+button.close-pop-btn {
+    top: 15px !important;
+    right: 15px !important;
+}
+@media(min-width:764px){
+    
+    span.btn-span-pop {
+        font-size: 20px !important;
+        line-height: 25px;
+    }
 }
 </style>

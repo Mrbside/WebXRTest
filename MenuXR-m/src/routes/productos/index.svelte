@@ -59,7 +59,7 @@
 		{#if $itemStorage != undefined && $itemStorage != null && $itemStorage != {}}
 		<div class="info-platillo" class:active={showMenu} class:first={firstShow}>
 			<div class="infocard">
-				<button id="infoBtn" class:active={showMenu} on:click={()=>{menuChange(!showMenu,100)}}></button>
+				<button id="infoBtn" class:active={showMenu} on:click={()=>{menuChange(!showMenu,100)}}>v</button>
 				{#if $itemStorage.info != undefined && $itemStorage.info.price != undefined}
 				<h2 id="infocard-title">{"$"+$itemStorage.info.price}</h2>
 				{/if}
@@ -148,7 +148,7 @@ button#infoBtn {
     height: 60px;
     margin-bottom: -20px;
     font-size: 30px;
-    font-family: none;
+    font-family: monospace;
     background: #f6ad33;
     font-weight: 800;
     color: white;
@@ -212,15 +212,19 @@ img.typeimg.active {
 .info-platillo.first {
     transform: translate(0px, 62%) !important;
 }
-button#infoBtn:after {
-  content: 'v';
-  font-family: monospace;
-  font-weight: 100;
-}
 button#infoBtn {
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
 }
 button#infoBtn.active {
-    transform: rotate(0deg);
+    transform: rotateX(0deg);
+}
+button#infoBtn {
+    text-align: center;
+    display: block;
+    position: relative;
+    top: -70px !important;
+}
+button#infoBtn.active {
+    top: -35px !important;
 }
 </style>
