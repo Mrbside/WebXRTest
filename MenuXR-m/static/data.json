@@ -4,14 +4,14 @@
           "category":"desayunos",
           "subcategory":"mexicano",
           "id":1,
-          "title":"bbq",
-          "subtitle":"Los tradicionales",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Sandwich ibérico",
+          "subtitle":"El tradicional",
+          "body":"El jamón ibérico es un tipo de jamón serrano procedente del cerdo de raza ibérica, muy considerado en la gastronomía española y en la portuguesa (presunto ibérico), que se considera como un artículo de alta cocina y un manjar exquisito.",
           "assets":{
-             "imageThumbnail":"/molletes.jpeg",
-             "imageA":"/molletes.jpeg",
-             "imageB":"/molletes.jpeg",
-             "vectorFile":"Black.glb"
+             "imageThumbnail":"/sand.png",
+             "imageA":"/sand.png",
+             "imageB":"/sand.png",
+             "vectorFile":"sand"
           },
           "info":{
              "price":10.50,
@@ -35,17 +35,17 @@
           }
        },
        {
-          "category":"desayunos",
+          "category":"comida",
           "subcategory":"mexicano",
           "id":2,
-          "title":"Chilaquiles",
+          "title":"Costillas BBQ",
           "subtitle":"Bien Mexicanos",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "body":"Las costillas BBQ es un clásico dentro de la gastronomía americana. Deliciosas costillitas de cerdo, bañadas en una salsa BBQ agridulce.",
           "assets":{
-             "imageThumbnail":"/chilaquiles.jpeg",
-             "imageA":"/chilaquiles.jpeg",
-             "imageB":"/chilaquiles.jpeg",
-             "vectorFile":"Blue.glb"
+             "imageThumbnail":"/bbq.png",
+             "imageA":"/bbq.png",
+             "imageB":"/bbq.png",
+             "vectorFile":"bbq"
           },
           "info":{
              "price":12.50,
@@ -72,14 +72,14 @@
           "category":"desayunos",
           "subcategory":"mexicano",
           "id":3,
-          "title":"Tacos de Cohinita",
+          "title":"Tostada de aguacate",
           "subtitle":"Estilo Yucateco",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "body":"El aguacate es una versátil fruta que se puede usar para todo tipo de recetas y esta no es la excepción.",
           "assets":{
-             "imageThumbnail":"/cochinita.webp",
-             "imageA":"/cochinita.webp",
-             "imageB":"/cochinita.webp",
-             "vectorFile":"Orange.glb"
+             "imageThumbnail":"/toast.png",
+             "imageA":"/toast.png",
+             "imageB":"/toast.png",
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -104,16 +104,16 @@
        },
        {
           "category":"desayunos",
-          "subcategory":"huevos",
+          "subcategory":"tofu",
           "id":4,
-          "title":"Huevos a la mexicana",
-          "subtitle":"Bien picosos",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Tofu revuelto",
+          "subtitle":"Zero meat",
+          "body":"El tofu revuelto es una alternativa vegana a los huevos revueltos. Es fácil de hacer, rico en proteínas y está listo en menos de 15 minutos.",
           "assets":{
-             "imageThumbnail":"/hevos-mexicana.jpeg",
-             "imageA":"/hevos-mexicana.jpeg",
-             "imageB":"/hevos-mexicana.jpeg",
-             "vectorFile":"Black.glb"
+             "imageThumbnail":"/revuelto.png",
+             "imageA":"/revuelto.png",
+             "imageB":"/revuelto.png",
+             "vectorFile":"revuelto"
           },
           "info":{
              "price":10.50,
@@ -137,17 +137,17 @@
           }
        },
        {
-          "category":"desayunos",
+          "category":"comida",
           "subcategory":"huevos",
           "id":5,
-          "title":"Homelette con queso",
-          "subtitle":"Muy frances",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Tostada de atún",
+          "subtitle":"Estilo costa",
+          "body":"Una elaboración deliciosa gracias al rico y fresco sabor del atún de lata con cebolla, jalapeño y jitomate, todo en un rico guisado para degustar con tostadas de maíz.",
           "assets":{
-             "imageThumbnail":"/omelette-queso.jpeg",
-             "imageA":"/omelette-queso.jpeg",
-             "imageB":"/omelette-queso.jpeg",
-             "vectorFile":"Black.glb"
+             "imageThumbnail":"/tostada.png",
+             "imageA":"/tostada.png",
+             "imageB":"/tostada.png",
+             "vectorFile":"tostada"
           },
           "info":{
              "price":10.50,
@@ -171,17 +171,17 @@
           }
        },
        {
-          "category":"desayunos",
-          "subcategory":"huevos",
+          "category":"comida",
+          "subcategory":"tofu",
           "id":6,
-          "title":"Huevos estrellados",
+          "title":"Tacos de tofu",
           "subtitle":"Como en casa",
           "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
           "assets":{
-             "imageThumbnail":"/huevoestrelladoperfecto.jpeg",
-             "imageA":"/huevoestrelladoperfecto.jpeg",
-             "imageB":"/huevoestrelladoperfecto.jpeg",
-             "vectorFile":"Black.glb"
+             "imageThumbnail":"/tacos.png",
+             "imageA":"/tacos.png",
+             "imageB":"/tacos.png",
+             "vectorFile":"tacos"
           },
           "info":{
              "price":10.50,
@@ -215,7 +215,7 @@
              "imageThumbnail":"/ceviche.jpeg",
              "imageA":"/ceviche.jpeg",
              "imageB":"/ceviche.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -249,7 +249,7 @@
              "imageThumbnail":"/Carpaccio-Res.jpeg",
              "imageA":"/Carpaccio-Res.jpeg",
              "imageB":"/Carpaccio-Res.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -283,7 +283,7 @@
              "imageThumbnail":"/sopa-tomate.jpeg",
              "imageA":"/sopa-tomate.jpeg",
              "imageB":"/sopa-tomate.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -317,7 +317,7 @@
              "imageThumbnail":"/tampiquena.jpeg",
              "imageA":"/tampiquena.jpeg",
              "imageB":"/tampiquena.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -351,7 +351,7 @@
              "imageThumbnail":"/new-york-steak.jpeg",
              "imageA":"/new-york-steak.jpeg",
              "imageB":"/new-york-steak.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -382,10 +382,10 @@
           "subtitle":"En su adobo",
           "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
           "assets":{
-             "imageThumbnail":"lomo-de-cerdo.jpeg",
-             "imageA":"lomo-de-cerdo.jpeg",
-             "imageB":"lomo-de-cerdo.jpeg",
-             "vectorFile":"Black.glb"
+             "imageThumbnail":"/lomo-de-cerdo.jpeg",
+             "imageA":"/lomo-de-cerdo.jpeg",
+             "imageB":"/lomo-de-cerdo.jpeg",
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -419,7 +419,7 @@
              "imageThumbnail":"/filete-de-pescado.jpeg",
              "imageA":"/filete-de-pescado.jpeg",
              "imageB":"/filete-de-pescado.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -453,7 +453,7 @@
              "imageThumbnail":"/pescado_veracruzana.jpeg",
              "imageA":"/pescado_veracruzana.jpeg",
              "imageB":"/pescado_veracruzana.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -487,7 +487,7 @@
              "imageThumbnail":"/mousse-cafe.jpeg",
              "imageA":"/mousse-cafe.jpeg",
              "imageB":"/mousse-cafe.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -521,7 +521,7 @@
              "imageThumbnail":"/volcan-choco.jpeg",
              "imageA":"/volcan-choco.jpeg",
              "imageB":"/volcan-choco.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -555,7 +555,7 @@
              "imageThumbnail":"/flan-de-vainilla.jpeg",
              "imageA":"/flan-de-vainilla.jpeg",
              "imageB":"/flan-de-vainilla.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -589,7 +589,7 @@
              "imageThumbnail":"/coca-cola.jpeg",
              "imageA":"/coca-cola.jpeg",
              "imageB":"/coca-cola.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -623,7 +623,7 @@
              "imageThumbnail":"/te.jpeg",
              "imageA":"/te.jpeg",
              "imageB":"/te.jpeg",
-             "vectorFile":"Black.glb"
+             "vectorFile":"toast"
           },
           "info":{
              "price":10.50,
@@ -657,7 +657,7 @@
             "imageThumbnail":"/te.jpeg",
             "imageA":"/te.jpeg",
             "imageB":"/te.jpeg",
-            "vectorFile":"Black.glb"
+            "vectorFile":"toast"
          },
          "info":{
             "price":10.50,

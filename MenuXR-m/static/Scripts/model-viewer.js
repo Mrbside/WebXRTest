@@ -161,7 +161,7 @@ AFRAME.registerComponent("model-viewer", {
         laserHitPanelEl.setAttribute("visible", "false");
         laserHitPanelEl.classList.add("raycastable");
         this.containerEl.appendChild(laserHitPanelEl);
-        modelEl.setAttribute("rotation", "0 -30 0");
+        modelEl.setAttribute("rotation", "20 0 0");
         modelEl.setAttribute("animation-mixer", "");
         modelEl.setAttribute("shadow", "cast: true; receive: false");
         modelEl.setAttribute("id", "modelEl");

@@ -5,7 +5,7 @@
 	import visor3D from '$lib/img/visor3d.png';
 	import visorAR from '$lib/img/visorAr.png';
 
-	import {homePath, itemStorage, typeStorage} from '$lib/Store.js';
+	import {homePath, itemStorage, typeStorage, IS_DEV} from '$lib/Store.js';
 	import fetchProducts from '$lib/FetchProducts.js';
 	import Loader from '$lib/Loader.svelte';
 	import { afterUpdate, onMount } from 'svelte';
@@ -24,7 +24,7 @@
 		body:"",
 	}
 	let producto = {};
-	let image_url_completer = "https://github.com/Mrbside/WebXRTest/raw/main/aframe/AuraXRMenu/AXR_3.5/static";
+	let image_url_completer = $homePath+"PlatillosThumbs";
 
 	function search(category:any){
 		console.log("BUSCAR:",category);

@@ -8,7 +8,6 @@
 			<script src="Scripts/model-viewer.js"></script>
 			<script src="Scripts/background-gradient.js"></script>
 			<script>
-
 				const ligaHome = window.location.href.toUpperCase().includes("AURAXR") ? "/menuxr/" : "/";
 				
 				document.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +20,7 @@
 				{	
 					var platotest = document.querySelector('#escena');
 					// var paneltest = document.querySelector('#panelinfo');
-					var currentDish = JSON.parse(localStorage.itemStorage).title;
+					var currentDish = JSON.parse(localStorage.itemStorage).assets.vectorFile;
 					// var currentInfo = JSON.parse(localStorage.itemStorage).description;
 					console.log("PLATILLO:",currentDish);
 					platotest.setAttribute('model-viewer', 'gltfModel: '+ligaHome+'3DModels/'+ currentDish +'.glb;')
@@ -31,7 +30,7 @@
 			</script>
 	</head>
 	<body class="viewer-body">
-		<a-scene id="escena" renderer="colorManagement: true;" model-viewer="gltfModel:; title:" vr-mode-ui="enabled: false" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
+		<a-scene id="escena" physicallyCorrectLights="true" renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true;" model-viewer="gltfModel:; title:" vr-mode-ui="enabled: false" loading-screen="dotsColor: #DBDADA; backgroundColor: #282828">
 			<a-assets>	
 					
 			</a-assets>

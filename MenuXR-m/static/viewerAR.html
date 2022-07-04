@@ -5,8 +5,7 @@
 		<script src="Scripts/aframe-ar.js"></script>
 		<script src="Scripts/aframe-extras.min.js"></script>
 		<script>
-			const ligaHome = window.location.href.toUpperCase().includes("AURAXR") ? "/menuxr/" : "/";
-
+		const ligaHome = window.location.href.toUpperCase().includes("AURAXR") ? "/menuxr/" : "/";
 		//master mas reciente de aframe: https://aframe.io/aframe/dist/aframe-master.js
 		//ultima version estable aframe: https://aframe.io/releases/1.2.0/aframe.min.js
 		// mejorar calidad de video al final: arjs ="sourceType: webcam; sourceWidth:1280; sourceHeight:720; displayWidth: 1280; displayHeight: 720"
@@ -35,7 +34,7 @@
 			  // keep the reference to the old material
 			  let tmp = mesh.material;
 			  // assign the new material
-			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.6 });
+			  mesh.material = new THREE.ShadowMaterial({ opacity: 0.3 });
 			  mesh.receiveShadow = true;
 			  // free memory
 			  tmp.dispose();
@@ -50,17 +49,15 @@
 
             });
 
-
 			function SetDishAndInfo()
             {	
 				var platotest = document.querySelector('#plato');
 				// var paneltest = document.querySelector('#panelinfo');
-                var currentDish = JSON.parse(localStorage.itemStorage).title;
+                var currentDish = JSON.parse(localStorage.itemStorage).assets.vectorFile;
                 // var currentInfo = JSON.parse(localStorage.itemStorage).description;
 				console.log("PLATILLO:",currentDish);
 				platotest.setAttribute('gltf-model', ligaHome+'3DModels/'+ currentDish +'.glb')
 				// paneltest.setAttribute('src','/Panels/'+ currentInfo +'.png')
-				
 			}
 			
 		</script>
@@ -82,8 +79,8 @@
 				<a-plane id="planosombras" position="0 -1.0 0" height="500" width="500" rotation="-90 0 0" apply-shadowmaterial></a-plane>
 				<a-entity 
 				id="chef"
-            	position="-4.138 -1.10 -4.797"
-    		    rotation="0 31.0 0"
+            	position="-3.138 -1.10 -5.2"
+    		    rotation="0 45.0 0"
             	scale="0.02 0.02 0.02"
             	gltf-model="3DModels/chef.gltf"
             	animation-mixer="clip: clip; loop:repeat; repetitions:infinity"
