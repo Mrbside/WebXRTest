@@ -208,14 +208,14 @@
           "category":"comida",
           "subcategory":"entradas",
           "id":7,
-          "title":"Ceviche de pescado",
-          "subtitle":"Muy fresco",
+          "title":"Empanadas ",
+          "subtitle":"Muy rico",
           "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
           "assets":{
-             "imageThumbnail":"/ceviche.jpeg",
-             "imageA":"/ceviche.jpeg",
-             "imageB":"/ceviche.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"//empanadas.jpg",
+             "imageA":"/empanadas.jpg",
+             "imageB":"/empanadas.jpg",
+             "vectorFile":"empanadas"
           },
           "info":{
              "price":10.50,
@@ -242,14 +242,14 @@
           "category":"comida",
           "subcategory":"entradas",
           "id":8,
-          "title":"Carpacho de res",
+          "title":"Pescaditos",
           "subtitle":"Finas laminas",
           "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
           "assets":{
-             "imageThumbnail":"/Carpaccio-Res.jpeg",
-             "imageA":"/Carpaccio-Res.jpeg",
-             "imageB":"/Carpaccio-Res.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/pescaditos.png",
+             "imageA":"/pescaditos.png",
+             "imageB":"/pescaditos.png",
+             "vectorFile":"pescaditos"
           },
           "info":{
              "price":10.50,
@@ -276,14 +276,14 @@
           "category":"comida",
           "subcategory":"entradas",
           "id":9,
-          "title":"Sopa de tomate",
+          "title":"Pollo",
           "subtitle":"Con un toque de basílico",
           "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
           "assets":{
-             "imageThumbnail":"/sopa-tomate.jpeg",
-             "imageA":"/sopa-tomate.jpeg",
-             "imageB":"/sopa-tomate.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/pollo.jpg",
+             "imageA":"/pollo.jpg",
+             "imageB":"/pollo.jpg",
+             "vectorFile":"pollo"
           },
           "info":{
              "price":10.50,
@@ -589,7 +589,7 @@
              "imageThumbnail":"/coca-cola.jpeg",
              "imageA":"/coca-cola.jpeg",
              "imageB":"/coca-cola.jpeg",
-             "vectorFile":"toast"
+             "vectorFile":"coca"
           },
           "info":{
              "price":10.50,
