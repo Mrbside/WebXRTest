@@ -310,14 +310,14 @@
           "category":"comida",
           "subcategory":"carnes",
           "id":10,
-          "title":"Tampiqueña de res",
+          "title":"Carnitas",
           "subtitle":"Lo tipico",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "body":"Platillo popular que consiste en cortes pequeños o pedazos de carne de cerdo fritos en su propia manteca de cerdo. Se consideran deliciosas por su gran sabor y por la suavidad de su carne.",
           "assets":{
-             "imageThumbnail":"/tampiquena.jpeg",
-             "imageA":"/tampiquena.jpeg",
-             "imageB":"/tampiquena.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/carnitas.jpg",
+             "imageA":"/carnitas.jpg",
+             "imageB":"/carnitas.jpg",
+             "vectorFile":"carnitas"
           },
           "info":{
              "price":10.50,
@@ -334,7 +334,7 @@
              "isOrganic":false,
              "isSuperFood":false,
              "isVegan":false,
-             "isSpicy":false,
+             "isSpicy":true,
              "tags":[
                 "none"
              ]
@@ -344,14 +344,14 @@
           "category":"comida",
           "subcategory":"carnes",
           "id":11,
-          "title":"NY Stake",
-          "subtitle":"300g",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Taco Yucateco",
+          "subtitle":"100g",
+          "body":"Rico taco de carnitas al estilo yucateco",
           "assets":{
-             "imageThumbnail":"/new-york-steak.jpeg",
-             "imageA":"/new-york-steak.jpeg",
-             "imageB":"/new-york-steak.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/eltaco.jpg",
+             "imageA":"/eltaco.jpg",
+             "imageB":"/eltaco.jpg",
+             "vectorFile":"eltaco"
           },
           "info":{
              "price":10.50,
@@ -368,7 +368,7 @@
              "isOrganic":false,
              "isSuperFood":false,
              "isVegan":false,
-             "isSpicy":false,
+             "isSpicy":true,
              "tags":[
                 "none"
              ]
@@ -378,14 +378,14 @@
           "category":"comida",
           "subcategory":"carnes",
           "id":12,
-          "title":"Lomo de cerdo",
-          "subtitle":"En su adobo",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Tamal",
+          "subtitle":"Tradicional",
+          "body":"Elaborado con masa de maíz, tomate, manteca de cerdo, chile morrón, cebolla, epazote y frijol nuevo conocido en Yucatán como espelón.",
           "assets":{
-             "imageThumbnail":"/lomo-de-cerdo.jpeg",
-             "imageA":"/lomo-de-cerdo.jpeg",
-             "imageB":"/lomo-de-cerdo.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/tamal.jpg",
+             "imageA":"/tamal.jpg",
+             "imageB":"/tamal.jpg",
+             "vectorFile":"tamal"
           },
           "info":{
              "price":10.50,
@@ -402,7 +402,7 @@
              "isOrganic":false,
              "isSuperFood":false,
              "isVegan":false,
-             "isSpicy":false,
+             "isSpicy":true,
              "tags":[
                 "none"
              ]
@@ -410,16 +410,16 @@
        },
        {
           "category":"comida",
-          "subcategory":"pescados",
+          "subcategory":"carnes",
           "id":13,
-          "title":"Filete empanizado",
-          "subtitle":"Acompañado de ensalada",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Salpicon",
+          "subtitle":"Con cebolla morada",
+          "body":"El salpicón es un platillo de origen español (y tan antiguo que hasta es mencionado en Don Quijote de la Mancha, pero en México lo adoptamos y se convirtió en un básico de la cocina casera mexicana.",
           "assets":{
-             "imageThumbnail":"/filete-de-pescado.jpeg",
-             "imageA":"/filete-de-pescado.jpeg",
-             "imageB":"/filete-de-pescado.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/salpicon.jpg",
+             "imageA":"/salpicon.jpg",
+             "imageB":"/salpicon.jpg",
+             "vectorFile":"salpicon"
           },
           "info":{
              "price":10.50,
@@ -433,7 +433,7 @@
              "model":"none",
              "size":"none",
              "gender":"none",
-             "isOrganic":false,
+             "isOrganic":true,
              "isSuperFood":false,
              "isVegan":false,
              "isSpicy":false,
@@ -446,14 +446,14 @@
           "category":"comida",
           "subcategory":"pescados",
           "id":14,
-          "title":"Pescado a la veracruzana",
-          "subtitle":"Lo tipico",
-          "body":"quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto",
+          "title":"Tostadas de mariscos",
+          "subtitle":"Lo tipico del mar",
+          "body":"Para curar la cruda, para quitarse el calor o solo por comer rico, este top de las mejores tostadas de mariscos en CDMX es tu mejor aliado.",
           "assets":{
-             "imageThumbnail":"/pescado_veracruzana.jpeg",
-             "imageA":"/pescado_veracruzana.jpeg",
-             "imageB":"/pescado_veracruzana.jpeg",
-             "vectorFile":"toast"
+             "imageThumbnail":"/tostadas.jpg",
+             "imageA":"/tostadas.jpg",
+             "imageB":"/tostadas.jpg",
+             "vectorFile":"tostadas"
           },
           "info":{
              "price":10.50,
