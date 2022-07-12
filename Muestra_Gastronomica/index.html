@@ -1,0 +1,285 @@
+<html>
+  <head>
+    <title>Aura WebXR</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap" rel="stylesheet">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../aframe/build/aframe-ar.js"></script>
+    <script src="../A-FrameAddons/js/aframe-extras.min.js"></script>
+    <script src="./main.js" type="module"></script>
+      <style>
+        .splash-bg {
+        /* GENERICO */
+        background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 35%, rgba(78,73,69,1) 100%);
+        /* GENERICO END */
+
+        /* HERITAGE */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(147,192,31,1) 100%); */
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: rgb(45,41,38);
+        background: linear-gradient(120deg, rgba(45,41,38,1) 52%, rgba(255,255,255,1) 100%); */
+        /* BLANK END */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+      }
+
+      .splash-btn{
+        font-family: 'Montserrat', sans-serif;
+        /* HERITAGE */
+        background: transparent;
+        /* HERITAGE END */
+
+        /* BLANK */
+        /* background: #B1B1B1; */
+        /* BLANK END */
+        color: #B1B1B1;
+        border: 2px solid #B1B1B1;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        width: 180px;
+        border-radius: 5px;
+        top: 65vh;
+        text-transform: uppercase;
+        font-size: 16px;
+        z-index: 2;
+      }
+
+      .logo{
+        position: absolute;
+        margin: 0 10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 20vh;
+        z-index: 3;
+      }
+
+      .logo img {
+        width: 600px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+        z-index: 3;
+      }
+
+      .bg-qr {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        display: none;
+      }
+
+      .bg-qr .bg {
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        z-index: -3;
+
+      }
+      .bg-qr img{
+        width: 100%;
+        height: auto;
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        z-index: -1;
+      }
+
+      .texto-aviso {
+        width: 100%;
+        position:absolute;
+        left: 0px;
+        top: 10%;
+        height: 300px;
+        text-align: center;
+        display: none;
+      }
+
+      .texto-aviso .content{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        left: 0px;
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+     
+      }
+
+      .texto-aviso .content .bg {
+        position: absolute;
+        background-color: black;
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+
+      }
+  
+
+      .texto-aviso .content .texto-1, .texto-aviso .content .texto-2{
+        font-size: 1.5em;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        padding: 20px;
+        margin: 0 auto;
+        z-index: 1;
+        left: 0px;
+        right: 0px;
+      }
+      .texto-aviso .content .texto-1 {
+        margin-top: 20px;
+
+      }
+     .texto-aviso .content .logo-aura{
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      left: 0px;
+      right: 0px;
+      z-index: 1;
+      max-width: 300px;
+     }
+
+     .texto-aviso .content .logo-aura img{
+        width: 100%;
+        height: auto;
+     }
+     .texto-aviso .content .regitro-btn{
+       z-index: 1;
+       margin-bottom: 20px;
+     }
+    .texto-aviso .content .regitro-btn button{
+      padding: 10px 40px;
+      color: white;
+      border: white 1px solid;
+      background-color: #2D2926;
+      font-size: 1.2em;
+      /* width: 100px; */
+      height: auto;
+      margin: 0 auto;
+      left: 0px;
+      right: 0px;
+      border-radius: 5px;
+      }
+
+
+       @keyframes delayButton {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+
+        @media only screen and (min-width: 300px) {
+         
+         .buttons-container {
+           font-size: 1em;
+         }
+     }
+
+        @media only screen and (min-width: 400px) {
+         
+            .buttons-container {
+              font-size: 1.2em;
+            }
+        }
+
+        /* @media only screen and (min-width: 600px) {
+            .buttons-container {
+              font-size: 1.4em;
+            }
+        } */
+
+        @media only screen and (min-width: 800px) {
+            .buttons-container {
+              font-size: 2em;
+            }
+        }
+    </style>
+  </head>
+  <body style='margin : 0px; overflow: hidden;'>
+    <div class="splash-bg">
+    </div>
+    <div class="logo">
+      <img src="./assets/FIRMA AURA.png" alt="" width="600" height="400">
+    </div>
+    <div>
+    <button class="splash-btn" >iniciar</button>
+    </div>
+    <a-scene id="escena" shadow="type: pcfsoft" gesture-detector physicallyCorrectLights="true"vr-mode-ui="enabled: false" embedded arjs ="sourceType: webcam; trackingMethod: best; detectionMode: mono; sourceWidth:2048; sourceHeight:1536; displayWidth: 2048; displayHeight: 1536" always-fullscreen renderer="precision: high; antialias: false; logarithmicDepthBuffer:true; colorManagement: true" loading-screen="dotsColor: #b1b1b1; backgroundColor: #36312e">
+      <a-assets>
+        <a-asset-item id="screen" src="ScreenStatic.glb"></a-asset-item>
+        <video id="video" autoplay loop="true" src="puertomorelos.mp4"></video>
+        <a-asset-item id="screen" src="Food.glb"></a-asset-item>
+      </a-assets>
+      <a-marker id="marcador" markerhandler raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" type='pattern' url='gastro.patt' smooth='true' smoothCount='5' smoothTolerance='0.01' smoothThreshold='2'>
+        <a-entity id="muestra" position="0 0 1" rotation="-90 0 0" scale=".02 .02 .02">
+          <a-entity id="luzdirectional" light="type: directional; color: #DDD; groundColor: #DDD; intensity: 0.6; castShadow:true; target:#comida; shadowCameraBottom:-6.0; shadowCameraTop:6.0; shadowCameraLeft:-6.0; shadowCameraRight:6.0; " position="0 4.520 0">
+          </a-entity>
+          <a-plane id="planosombras" position="0 -116.237 76.489" height="600" width="600" rotation="90 0 0" apply-shadowmaterial>
+          </a-plane>
+          <a-entity
+          id="video-border"
+          position="1 1.14 0.568"
+          rotation="-90 180 0"
+          scale="1 1 1" 
+          gltf-model="ScreenStatic.glb"
+          shadow="receive: true; cast: true"
+          class="clickable"
+          video-controls
+          >
+          </a-entity>
+          <a-entity
+          id="comida"
+          position="0 -117.483 91.078"
+          rotation="0 0 0"
+          scale="1 1 1" 
+          gltf-model="Food.glb"
+          shadow="receive: true; cast: true"
+          >
+          </a-entity>
+        </a-entity>
+      </a-marker>
+      <a-entity id="camera" camera="far:10000.00; fov:80.00; near:0.005">
+      </a-entity>
+      <a-entity id="luz" light="type: ambient; color: #DDD; groundColor: #DDD; intensity: 0.6" position="0 2 0">	
+			</a-entity>
+    </a-scene>
+    <div class="bg-qr">
+      <div class="bg"></div>
+      <img src="./assets/PORTADA WEB XR (1).jpg" alt="">
+    </div>
+
+    <div class="texto-aviso">
+      <div class="content">
+        <div class="bg"></div>
+        <p class="texto-1">¡Felicidades! Has ganado un descuento en tu cotización de WebXR: A1RX-22</p>
+      <p class="texto-2">by</p>
+      <div class="logo-aura">
+        <img src="./assets/logo_horiz_ley_c01_sn_edit.png" alt="">
+      </div>
+      <a href="https://www.auraxr.com/web-xr/" class="regitro-btn">
+        <button>Regístrate</button>
+      </a>
+      </div>
+    </div>
+  </body>
+</html>
