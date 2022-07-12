@@ -55,15 +55,26 @@
                 console.log("mod material");
                 const texture = new THREE.VideoTexture(video);
                 let mat = new THREE.MeshBasicMaterial({map: texture});
-                
-               
                 node.material = mat; 
-                
-                video.play();
               }
            });
           });
 
+          
+          this.el.sceneEl.addEventListener("markerFound", (e) => {
+            
+              video.play();
+            
+            });
+          
+            this.el.sceneEl.addEventListener("markerLost", (e) => {
+              
+              video.pause();
+            
+            });
+
+
+            
           }
           
         });
