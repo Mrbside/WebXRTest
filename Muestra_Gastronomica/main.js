@@ -5,10 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
           document.querySelector(".logo").style.display = "none";
         }
         
+        let video = document.querySelector("#video");
         var startButton = document.querySelector(".splash-btn");
         startButton = addEventListener("click", () => {
         console.log('I run only once!');
         start();
+        video.play();
+        video.muted = false;
         }, { once: true });
       
       
@@ -63,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
           
           this.el.sceneEl.addEventListener("markerFound", (e) => {
             
-              video.muted = false;
               video.play();
             
           });
