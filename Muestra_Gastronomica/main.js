@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           this.el.sceneEl.addEventListener("markerFound", (e) => {
             
+              video.muted = false;
               video.play();
             
           });
