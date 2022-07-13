@@ -38,13 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
           {
             
             let video = document.querySelector("#video");
+            video.playsInline = true;
+            video.muted = true;
             let videoBorder  = document.querySelector("#video-border");
     
 
           this.el.addEventListener('model-loaded', function(ev){
             console.log("model loaded");
             
-            //let mesh = this.el.getObject3D("mesh");
             let videoDisplay = document.querySelector("#video-border");
             let videomesh  = videoDisplay.getObject3D("mesh");
             console.log(videomesh);
