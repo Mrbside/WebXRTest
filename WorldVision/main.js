@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     plane.add(izquierda.scene);
   //
 
-    var isplaying=false; 
+  var isplaying=false; 
     const clock = new THREE.Clock();
     function animate() {
       requestAnimationFrame( animate );
@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     anchor.onTargetFound = () => {
       
+      isplaying = true;
       sound.play();
       cutout.scene.visible=true;
       arriba.scene.visible=true;
@@ -132,8 +133,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     anchor.onTargetLost = () => {
-     
+
+      isplaying = false;
+      sound.pause();
+
     }
+
+    window.addEventListener( 'blur', () => {
+      sound.pause();
+      
+    });
+
+    window.addEventListener( 'focus', () => {
+      if(isplaying)
+        sound.play();
+    }); 
 
     
 
