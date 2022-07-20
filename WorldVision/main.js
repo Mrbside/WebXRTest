@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function Redirect()
     { if(isplaying & focus)
-        window.location.replace("https://www.google.com");
+        window.location.replace("info.html");
     }
     
 
