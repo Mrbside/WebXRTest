@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
     
-    
-    
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1.7 );
     scene.add(light);
   
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     action.clampWhenFinished = true;
     action.enable = true;
     
-
     document.querySelector(".splash-bg").style.display = "none";
     document.querySelector(".splash-btn").style.display = "none";
     document.querySelector(".logo").style.display = "none";
