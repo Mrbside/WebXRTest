@@ -69,6 +69,25 @@ document.addEventListener('DOMContentLoaded', () => {
     actionabajo.setLoop(THREE.LoopOnce);
     actionabajo.clampWhenFinished = true;
     actionabajo.enable = true;
+
+    const fam = await loadGLTF("fam1.gltf");
+    fam.scene.scale.set(0.1,0.1,0.1);
+    fam.scene.position.set(0.0, 0.0, 0.0);
+    fam.scene.rotation.set(0, 0, 0);
+    const mixerfam = new THREE.AnimationMixer(fam.scene);
+    const actionfamintro = mixerfam.clipAction(fam.animations[0]);
+    actionfamintro.setLoop(THREE.LoopOnce);
+    actionfamintro.clampWhenFinished = true;
+    actionfamintro.enable = true;
+
+    const fam2 = await loadGLTF("fam2.gltf");
+    fam2.scene.scale.set(0.1,0.1,0.1);
+    fam2.scene.position.set(0.0, 0.0, 0.0);
+    fam2.scene.rotation.set(0, 0, 0);
+    const mixerfam2 = new THREE.AnimationMixer(fam2.scene);
+    const actionfam2 = mixerfam2.clipAction(fam2.animations[0]);
+    actionfam2.setLoop(THREE.PingPong);
+    actionfam2.enable = true;
     
 
     const listener = new THREE.AudioListener();
@@ -123,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     plane.add(arriba.scene);
     plane.add(derecha.scene);
     plane.add(izquierda.scene);
+    plane.add(fam.scene);
+    plane.add(fam2.scene);
     plane.add(collider_derecha);
     plane.add(collider_izquierda);
     plane.add(collider_abajo);
@@ -146,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if ( mixerarriba ) mixerarriba.update( delta*1);
       if ( mixerizquierda ) mixerizquierda.update( delta*1);
       if ( mixerderecha ) mixerderecha.update( delta*1);
+      if ( mixerfam ) mixerfam.update( delta*1);
+      if ( mixerfam2 ) mixerfam2.update( delta*1);
       renderer.render( scene, camera );
     }
     
@@ -159,8 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
       abajo.scene.visible=true;
       derecha.scene.visible=true;
       izquierda.scene.visible=true;
+      fam.scene.visible=true;
       animate();
       action.play();
+      actionfamintro.play();
+      setTimeout(ChangeFamAnim, 1000);
       
     }
     
@@ -237,6 +263,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function Redirect()
     { if(isplaying & focus)
         window.location.replace("info.html");
+    }
+
+    function ChangeFamAnim()
+    {
+      fam.scene.visible=false;
+      fam2.scene.visible=true;
+      actionfamintro.stop();
+      actionfam2.play();
     }
     
 
