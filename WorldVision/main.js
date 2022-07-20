@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
     
-    document.querySelector(".splash-bg").style.display = "none";
-    document.querySelector(".splash-btn").style.display = "none";
-    document.querySelector(".logo").style.display = "none";
+    
     
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1.7 );
     scene.add(light);
@@ -27,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     action.clampWhenFinished = true;
     action.enable = true;
     
+
+    document.querySelector(".splash-bg").style.display = "none";
+    document.querySelector(".splash-btn").style.display = "none";
+    document.querySelector(".logo").style.display = "none";
+    
     const derecha = await loadGLTF("s01.gltf");
     derecha.scene.scale.set(0.1,0.1,0.1);
     derecha.scene.position.set(0.0, 0.0, 0.0);
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actionderecha.setLoop(THREE.LoopOnce);
     actionderecha.clampWhenFinished = true;
     actionderecha.enable = true;
+    
 
     const izquierda = await loadGLTF("s03.gltf");
     izquierda.scene.scale.set(0.1,0.1,0.1);
@@ -46,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actionizquierda.setLoop(THREE.LoopOnce);
     actionizquierda.clampWhenFinished = true;
     actionizquierda.enable = true;
+    
 
     const arriba = await loadGLTF("s02.gltf");
     arriba.scene.scale.set(0.1,0.1,0.1);
@@ -56,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actionarriba.setLoop(THREE.LoopOnce);
     actionarriba.clampWhenFinished = true;
     actionarriba.enable = true;
+    
 
     const abajo = await loadGLTF("s04.gltf");
     abajo.scene.scale.set(0.1,0.1,0.1);
@@ -66,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actionabajo.setLoop(THREE.LoopOnce);
     actionabajo.clampWhenFinished = true;
     actionabajo.enable = true;
+    
 
     const listener = new THREE.AudioListener();
     camera.add(listener);
@@ -78,6 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
       sound.setLoop(true);
       sound.setVolume(1.0);
     });    
+  //colliders
+    const boxgeometry = new THREE.BoxGeometry( 0.4, 0.4, 0.4 );
+    const boxmaterial = new THREE.MeshBasicMaterial( {color: 0xFFFFFF} );
+    boxmaterial.opacity = 0.0;
+    boxmaterial.transparent = true;
+
+    const collider_derecha = new THREE.Mesh( boxgeometry, boxmaterial );
+    collider_derecha.position.set(0.65, -0.6, 1.2);
+    collider_derecha.userData.clickable = true;
+    
+    const collider_izquierda = new THREE.Mesh( boxgeometry, boxmaterial );
+    collider_izquierda.position.set(-1.0, -0.5, 0.8);
+    collider_izquierda.scale.set(1.9, 1.1, 1);
+    collider_izquierda.userData.clickable = true;
+
+    const collider_abajo = new THREE.Mesh( boxgeometry, boxmaterial );
+    collider_abajo.position.set(0, -0.7, 1.2);
+    collider_abajo.scale.set(1.9, 1.1, 1);
+    collider_abajo.userData.clickable = true;
+
+    const collider_arriba = new THREE.Mesh( boxgeometry, boxmaterial );
+    collider_arriba.position.set(0, -0.2, 0.8);
+    collider_arriba.scale.set(1.9, 1.1, 0.7);
+    collider_arriba.userData.clickable = true;
   //
   //ARAnchor
     const geometry = new THREE.PlaneGeometry();
@@ -89,14 +120,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(plane);
+    
     plane.add(cutout.scene);
     plane.add(abajo.scene);
     plane.add(arriba.scene);
     plane.add(derecha.scene);
     plane.add(izquierda.scene);
+    plane.add(collider_derecha);
+    plane.add(collider_izquierda);
+    plane.add(collider_abajo);
+    plane.add(collider_arriba);
   //
 
-  var isplaying=false; 
+    var focus = true;
+    var ended = false;
+    var isplaying = false; 
+    var der_flag = false;
+    var izq_flag = false;
+    var down_flag = false;
+    var up_flag = false;
+
     const clock = new THREE.Clock();
     function animate() {
       requestAnimationFrame( animate );
@@ -109,11 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render( scene, camera );
     }
     
-  
-  
-  
-    
-    
+    //events
     anchor.onTargetFound = () => {
       
       isplaying = true;
@@ -126,10 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
       animate();
       action.play();
       
-      actionabajo.play();
-      actionarriba.play();
-      actionderecha.play();
-      actionizquierda.play();
     }
     
     anchor.onTargetLost = () => {
@@ -141,14 +176,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener( 'blur', () => {
       sound.pause();
+      focus = false;
       
     });
 
     window.addEventListener( 'focus', () => {
+      focus = true;
       if(isplaying)
         sound.play();
     }); 
+    
+    document.body.addEventListener('click', (e) => {
+      const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+      const mouse = new THREE.Vector2(mouseX, mouseY);
+      const raycaster = new THREE.Raycaster();
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(scene.children, true);
 
+      if (intersects.length > 0) {
+        let o = intersects[0].object; 
+        while (o.parent && !o.userData.clickable){
+          o = o.parent;
+        }
+        if (o.userData.clickable)
+        {
+          if(o === collider_derecha)
+            {
+              der_flag = true;
+              actionderecha.play();
+            }
+          else if(o === collider_izquierda)
+            {
+              izq_flag = true;
+              actionizquierda.play();
+            }
+          else if(o === collider_abajo)
+            {
+              down_flag = true;
+              actionabajo.play();
+            }
+          else if(o === collider_arriba)
+            {
+              up_flag = true;
+              actionarriba.play();
+            }
+        }
+      }
+    });
+    //
+    //update func
+    function UpdateFunc()
+    {
+      if(up_flag && down_flag && izq_flag && der_flag)
+        ended = true;
+      
+      if(ended & isplaying & focus)
+        setTimeout(Redirect, 8000);
+
+      setTimeout(UpdateFunc, 1000);
+    }
+
+    function Redirect()
+    { if(isplaying & focus)
+        window.location.replace("https://www.google.com");
+    }
     
 
     await mindarThree.start();
@@ -156,8 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
 
-    
-
+    UpdateFunc();
   }
 
   var startButton = document.querySelector("button");
