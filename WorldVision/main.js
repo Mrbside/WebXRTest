@@ -94,13 +94,40 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.add(listener);
 
     const sound = new THREE.Audio(listener);
-
     const audioLoader = new THREE.AudioLoader();
     audioLoader.load('audio.mp3', function(buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
-      sound.setVolume(1.0);
+      sound.setVolume(0.9);
+    });
+    const soundR = new THREE.Audio(listener);
+    const audioLoaderR = new THREE.AudioLoader();
+    audioLoaderR.load('aR.mp3', function(buffer) {
+      soundR.setBuffer(buffer);
+      soundR.setLoop(false);
+      soundR.setVolume(1.0);
+    });  
+    const soundL = new THREE.Audio(listener);
+    const audioLoaderL = new THREE.AudioLoader();
+    audioLoaderL.load('aL.mp3', function(buffer) {
+      soundL.setBuffer(buffer);
+      soundL.setLoop(false);
+      soundL.setVolume(1.0);
+    });  
+    const soundU = new THREE.Audio(listener);
+    const audioLoaderU = new THREE.AudioLoader();
+    audioLoaderU.load('aU.mp3', function(buffer) {
+      soundU.setBuffer(buffer);
+      soundU.setLoop(false);
+      soundU.setVolume(1.0);
     });    
+    const soundD = new THREE.Audio(listener);
+    const audioLoaderD = new THREE.AudioLoader();
+    audioLoaderD.load('aD.mp3', function(buffer) {
+      soundD.setBuffer(buffer);
+      soundD.setLoop(false);
+      soundD.setVolume(1.0);
+    });  
   //colliders
     const boxgeometry = new THREE.BoxGeometry( 0.4, 0.4, 0.4 );
     const boxmaterial = new THREE.MeshBasicMaterial( {color: 0xFFFFFF} );
@@ -223,26 +250,35 @@ document.addEventListener('DOMContentLoaded', () => {
           o = o.parent;
         }
         if (o.userData.clickable)
-        {
+        {//0=R,1=L,2=U,3=D
           if(o === collider_derecha)
             {
-              der_flag = true;
+              
               actionderecha.play();
+              SwitchDialouge(0);
+              
+        
             }
           else if(o === collider_izquierda)
             {
-              izq_flag = true;
+              
               actionizquierda.play();
+              SwitchDialouge(1);
+              
             }
           else if(o === collider_abajo)
             {
-              down_flag = true;
+              
               actionabajo.play();
+              SwitchDialouge(3);
+              
             }
           else if(o === collider_arriba)
             {
-              up_flag = true;
+              
               actionarriba.play();
+              SwitchDialouge(2);
+              
             }
         }
       }
@@ -272,7 +308,38 @@ document.addEventListener('DOMContentLoaded', () => {
       actionfamintro.stop();
       actionfam2.play();
     }
-    
+
+    function SwitchDialouge(x)
+    {//0=R,1=L,2=U,3=D
+      if(x===0 & der_flag===false){
+        der_flag = true;
+        soundR.play();
+        soundL.pause();
+        soundU.pause();
+        soundD.pause();
+      }
+      else if(x===1 & izq_flag===false){
+        izq_flag = true;
+        soundL.play();
+        soundR.pause();
+        soundU.pause();
+        soundD.pause();
+      }
+      else if(x===2 & up_flag===false){
+        up_flag = true;
+        soundU.play();
+        soundR.pause();
+        soundL.pause();
+        soundD.pause();
+      }
+      else if(x===3 & down_flag===false){
+        down_flag = true;
+        soundD.play();
+        soundR.pause();
+        soundU.pause();
+        soundL.pause();
+      }
+    }
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
