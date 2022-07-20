@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audioLoader.load('audio.mp3', function(buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
-      sound.setVolume(0.9);
+      sound.setVolume(0.5);
     });
     const soundR = new THREE.Audio(listener);
     const audioLoaderR = new THREE.AudioLoader();
@@ -128,6 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
       soundD.setLoop(false);
       soundD.setVolume(1.0);
     });  
+    const soundend = new THREE.Audio(listener);
+    const audioLoaderEnd = new THREE.AudioLoader();
+    audioLoaderEnd.load('audioend.mp3', function(buffer) {
+      soundend.setBuffer(buffer);
+      soundend.setLoop(false);
+      soundend.setVolume(1.0);
+    }); 
   //colliders
     const boxgeometry = new THREE.BoxGeometry( 0.4, 0.4, 0.4 );
     const boxmaterial = new THREE.MeshBasicMaterial( {color: 0xFFFFFF} );
@@ -184,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var izq_flag = false;
     var down_flag = false;
     var up_flag = false;
+    var once = true;
 
     const clock = new THREE.Clock();
     function animate() {
@@ -290,12 +298,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if(up_flag && down_flag && izq_flag && der_flag)
         ended = true;
       
-      if(ended & isplaying & focus)
-        setTimeout(Redirect, 8000);
+      if(ended & isplaying & focus && once)
+      { 
+        once=false;
+        setTimeout(PlayEndAudio, 20000);
+      }
 
       setTimeout(UpdateFunc, 1000);
     }
 
+    function PlayEndAudio()
+    {
+      soundend.play();
+      setTimeout(Redirect,10000);
+    }
     function Redirect()
     { if(isplaying & focus)
         window.location.replace("info.html");
